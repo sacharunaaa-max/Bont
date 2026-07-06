@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Manual del Guerrero BONT – DHL Tiel (v0.1)</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 22mm 16mm;
+    @bottom-center {
+      content: "Manual del Guerrero BONT – v0.1 (Borrador no oficial) – Pág. " counter(page);
+      font-size: 8pt;
+      color: #888;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    counter-reset: h2counter;
+  }
+  .page-break { page-break-before: always; }
+  .keep-together { page-break-inside: avoid; }
+  .title-page {
+    text-align: center;
+    padding-top: 80px;
+    page-break-after: always;
+  }
+  .title-page h1 { font-size: 26pt; color: #c00; margin-bottom: 6px; letter-spacing: 1px; }
+  .title-page h2 { font-size: 14pt; color: #444; font-weight: normal; margin-bottom: 30px; }
+  .title-page .subtitle { font-size: 11pt; color: #666; margin-bottom: 50px; }
+  .title-page .version-badge {
+    display: inline-block; background: #c00; color: #fff;
+    padding: 6px 24px; font-size: 11pt; border-radius: 4px; margin-bottom: 30px;
+  }
+  .title-page .author { font-size: 10pt; color: #555; margin-top: 40px; }
+  .title-page .quote { font-style: italic; color: #888; margin-top: 60px; font-size: 10pt; }
+  .title-page .footer-note { margin-top: 20px; font-size: 8.5pt; color: #aaa; }
+  .responsibility-box {
+    background: #fff3cd; border: 1.5px solid #ffc107; border-radius: 5px;
+    padding: 12px 14px; margin-bottom: 14px; font-size: 8.5pt; line-height: 1.4;
+  }
+  .responsibility-box h3 { color: #856404; font-size: 10pt; margin-bottom: 5px; }
+  h2 {
+    font-size: 13pt; color: #c00; border-bottom: 2px solid #c00;
+    padding-bottom: 3px; margin-top: 18px; margin-bottom: 8px; page-break-after: avoid;
+  }
+  h2::before { counter-increment: h2counter; content: counter(h2counter) ". "; }
+  h3 { font-size: 11pt; color: #333; margin-top: 12px; margin-bottom: 5px; page-break-after: avoid; }
+  h4 { font-size: 10pt; color: #555; margin-top: 8px; margin-bottom: 4px; }
+  table {
+    width: 100%; border-collapse: collapse; margin: 6px 0 10px 0;
+    font-size: 8.5pt; page-break-inside: avoid;
+  }
+  th { background: #c00; color: #fff; padding: 4px 6px; text-align: left; font-weight: 600; }
+  td { padding: 3px 6px; border: 1px solid #ccc; vertical-align: top; }
+  tr:nth-child(even) { background: #fafafa; }
+  ul, ol { margin: 4px 0 6px 20px; }
+  li { margin-bottom: 2px; }
+  .diagram-box {
+    background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px;
+    padding: 8px 12px; font-family: 'Courier New', monospace;
+    font-size: 8pt; line-height: 1.35; white-space: pre; overflow-x: auto;
+    page-break-inside: avoid;
+  }
+  .golden-rule {
+    background: linear-gradient(135deg, #fff8e1, #fff3cd);
+    border-left: 5px solid #ff8f00; padding: 10px 14px;
+    border-radius: 0 5px 5px 0; margin-bottom: 10px; page-break-inside: avoid;
+  }
+  .golden-rule h3 { color: #e65100; margin-top: 0; }
+  .checklist { margin: 4px 0 8px 0; }
+  .checklist li { list-style: none; }
+  .checklist li::before { content: "☐ "; font-size: 11pt; }
+  .cat-badge {
+    display: inline-block; padding: 2px 10px; border-radius: 3px;
+    font-weight: bold; font-size: 8pt; margin-right: 4px;
+  }
+  .cat-red { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+  .cat-yellow { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+  .cat-green { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+  .cat-orange { background: #fbe9e7; color: #bf360c; border: 1px solid #ffab91; }
+  .cat-blue { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
+  .pending {
+    display: inline-block; background: #fff3cd; color: #856404;
+    border: 1px solid #ffc107; padding: 1px 6px; border-radius: 3px;
+    font-size: 7.5pt; font-weight: 600; margin-left: 2px;
+  }
+  .pending-video {
+    display: block; background: #e3f2fd; color: #1565c0;
+    border: 1px dashed #90caf9; padding: 4px 8px; border-radius: 3px;
+    font-size: 7.5pt; margin: 3px 0; font-style: italic;
+  }
+  .pending-photo {
+    display: block; background: #f3e5f5; color: #7b1fa2;
+    border: 1px dashed #ce93d8; padding: 4px 8px; border-radius: 3px;
+    font-size: 7.5pt; margin: 3px 0; font-style: italic;
+  }
+  .protocol {
+    border: 1.5px solid #4caf50; border-radius: 5px;
+    padding: 8px 12px; margin: 6px 0 10px 0;
+    background: #f1f8e9; page-break-inside: avoid;
+  }
+  .protocol h4 { color: #2e7d32; margin-top: 0; }
+  .commitment-box {
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    border: 2px solid #2e7d32; border-radius: 5px;
+    padding: 12px 14px; margin: 14px 0; page-break-inside: avoid;
+  }
+  .commitment-box h3 { color: #1b5e20; margin-top: 0; }
+  .section-red { border-left: 4px solid #c62828; padding-left: 10px; }
+  .section-yellow { border-left: 4px solid #f57f17; padding-left: 10px; }
+  .section-green { border-left: 4px solid #2e7d32; padding-left: 10px; }
+  .section-orange { border-left: 4px solid #bf360c; padding-left: 10px; }
+  .section-blue { border-left: 4px solid #1565c0; padding-left: 10px; }
+  .index-table td:first-child { font-weight: 600; width: 130px; }
+  .glossary-term { font-weight: 600; }
+  .version-table td:first-child { width: 60px; font-weight: 600; }
+  .version-table td:nth-child(2) { width: 60px; }
+  .small-note { font-size: 8pt; color: #888; }
+  .final-quote { text-align: center; font-style: italic; color: #888; margin-top: 20px; font-size: 9pt; }
+  @media print {
+    body { font-size: 9pt; }
+    .responsibility-box { background: #f5f5f5; border-color: #999; }
+    .responsibility-box h3 { color: #333; }
+    .pending { background: #eee; color: #666; border-color: #ccc; }
+    .pending-video { background: #eef; color: #338; }
+    .pending-photo { background: #f5eef8; color: #636; }
+  }
+</style>
+</head>
+<body>
+<!-- PAGE 1: TITLE -->
+<div class="title-page">
+  <h1>🛡️ EL MANUAL DEL<br>"GUERRERO BONT"</h1>
+  <h2>DHL TIEL</h2>
+  <div class="subtitle">Logística de Clase Mundial: De Operario a Maestro del Proceso</div>
+  <div class="version-badge">VERSIÓN 0.1 — BORRADOR PERSONAL</div>
+  <div class="author">
+    <strong>Boris Orlando Antequera Vargas</strong><br>
+    Operador BONT con interés en desarrollo y optimización de procesos
+  </div>
+  <div class="quote">"Conocimiento compartido es eficiencia multiplicada."</div>
+  <div class="footer-note">
+    Mayo 2026 — DHL Tiel, Sección BONT<br>
+    🔒 Uso personal. No oficial. No distribuido por DHL.
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="responsibility-box keep-together">
+  <h3>⚠️ DECLARACIÓN DE RESPONSABILIDAD — LÉEME PRIMERO</h3>
+  <p><strong>Versión 0.1 — Borrador de trabajo personal / No oficial — Mayo 2026</strong></p>
+  <p>Este documento es una <strong>herramienta personal y privada</strong>, creada íntegramente a partir de mi propia experiencia diaria como trabajador en DHL Tiel, sección BONT. Su único propósito es optimizar mis procesos internos y servirme como guía de apoyo personal.</p>
+  <p><strong>⚠️ IMPORTANTE — ESTO NO ES UN DOCUMENTO OFICIAL</strong></p>
+  <ul>
+    <li>❌ <strong>No</strong> es un documento oficial de DHL.</li>
+    <li>❌ <strong>No</strong> ha sido revisado, aprobado, ni respaldado por la empresa.</li>
+    <li>❌ <strong>No</strong> pretende sustituir los protocolos oficiales ni SOPs de DHL Tiel.</li>
+  </ul>
+  <p><strong>✅ Lo QUE SÍ es:</strong> Compendio personal. Guía de consulta rápida de uso individual bajo mi entera responsabilidad. Propuesta de mejora propia.</p>
+  <p><strong>🛡️ TÉRMINOS DE USO</strong> — Uso bajo propia responsabilidad. Códigos, errores y procedimientos <strong>no han sido validados ni autorizados por DHL</strong>. No presentar como material oficial.</p>
+  <p><strong>📸 SOBRE FOTOS, VIDEOS Y CAPTURAS:</strong> Marcadas como <span class="pending">PENDIENTE DE APROBACIÓN</span>. Son marcadores de posición conceptuales.</p>
+</div>
+
+<div class="keep-together">
+  <table class="version-table">
+    <tr><th>Versión</th><th>Estado</th><th>Fecha</th><th>Descripción</th></tr>
+    <tr><td>0.1</td><td>🔧 Borrador personal</td><td>Mayo 2026</td><td>Todo el contenido es tentativo. <span class="pending">PENDIENTE DE APROBACIÓN OFICIAL</span>.</td></tr>
+    <tr><td>1.0</td><td>🎯 Objetivo</td><td>—</td><td>Versión con fotos, videos y códigos validados oficialmente.</td></tr>
+  </table>
+</div>
+
+<div class="golden-rule keep-together">
+  <h3>🌟 LA REGLA DE ORO (Tu mantra diario)</h3>
+  <p><em>¿Algo va mal? No entres en pánico.</em></p>
+  <ol>
+    <li><strong>APARTA</strong> el producto rebelde (a un lateral, sin bloquear el flujo).</li>
+    <li><strong>SIGUE</strong> trabajando con el siguiente (el flujo es sagrado).</li>
+    <li><strong>REVISA</strong> lo apartado cuando el ritmo baje (en momentos de baja carga).</li>
+  </ol>
+</div>
+
+<div class="keep-together">
+  <h2>🏹 CHECKLIST DE INICIO</h2>
+  <p class="small-note">Antes del turno</p>
+  <ul class="checklist">
+    <li><strong>Escáner:</strong> ¿Batería suficiente? ¿Pantalla limpia?</li>
+    <li><strong>Impresora:</strong> ¿Número coincide con escáner? ¿Papel?</li>
+    <li><strong>Suministros:</strong> ¿Rollos de repuesto? ¿Bolígrafo?</li>
+  </ul>
+</div>
+
+<div class="keep-together">
+  <h2>📚 GLOSARIO RÁPIDO</h2>
+  <p class="small-note">Términos tentativos <span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span>.</p>
+  <table>
+    <tr><th>Término</th><th>Significado</th></tr>
+    <tr><td class="glossary-term">RCG</td><td>Contenedor rodante (jaula). <span class="pending">PENDIENTE</span></td></tr>
+    <tr><td class="glossary-term">Pallet</td><td>Plataforma de madera. <span class="pending">PENDIENTE</span></td></tr>
+    <tr><td class="glossary-term">LPN</td><td>Código de barras del RCG/pallet. <span class="pending">PENDIENTE</span></td></tr>
+    <tr><td class="glossary-term">SSCC</td><td>Código de barras del producto. <span class="pending">PENDIENTE</span></td></tr>
+    <tr><td class="glossary-term">Blue Yonder</td><td>Sistema WMS. <span class="pending">PENDIENTE</span></td></tr>
+    <tr><td class="glossary-term">Smart Scanner</td><td>App para ingresar productos no registrados. <span class="pending">PENDIENTE</span></td></tr>
+    <tr><td class="glossary-term">Krat</td><td>Caja de plástico apilable. <span class="pending">PENDIENTE</span></td></tr>
+    <tr><td class="glossary-term">Troubleshooter</td><td>Soporte técnico (Martin). <span class="pending">PENDIENTE</span></td></tr>
+    <tr><td class="glossary-term">Teamleader</td><td>Supervisor directo. <span class="pending">PENDIENTE</span></td></tr>
+  </table>
+</div>
+<!-- PAGE 3 -->
+<div class="page-break"></div>
+
+<h2>🧭 DIAGRAMA DE FLUJO</h2>
+<p class="small-note">¿Qué hago primero? <span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+
+<div class="diagram-box">    🔍 OBSERVA LO QUE OCURRE
+     │
+     ┌─────────────────────┼─────────────────────┐
+     │                     │                     │
+     ▼                     ▼                     ▼
+  ¿PROBLEMA FÍSICO?   ¿MENSAJE EN PANTALLA?  ¿PROBLEMA IMPRESORA?
+  (cajas mal puestas,  (escáner pita y da    (no imprime, fallo
+   altura, tuberías…)   texto o error)         de etiquetas, etc.)
+     │                     │                     │
+     ▼                     ▼                     ▼
+  [CAT. ROJA]          [CAT. AMARILLA]       [CAT. VERDE – parte 2]
+     │
+     ▼
+  ¿El mensaje dice "NOT FOUND"
+  o "INVALID IDENTIFIER"?
+     │
+     ┌───────────────────────────────┴───────────────────────────────┐
+     ▼                                                               ▼
+  Usa Smart Scanner Inventory DSP
+  (CAT. VERDE – parte 1)          (CAT. AMARILLA)
+
+  ─────────────────────────────────────────────────────────────────────
+  • Si es un derrame o confusión de contenedor → CAT. NARANJA
+  • Si quieres buenas prácticas → CAT. AZUL</div>
+
+<div class="keep-together">
+  <h2>📋 ÍNDICE DE CATEGORÍAS</h2>
+  <table class="index-table">
+    <tr><th>Categoría</th><th>Color</th><th>¿Qué encontrarás aquí?</th></tr>
+    <tr><td><span class="cat-badge cat-red">ROJA</span></td><td>🔴</td><td>Problemas físicos de carga</td></tr>
+    <tr><td><span class="cat-badge cat-yellow">AMARILLA</span></td><td>🟡</td><td>Errores de escáner y sistema</td></tr>
+    <tr><td><span class="cat-badge cat-green">VERDE 1</span></td><td>🟢</td><td>Smart Scanner (INBOUND/SURPLUS)</td></tr>
+    <tr><td><span class="cat-badge cat-green">VERDE 2</span></td><td>🟢</td><td>Etiquetas LPN, impresora, cierre</td></tr>
+    <tr><td><span class="cat-badge cat-orange">NARANJA</span></td><td>🟠</td><td>Emergencias y errores humanos</td></tr>
+    <tr><td><span class="cat-badge cat-blue">AZUL</span></td><td>🔵</td><td>Buenas prácticas</td></tr>
+  </table>
+</div>
+
+<div class="section-red">
+  <h2>🔴 CATEGORÍA ROJA – Problemas físicos de carga</h2>
+  <p style="font-style:italic;color:#666;font-size:9pt;">"Calidad antes que velocidad (pero con ritmo de campeón)"</p>
+  <p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+  <p>Cargar un RCG o pallet es como jugar al Tetris en la vida real.</p>
+
+  <div class="keep-together">
+    <h3>🏆 Lo que SÍ se hace</h3>
+    <ul>
+      <li><strong>Maestro del Tetris:</strong> RCG con cajas encajadas, sin huecos.</li>
+      <li><strong>Pallet de Krats de Élite:</strong> Alineados, etiquetas fuera.</li>
+      <li><strong>Armado mixto:</strong> Base pesada abajo, tuberías laterales, ligeras arriba.</li>
+    </ul>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> RCG y pallets bien armados]</div>
+  </div>
+
+  <div class="keep-together">
+    <h3>❌ Lo que NO se hace</h3>
+    <table>
+      <tr><th>Error</th><th>Descripción</th><th>Solución</th></tr>
+      <tr><td>🚫 Sobresale del RCG</td><td>Fuera del perímetro</td><td>Reubicar. Otro RCG si no cabe</td></tr>
+      <tr><td>📏 Altura > 2,3 m</td><td>Riesgo de vuelco</td><td>Medir. Redistribuir</td></tr>
+      <tr><td>⬆️ Flechas ignoradas</td><td>Flecha abajo/lado</td><td>Girar flecha arriba</td></tr>
+      <tr><td>🎩 Efecto sombrero</td><td>Grande sobre pequeña</td><td>Base ≥ caja superior</td></tr>
+      <tr><td>🔧 Tuberías sobre cajas</td><td>Apoyadas en cartón</td><td>Fondo o lateral del RCG</td></tr>
+      <tr><td>📋 Krats etiquetas dentro</td><td>Códigos ocultos</td><td>Stickers visibles fuera</td></tr>
+    </table>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Bien/mal cada error]</div>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Efecto sombrero]</div>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Tuberías al lateral]</div>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Armar RCG mixto]</div>
+  </div>
+</div>
+
+<!-- PAGE 4: AMARILLA -->
+<div class="page-break"></div>
+
+<div class="section-yellow">
+  <h2>🟡 CATEGORÍA AMARILLA – Errores de escáner y sistema</h2>
+  <p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+
+  <div class="keep-together">
+    <h3>📋 Mensajes comunes</h3>
+    <table>
+      <tr><th>Mensaje</th><th>Significado</th><th>Acción</th></tr>
+      <tr><td>"No inventory found"</td><td>Sin ubicación en sistema</td><td>INVENTORY DSP</td></tr>
+      <tr><td>"SSCC number is wrong or missing"</td><td>Código inválido</td><td>CAT. VERDE p1 – INBOUND/SURPLUS</td></tr>
+      <tr><td>"Pallet position contains a different pallet number"</td><td>RCG/pallet equivocado</td><td>Reubicar. CAT. NARANJA</td></tr>
+      <tr><td>"Inventory identifier is invalid"</td><td>🚨 <span class="pending">PENDIENTE</span></td><td>Teamleaders/Troubleshooter</td></tr>
+      <tr><td>Escáner no reacciona</td><td>Distancia/suciedad/batería</td><td>Ajustar, limpiar, apartar</td></tr>
+    </table>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Cada mensaje de error]</div>
+  </div>
+
+  <div class="keep-together">
+    <h3>🔍 Protocolo INVENTORY DSP</h3>
+    <p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+    <ol>
+      <li>Blue Yonder → ... → <strong>TOOLS</strong> → <strong>INVENTORY DSP</strong></li>
+      <li>Escanea producto</li>
+      <li><strong>TRUCO PRO:</strong> Flecha abajo ×8</li>
+    </ol>
+    <table>
+      <tr><th>Código</th><th>Significado</th><th>Acción</th></tr>
+      <tr><td><strong>rolpalbc</strong></td><td>Contenedor ABIERTO</td><td>Buscar y depositar SIN escanear</td></tr>
+      <tr><td><strong>PND-A</strong></td><td>Producto para HOY</td><td>Abrir RCG/pallet nuevo</td></tr>
+      <tr><td><strong>PND-P</strong></td><td>RCG/pallet CERRADO</td><td>Buscar número y depositar SIN escanear</td></tr>
+      <tr><td><strong>T3-STGE</strong></td><td>En línea de camiones</td><td>Llevar a GC (carguío)</td></tr>
+    </table>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> Inventory DSP]</div>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> Menú TOOLS]</div>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Inventory DSP paso a paso]</div>
+  </div>
+
+  <div class="keep-together">
+    <h3>⚡ Escáner no reacciona</h3>
+    <ol>
+      <li>Ajusta distancia y limpia</li>
+      <li>Si no: <strong>APARTA</strong> el producto</li>
+      <li>Introduce SSCC manualmente</li>
+      <li>Si no funciona: informa a Teamleaders</li>
+    </ol>
+  </div>
+</div>
+
+<!-- PAGE 5: VERDE 1 -->
+<div class="page-break"></div>
+
+<div class="section-green">
+  <h2>🟢 CATEGORÍA VERDE (Parte 1) – Ingreso de productos</h2>
+  <p class="small-note">Usa Smart Scanner cuando el escáner dice "NOT FOUND" o "SSCC number is wrong or missing". <span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+
+  <div class="keep-together">
+    <h3>Método INBOUND</h3>
+    <ol>
+      <li>Escanea código inferior (SSCC)</li>
+      <li>Elige tipo (KRT, COL…)</li>
+      <li>Si dice <strong>"NOT FOUND"</strong> → SURPLUS</li>
+    </ol>
+  </div>
+
+  <div class="keep-together">
+    <h3>Método SURPLUS</h3>
+    <ol>
+      <li>Cambia a modo <strong>SURPLUS</strong></li>
+      <li>Escanea código inferior + código superior (cliente)</li>
+      <li>Si dice <strong>"ANOTHER POSITION"</strong> → vuelve a INBOUND</li>
+    </ol>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> INBOUND]</div>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> SURPLUS]</div>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> "ANOTHER POSITION"]</div>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Flujo INBOUND → SURPLUS]</div>
+  </div>
+</div>
+
+<!-- PAGE 6: VERDE 2 -->
+<div class="page-break"></div>
+
+<div class="section-green">
+  <h2>🟢 CATEGORÍA VERDE (Parte 2) – Etiquetas, impresora y cierre</h2>
+  <p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+
+  <div class="protocol">
+    <h4>📋 PROTOCOLO A – Recuperar LPN</h4>
+    <p class="small-note">Solo si tienes producto escaneado (pantalla pide LPN destino).</p>
+    <ol>
+      <li>Blue Yonder → ... → <strong>CHANGE POSITION</strong></li>
+      <li>Flecha abajo → aparece LPN</li>
+      <li><strong>Anótalo en papel</strong></li>
+      <li>Smart Scanner → <strong>PRINTING</strong> → tu impresora → <strong>LPN PRINTING</strong> → código manual</li>
+    </ol>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> CHANGE POSITION]</div>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> LPN visible]</div>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> LPN PRINTING]</div>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Protocolo A]</div>
+  </div>
+
+  <div class="protocol">
+    <h4>📋 PROTOCOLO B – Cerrar RCG/pallet sin LPN físico</h4>
+    <ol>
+      <li>Obtén LPN con CHANGE POSITION (Protocolo A)</li>
+      <li>Ve a <strong>DONE</strong> y pega el código LPN</li>
+    </ol>
+    <div class="pending-photo">📷 <strong>[SCREENSHOT:</strong> DONE con LPN pegado]</div>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Protocolo B]</div>
+  </div>
+
+  <div class="protocol">
+    <h4>📋 PROTOCOLO C – Stickers de cierre</h4>
+    <p class="small-note">Para RCG/pallet ya cerrado sin stickers.</p>
+    <ol>
+      <li>Smart Scanner → <strong>PRINTING</strong> → <strong>SSCC INTERGAMMA</strong></li>
+      <li>Imprime <strong>2 copias</strong></li>
+      <li>Pega: frontal + junto al LPN original. En krats: entre los krats</li>
+    </ol>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Sticker entre krats]</div>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Sticker frontal + LPN]</div>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Protocolo C]</div>
+  </div>
+
+  <div class="keep-together">
+    <h3>🛠️ Problemas de impresora</h3>
+    <table>
+      <tr><th>Problema</th><th>Solución</th></tr>
+      <tr><td>No salen stickers al hacer DONE</td><td>Reiniciar impresora</td></tr>
+      <tr><td>Manchas o partes blancas</td><td>Limpiar cabezal</td></tr>
+      <tr><td>Luz roja</td><td>Falta papel o batería</td></tr>
+    </table>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Limpiar cabezal]</div>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Mantenimiento impresora]</div>
+  </div>
+</div>
+<!-- PAGE 7: NARANJA + AZUL -->
+<div class="page-break"></div>
+
+<div class="section-orange">
+  <h2>🟠 CATEGORÍA NARANJA – Emergencias y errores humanos</h2>
+  <p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span>: En emergencia real, sigue protocolos oficiales de DHL.</p>
+
+  <div class="keep-together">
+    <h3>🎨 Derrame de pintura o líquido</h3>
+    <ol>
+      <li><strong>El flujo NO se detiene</strong></li>
+      <li>Kit de emergencia (arena) → espárcela</li>
+      <li>Limpia de afuera hacia adentro</li>
+      <li>Residuos en contenedores especiales</li>
+      <li>Informa a Teamleader o Troubleshooter</li>
+    </ol>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Kit de limpieza]</div>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Derrame controlado]</div>
+    <div class="pending-photo">📷 <strong>[FOTO:</strong> Contenedores especiales]</div>
+    <div class="pending-video">🎥 <strong>[VIDEO:</strong> Control de derrames]</div>
+  </div>
+
+  <div class="keep-together">
+    <h3>❌ Confusión de contenedor</h3>
+    <ul>
+      <li><strong>Síntoma:</strong> LPN escaneado no corresponde al destino</li>
+      <li><strong>Acción:</strong> Verificar destino, comparar números, reubicar</li>
+      <li>Si es patrón repetido → informar a Teamleaders</li>
+    </ul>
+  </div>
+
+  <div class="keep-together">
+    <h3>❌ Escanear sin colocar</h3>
+    <ul>
+      <li><strong>Consecuencia:</strong> Sistema registra como colocado (no lo está)</li>
+      <li><strong>Prevención:</strong> Nunca escanees sin colocar</li>
+      <li>Si ocurrió: intenta colocar; si no, informa a Teamleaders</li>
+    </ul>
+  </div>
+
+  <div class="keep-together">
+    <h3>👀 Producto mal ubicado</h3>
+    <ol>
+      <li>Escanea para ver destino</li>
+      <li>Colócalo donde indique (si se puede)</li>
+      <li>Si no: INVENTORY DSP</li>
+      <li>Si en suelo: inventory dsp</li>
+      <li>Patrón repetido → informa a Teamleaders</li>
+    </ol>
+  </div>
+</div>
+
+<div class="section-blue">
+  <h2>🔵 CATEGORÍA AZUL – Buenas prácticas</h2>
+  <p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+  <ul>
+    <li><strong>Ojos en la pantalla:</strong> Verifica cada escaneo</li>
+    <li><strong>Trabajo en equipo:</strong> Habla antes de abrir locación nueva</li>
+    <li><strong>Limpieza de combate:</strong> Suelo despejado</li>
+    <li><strong>Ayuda a los nuevos:</strong> Comparte conocimiento</li>
+  </ul>
+</div>
+
+<!-- PAGE 8: FAQ + CONTACTOS + ESCENARIO + CONTROL -->
+<div class="page-break"></div>
+
+<h2>❓ Preguntas frecuentes (FAQ)</h2>
+<p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+<div class="keep-together">
+  <table>
+    <tr><th>Pregunta</th><th>Respuesta</th></tr>
+    <tr><td>¿Escáner no se conecta?</td><td>Verifica batería. Pide repuesto al teamleader</td></tr>
+    <tr><td>¿Cómo cambio batería?</td><td>Cargador zona descanso. Apaga, reemplaza</td></tr>
+    <tr><td>¿Rollos de etiquetas?</td><td>Almacén suministros (junto puesto control)</td></tr>
+    <tr><td>¿A quién llamar?</td><td>Teamleader primero, Troubleshooter (Martin) después</td></tr>
+    <tr><td>¿Mover contenedor cerrado sin stickers?</td><td>No. Usa Protocolo C (CAT. VERDE p2)</td></tr>
+  </table>
+</div>
+
+<h2>📞 Contactos y zonas</h2>
+<p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+<div class="keep-together">
+  <ul>
+    <li><strong>Teamleaders:</strong> Puesto central</li>
+    <li><strong>Troubleshooter (Martin):</strong> Puesto control BONT</li>
+    <li><strong>Zona No Resueltos:</strong> Productos sin etiqueta o código ilegible</li>
+    <li><strong>Zona Otro Día:</strong> Paquetes con fecha distinta a hoy</li>
+  </ul>
+  <div class="pending-photo">📷 <strong>[FOTO:</strong> Zona No Resueltos]</div>
+  <div class="pending-photo">📷 <strong>[FOTO:</strong> Zona Otro Día]</div>
+</div>
+
+<h2>📚 Escenario completo</h2>
+<p class="small-note"><span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></p>
+<div class="keep-together" style="background:#f9f9f9;border:1px solid #ddd;border-radius:4px;padding:8px 12px;margin-bottom:10px;">
+  <p>Llega un producto, el escáner pita y dice <strong>"No inventory found"</strong>. Apartas el producto. Cuando baja la carga, usas <strong>INVENTORY DSP</strong> y ves <strong>PND-A</strong> (para hoy). Abres un RCG nuevo y lo colocas. Todo bien.</p>
+</div>
+
+<h2>🛡️ Control de documento</h2>
+<div class="keep-together">
+  <table>
+    <tr><td><strong>Versión</strong></td><td>0.1 — Borrador personal / No oficial</td></tr>
+    <tr><td><strong>Estado</strong></td><td>🔧 Tentativo. Todo <span class="pending">PENDIENTE DE VALIDACIÓN OFICIAL</span></td></tr>
+    <tr><td><strong>Objetivo v1.0</strong></td><td>Fotos, videos y códigos validados oficialmente (si aplica)</td></tr>
+    <tr><td><strong>Autor</strong></td><td>Boris Orlando Antequera Vargas – Operador BONT</td></tr>
+    <tr><td><strong>Fecha</strong></td><td>Mayo 2026</td></tr>
+    <tr><td><strong>Ubicación</strong></td><td>DHL Tiel – Sección BONT</td></tr>
+    <tr><td><strong>Propietario</strong></td><td>Boris Orlando Antequera Vargas</td></tr>
+    <tr><td><strong>Rol actual</strong></td><td>Operador BONT con interés en desarrollo y optimización de procesos</td></tr>
+    <tr><td><strong>Clasificación</strong></td><td>🔒 Uso personal. No oficial. No distribuido por DHL.</td></tr>
+  </table>
+</div>
+
+<h2>📜 Declaración final</h2>
+<div class="keep-together" style="background:#f9f9f9;border:1px solid #ddd;border-radius:4px;padding:8px 12px;margin-bottom:10px;">
+  <p>Este documento ha sido creado con la mejor intención: <strong>ayudar</strong>. No pretende ser un manual corporativo ni competir con la formación oficial de DHL. Si DHL considera que debe ser retirado, modificado o adaptado, se hará sin problema.</p>
+</div>
+
+<div class="commitment-box">
+  <h3>💡 Mi compromiso con DHL</h3>
+  <p>Este manual nace de una convicción personal: <strong>el conocimiento no vale nada si se queda en la cabeza de uno</strong>.</p>
+  <p>Mi objetivo diario es simple:</p>
+  <ul>
+    <li>✅ <strong>Aprender de cada error</strong> para no repetirlo</li>
+    <li>✅ <strong>Ayudar al de al lado</strong> sin que nadie me lo pida</li>
+    <li>✅ <strong>Dejar el puesto mejor de lo que lo encontré</strong></li>
+  </ul>
+  <p>Creo en el trabajo bien hecho, en la calidad como pilar, en la seguridad como prioridad, y en la eficiencia como consecuencia de hacer las cosas como tocan. Quiero que el equipo funcione, que la calidad suba, que los nuevos no sufran lo que yo sufrí al empezar. Y si eso ayuda a que DHL Tiel sea referencia — bienvenido sea.</p>
+  <p>Este manual es mi granito de arena. Si alguien lo lee y aprende algo, ya valió la pena.</p>
+  <p style="text-align:center;font-style:italic;margin-top:10px;">"Conocimiento compartido es eficiencia multiplicada."<br><strong>— Boris Orlando Antequera Vargas — Operador BONT</strong></p>
+</div>
+
+<p class="final-quote">Fin del documento — Versión 0.1 (Borrador personal no oficial)</p>
+
+</body>
+</html>

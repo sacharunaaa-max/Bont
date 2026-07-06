@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BONT · Pocket Cards v2 — Imprimir</title>
+<style>
+  @page {
+    size: A4 landscape;
+    margin: 7mm;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: #e8e8e8;
+    padding: 10px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 18px; font-weight: 800; color: #c00;
+    padding: 10px 0 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .section-sub {
+    text-align: center;
+    font-size: 10px; color: #888;
+    margin-bottom: 8px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    max-width: 1000px;
+    margin: 0 auto;
+    page-break-after: always;
+  }
+  .grid:last-child { page-break-after: avoid; }
+
+  .card {
+    border: 0.3mm solid #999;
+    border-radius: 2mm;
+    background: #fff;
+    padding: 3.5mm 4mm;
+    position: relative;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    min-height: 48mm;
+  }
+
+  .card-label {
+    position: absolute;
+    top: 0.5mm; right: 1.5mm;
+    font-size: 6px; color: #bbb;
+    font-weight: 600;
+  }
+  .card-cut {
+    position: absolute;
+    top: -1mm; left: -1mm; right: -1mm; bottom: -1mm;
+    border: 0.2mm dashed #ccc;
+    border-radius: 3mm;
+    pointer-events: none;
+  }
+
+  /* Front */
+  .f-head {
+    display: flex; align-items: center; gap: 2mm;
+    margin-bottom: 1.5mm;
+  }
+  .f-ico { font-size: 9mm; line-height: 1; }
+  .f-title {
+    font-size: 10pt; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.3px;
+    line-height: 1.1;
+  }
+  .f-sub {
+    font-size: 6.5pt; color: #888;
+    margin-top: 0.3mm; font-weight: 500;
+  }
+
+  .f-line { height: 0.3mm; border: none; margin: 1.2mm 0; }
+
+  .f-row {
+    display: flex; gap: 1.5mm;
+    margin-bottom: 0.8mm;
+    font-size: 7.5pt; line-height: 1.3;
+    align-items: flex-start;
+  }
+  .f-lbl {
+    font-weight: 700; color: #fff;
+    padding: 0.3mm 1.5mm; border-radius: 1.5px;
+    white-space: nowrap; min-width: 9mm; text-align: center;
+    font-size: 7pt; flex-shrink: 0;
+  }
+  .f-txt { flex: 1; color: #333; }
+
+  /* Back */
+  .b-tit {
+    font-size: 8.5pt; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    margin-bottom: 1mm;
+    border-bottom: 0.3mm solid #ddd;
+    padding-bottom: 0.5mm;
+  }
+  .b-steps { list-style: none; }
+  .b-step {
+    display: flex; gap: 1.5mm; margin-bottom: 0.6mm;
+    font-size: 7pt; line-height: 1.3; color: #333;
+  }
+  .b-num {
+    font-weight: 700; min-width: 3mm;
+    font-size: 7.5pt; flex-shrink: 0;
+  }
+  .b-box {
+    background: #fff5f5; border-left: 1mm solid #c00;
+    padding: 1mm 1.5mm; margin-bottom: 1.2mm;
+    font-size: 7.5pt; font-style: italic; color: #333;
+    line-height: 1.3;
+  }
+
+  .cr .f-title { color: #c62828; }
+  .cr .f-line { background: #c62828; }
+  .cr .f-lbl { background: #c62828; }
+  .cr .b-tit { color: #c62828; }
+  .cr .b-num { color: #c62828; }
+
+  .cy .f-title { color: #f57f17; }
+  .cy .f-line { background: #f57f17; }
+  .cy .f-lbl { background: #f57f17; }
+  .cy .b-tit { color: #f57f17; }
+  .cy .b-num { color: #f57f17; }
+
+  .cg .f-title { color: #2e7d32; }
+  .cg .f-line { background: #2e7d32; }
+  .cg .f-lbl { background: #2e7d32; }
+  .cg .b-tit { color: #2e7d32; }
+  .cg .b-num { color: #2e7d32; }
+
+  .co .f-title { color: #bf360c; }
+  .co .f-line { background: #bf360c; }
+  .co .f-lbl { background: #bf360c; }
+  .co .b-tit { color: #bf360c; }
+  .co .b-num { color: #bf360c; }
+
+  .cp .f-title { color: #7b1fa2; }
+  .cp .f-line { background: #7b1fa2; }
+  .cp .f-lbl { background: #7b1fa2; }
+  .cp .b-tit { color: #7b1fa2; }
+  .cp .b-num { color: #7b1fa2; }
+
+  .cgold .f-title { color: #c00; }
+  .cgold .f-line { background: #c00; }
+  .cgold .f-lbl { background: #c00; }
+  .cgold .b-tit { color: #c00; }
+  .cgold .b-num { color: #c00; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .section-title { padding-top: 4px; font-size: 14px; }
+    .section-sub { font-size: 8px; margin-bottom: 4px; }
+    .card { border-color: #bbb; }
+    .card-cut { display: none; }
+    .grid { gap: 3mm; }
+  }
+</style>
+</head>
+<body>
+
+<!--
+  CARD DATA: each card = (color_class, emoji, title, subtitle,
+    items[(label, text)], back_title, back_steps[string])
+-->
+
+<script>
+// All card data for 3 languages
+const DATA = {
+  es: [
+    {cls:"cr", e:"🔴", t:"Problemas físicos de carga", s:"RCG · Pallet · Krat",
+     fl:[["📏","Altura máx 2.3 m. Redistribuir si inestable."],["⬆️","Flechas siempre arriba. Sin flecha = frágil."],["🎩","Sombrero: caja grande NO sobre pequeña."],["🔧","Tuberías al fondo/lateral. Nunca sobre cajas."],["📋","Etiquetas de krats visibles hacia fuera."]],
+     bt:"🔴 Carga física — Claves",
+     bs:["Altura máx: 2.3 m. Inestable? Redistribuye.","Flechas SIEMPRE arriba. Sin flecha = frágil.","Base ≥ parte superior. Pesado abajo.","Tuberías al fondo/lateral RCG. No sobre cartón.","Etiquetas visibles hacia fuera.","Producto sobresale? Reubica o usa otro RCG.","Dañado? Reubica carga y reetiqueta."]},
+    {cls:"cy", e:"🟡", t:"Errores de escáner / sistema", s:"Mensajes comunes",
+     fl:[['"No inventory found"',"El producto no tiene ubicación. Usa INVENTORY DSP."],['"SSCC wrong/missing"',"Código no válido. Smart Scanner → INBOUND/SURPLUS."],['"Different pallet"',"Escaneaste el RCG/pallet equivocado."],['"Inventory invalid"',"Error grave. Lleva a Teamleader."],["🔇 Escáner no reacciona","Ajusta distancia. Limpia. Aparta producto."]],
+     bt:"🟡 Solución de errores",
+     bs:['"No inventory found" → INVENTORY DSP en BY. Busca código.','"SSCC wrong" → Smart Scanner → INBOUND. NOT FOUND? SURPLUS.',"Different pallet → Reubica en contenedor correcto.","Inventory invalid → Lleva a Teamleader o Troubleshooter.","Escáner no responde: distancia → limpiar → apartar → manual.","Sistema bloqueado: DONE → reiniciar → reportar."]},
+    {cls:"cg", e:"🟢", t:"Smart Scanner / Etiquetas", s:"INBOUND · SURPLUS · Impresora",
+     fl:[["INBOUND","Escanea SSCC. Elige tipo. NOT FOUND? SURPLUS."],["SURPLUS","Escanea inf + sup. ANOTHER POSITION? Vuelve a INBOUND."],["🔙 ANOTHER POSITION","Vuelve a INBOUND y escanea de nuevo."],["🖨️ LPN perdida","BY → 3 puntos → CHANGE POSITION → anota LPN."],["🖨️ Sticker cierre","PRINTING → SSCC INTERGAMMA → 2 copias."]],
+     bt:"🟢 Smart Scanner paso a paso",
+     bs:["INBOUND: Scan SSCC → tipo (KRT, COL...).","NOT FOUND? → SURPLUS. Scan inf + sup.","ANOTHER POSITION? → Vuelve a INBOUND.","LPN perdida: BY → CHANGE POSITION → anota LPN.","Luego: Smart Printer → LPN PRINTING → código.","Sticker cierre: PRINTING → SSCC INTERGAMMA → 2 copias."]},
+    {cls:"co", e:"🟠", t:"Emergencias / Errores", s:"Derrames · Confusiones · Accidentes",
+     fl:[["💧 Derrame","Kit de arena. Limpia afuera→adentro."],["📦 Confusión RCG","Ver pantalla. Compara números. Reubica."],["❌ Escanear sin poner","Sistema da por colocado. Otro operario falla."],["👀 Producto perdido","Escanea. INVENTORY DSP si no sabes."],["🚨 Accidente","STOP. Avisa Teamleader. No muevas nada."]],
+     bt:"🟠 Protocolo de emergencia",
+     bs:["Derrame: No pares. Kit arena → esparcir → afuera→adentro.","Residuos: Contenedores especiales.","Confusión: Ver pantalla → comparar → reubicar.","Escaneaste sin poner: Sistema registró. Avisa TL.","Producto mal ubicado: Escanea. Coloca. DSP si no.","Accidente: STOP → Avisar → No mover nada."]},
+    {cls:"cp", e:"🟣", t:"Códigos de bolsillo", s:"Siempre a mano",
+     fl:[["1️⃣ QR Personal","Login en BY y Smart Scanner."],["2️⃣ Location","Área de trabajo. Ej: BNT09."],["3️⃣ Equipment","Identifica tu equipo."],["4️⃣ Turno día","Código del turno actual."],["📍 Zonas","PND-A · PND-P · T3-STGE · BNT09"]],
+     bt:"🟣 ¿Para qué sirve?",
+     bs:["QR Personal → Login SMAR T7 y BY.","Location → Dónde trabajas.","Equipment → Tu equipo en sesión.","Turno día → Turno actual.","SMAR T7: Solo QR Personal.","Blue Yonder: Los 4 códigos."]},
+    {cls:"cgold", e:"⭐", t:"Regla de Oro + Checklist", s:"Tu mantra diario",
+     fl:[['"Si algo se ve mal, está mal."',"No lo ignores. Verifícalo."],["🏹 Inicio turno","1. Scanner 2. QR Personal 3. Location 4. Equipment 5. Turno 6. BY"]],
+     bt:"⭐ Regla de Oro + Checklist",
+     bs:['"Si algo se ve mal, está mal."',"Inicio: Scanner → QR → Location → Equipment → Turno → BY."]}
+  ],
+  en: [
+    {cls:"cr", e:"🔴", t:"Physical load issues", s:"RCG · Pallet · Krat",
+     fl:[["📏","Max height 2.3 m. Redistribute if unstable."],["⬆️","Arrows always up. No arrow = fragile."],["🎩","Hat effect: big box NOT on small one."],["🔧","Pipes at back/side. Never on boxes."],["📋","Krat labels visible facing out."]],
+     bt:"🔴 Physical load — Keys",
+     bs:["Max height 2.3 m. Unstable? Redistribute.","Arrows always UP. No arrow = fragile.","Base ≥ top. Heavy at bottom.","Pipes at back/side RCG. Not on cardboard.","Labels visible facing out.","Product sticking out? Move or use other RCG.","Damaged? Relocate load and relabel."]},
+    {cls:"cy", e:"🟡", t:"Scanner / System errors", s:"Common messages",
+     fl:[['"No inventory found"',"No location. Use INVENTORY DSP."],['"SSCC wrong/missing"',"Smart Scanner → INBOUND/SURPLUS."],['"Different pallet"',"Wrong RCG/pallet scanned."],['"Inventory invalid"',"Serious. Take to Teamleader."],["🔇 No response","Adjust distance. Clean. Set aside."]],
+     bt:"🟡 Quick error fix",
+     bs:['"No inventory found" → INVENTORY DSP in BY.','"SSCC wrong" → Smart Scanner → INBOUND. NOT FOUND? SURPLUS.',"Different pallet → Move to correct container.","Inventory invalid → Teamleader or Troubleshooter.","No response: distance → clean → aside → manual.","Blocked: DONE → restart → report."]},
+    {cls:"cg", e:"🟢", t:"Smart Scanner / Labels", s:"INBOUND · SURPLUS · Printer",
+     fl:[["INBOUND","Scan SSCC. Choose type. NOT FOUND? SURPLUS."],["SURPLUS","Scan low + high. ANOTHER POSITION? Back to INBOUND."],["🔙 ANOTHER POSITION","Go back to INBOUND and retry."],["🖨️ Lost LPN","BY → CHANGE POSITION → note LPN."],["🖨️ Close sticker","PRINTING → SSCC INTERGAMMA → 2 copies."]],
+     bt:"🟢 Smart Scanner step by step",
+     bs:["INBOUND: Scan SSCC → type (KRT, COL...).","NOT FOUND? → SURPLUS. Scan low + high.","ANOTHER POSITION? → Back to INBOUND.","Lost LPN: BY → CHANGE POSITION → note LPN.","Then: Smart Printer → LPN PRINTING → enter code.","Close sticker: PRINTING → SSCC INTERGAMMA → 2 copies."]},
+    {cls:"co", e:"🟠", t:"Emergencies / Errors", s:"Spills · Mix-ups · Accidents",
+     fl:[["💧 Spill","Spill kit. Clean outside→in."],["📦 Mix-up","Check screen. Compare. Relocate."],["❌ Scan no-place","System marks placed. Other fails."],["👀 Lost product","Scan. INVENTORY DSP if unsure."],["🚨 Accident","STOP. Call Teamleader. Don't move."]],
+     bt:"🟠 Emergency protocol",
+     bs:["Spill: Don't stop. Kit → sand → clean outside→in.","Waste: Special containers.","Mix-up: Check screen → compare → relocate.","Scanned no-place: System registered. Tell TL.","Misplaced: Scan. Place. DSP if not.","Accident: STOP → Call → Don't move."]},
+    {cls:"cp", e:"🟣", t:"Pocket codes", s:"Always handy",
+     fl:[["1️⃣ Personal QR","Login in BY and Smart Scanner."],["2️⃣ Location","Work area. E.g. BNT09."],["3️⃣ Equipment","Your equipment ID."],["4️⃣ Day turn","Current shift code."],["📍 Zones","PND-A · PND-P · T3-STGE · BNT09"]],
+     bt:"🟣 What for?",
+     bs:["Personal QR → Login SMAR T7 and BY.","Location → Where you work.","Equipment → Your equipment in session.","Day turn → Current shift.","SMAR T7: Personal QR only.","Blue Yonder: All 4 codes."]},
+    {cls:"cgold", e:"⭐", t:"Golden Rule + Checklist", s:"Your daily mantra",
+     fl:[['"If it looks wrong, it is wrong."',"Don't ignore it. Verify it."],["🏹 Start shift","1. Scanner 2. QR 3. Location 4. Equipment 5. Turn 6. BY"]],
+     bt:"⭐ Golden Rule + Checklist",
+     bs:['"If it looks wrong, it is wrong."',"Start: Scanner → QR → Location → Equipment → Turn → BY."]}
+  ],
+  nl: [
+    {cls:"cr", e:"🔴", t:"Fysieke laadproblemen", s:"RCG · Pallet · Krat",
+     fl:[["📏","Max hoogte 2.3 m. Herverdeel bij instabiliteit."],["⬆️","Pijlen altijd omhoog. Geen pijl = breekbaar."],["🎩","Hoed: grote doos NIET op kleine."],["🔧","Buizen achter/zij. Nooit op dozen."],["📋","Krat labels zichtbaar naar buiten."]],
+     bt:"🔴 Fysiek laden — Sleutels",
+     bs:["Max hoogte 2.3 m. Onstabiel? Herverdeel.","Pijlen altijd OMHOOG. Geen pijl = breekbaar.","Basis ≥ bovenkant. Zwaar onderaan.","Buizen achter/zij RCG. Niet op karton.","Labels zichtbaar naar buiten.","Product steekt uit? Verplaats of andere RCG.","Beschadigd? Verplaats lading en herlabel."]},
+    {cls:"cy", e:"🟡", t:"Scanner / Systeemfouten", s:"Veelvoorkomend",
+     fl:[['"No inventory found"',"Geen locatie. Gebruik INVENTORY DSP."],['"SSCC wrong/missing"',"Smart Scanner → INBOUND/SURPLUS."],['"Different pallet"',"Verkeerde RCG/pallet gescand."],['"Inventory invalid"',"Ernstig. Naar Teamleader."],["🔇 Geen reactie","Afstand. Schoonmaken. Apart."]],
+     bt:"🟡 Snelle foutoplossing",
+     bs:['"No inventory found" → INVENTORY DSP in BY.','"SSCC wrong" → Smart Scanner → INBOUND. NOT FOUND? SURPLUS.',"Different pallet → Naar juiste container.","Inventory invalid → Teamleader of Troubleshooter.","Geen reactie: afstand → schoon → apart → handmatig.","Geblokkeerd: DONE → herstarten → melden."]},
+    {cls:"cg", e:"🟢", t:"Smart Scanner / Labels", s:"INBOUND · SURPLUS · Printer",
+     fl:[["INBOUND","Scan SSCC. Kies type. NOT FOUND? SURPLUS."],["SURPLUS","Scan laag + hoog. ANOTHER POSITION? Terug INBOUND."],["🔙 ANOTHER POSITION","Terug naar INBOUND en opnieuw."],["🖨️ LPN kwijt","BY → CHANGE POSITION → noteer LPN."],["🖨️ Sluitsticker","PRINTING → SSCC INTERGAMMA → 2 ex."]],
+     bt:"🟢 Smart Scanner stap voor stap",
+     bs:["INBOUND: Scan SSCC → type (KRT, COL...).","NOT FOUND? → SURPLUS. Scan laag + hoog.","ANOTHER POSITION? → Terug naar INBOUND.","LPN kwijt: BY → CHANGE POSITION → noteer LPN.","Dan: Smart Printer → LPN PRINTING → code invoeren.","Sluitsticker: PRINTING → SSCC INTERGAMMA → 2 ex."]},
+    {cls:"co", e:"🟠", t:"Noodgevallen / Fouten", s:"Morsen · Verwarring · Ongelukken",
+     fl:[["💧 Morsen","Morsset. Reinig buiten→binnen."],["📦 Verwarring","Scherm checken. Vergelijken. Verplaatsen."],["❌ Scannen zonder plaatsen","Systeem markeert geplaatst."],["👀 Product kwijt","Scannen. INVENTORY DSP."],["🚨 Ongeluk","STOP. Bel Teamleader. Niks verplaatsen."]],
+     bt:"🟠 Noodprotocol",
+     bs:["Morsen: Niet stoppen. Set → zand → reinigen buiten→binnen.","Afval: Speciale containers.","Verwarring: Scherm → vergelijk → verplaats.","Gescaand zonder plaatsen: Systeem registreerde. TL.","Verkeerd geplaatst: Scannen. Plaatsen. DSP zo niet.","Ongeluk: STOP → Bellen → Niks verplaatsen."]},
+    {cls:"cp", e:"🟣", t:"Zakcodes", s:"Altijd bij de hand",
+     fl:[["1️⃣ Persoonlijke QR","Login BY en Smart Scanner."],["2️⃣ Locatie","Werkgebied. Bijv. BNT09."],["3️⃣ Equipment","Je apparatuur ID."],["4️⃣ Dagdienst","Huidige dienstcode."],["📍 Zones","PND-A · PND-P · T3-STGE · BNT09"]],
+     bt:"🟣 Waarvoor dient het?",
+     bs:["Persoonlijke QR → Login SMAR T7 en BY.","Locatie → Waar je werkt.","Equipment → Apparatuur in sessie.","Dagdienst → Huidige dienst.","SMAR T7: Alleen QR.","Blue Yonder: Alle 4 codes."]},
+    {cls:"cgold", e:"⭐", t:"Gouden Regel + Checklist", s:"Je dagelijkse mantra",
+     fl:[['"Ziet het er fout uit? Dan is het fout."',"Negeer het niet. Controleer het."],["🏹 Start dienst","1. Scanner 2. QR 3. Locatie 4. Equipment 5. Dienst 6. BY"]],
+     bt:"⭐ Gouden Regel + Checklist",
+     bs:['"Ziet het er fout uit? Dan is het fout."',"Start: Scanner → QR → Locatie → Equipment → Dienst → BY."]}
+  ]
+};
+
+const LANG_META = {
+  es: { flag: "🇪🇸", name: "ESPAÑOL" },
+  en: { flag: "🇬🇧", name: "ENGLISH" },
+  nl: { flag: "🇳🇱", name: "NEDERLANDS" }
+};
+
+function build() {
+  const container = document.getElementById("app");
+  let html = "";
+
+  for (const [lk, cards] of Object.entries(DATA)) {
+    const meta = LANG_META[lk];
+    html += `<div class="section-title">🛡️ BONT · Pocket Cards — ${meta.flag} ${meta.name}</div>`;
+    html += `<div class="section-sub">Imprime en A4 horizontal · Recorta y plastifica · 6 tarjetas por hoja</div>`;
+
+    // Fronts (first 6 cards)
+    html += '<div class="grid">';
+    cards.forEach((c, i) => {
+      html += `<div class="card ${c.cls}">`;
+      html += `<div class="card-label">${lk.toUpperCase()} F${i+1}</div>`;
+      html += `<div class="f-head"><span class="f-ico">${c.e}</span><div><div class="f-title">${c.t}</div><div class="f-sub">${c.s}</div></div></div>`;
+      html += '<hr class="f-line">';
+      c.fl.forEach(r => {
+        html += `<div class="f-row"><span class="f-lbl">${r[0]}</span><span class="f-txt">${r[1]}</span></div>`;
+      });
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // Backs (next 6 cards)
+    html += '<div class="grid">';
+    cards.forEach((c, i) => {
+      html += `<div class="card ${c.cls}" style="background:#fafafa;">`;
+      html += `<div class="card-label">${lk.toUpperCase()} B${i+1}</div>`;
+      html += `<div class="b-tit">${c.bt}</div>`;
+      html += '<ol class="b-steps">';
+      c.bs.forEach((s, j) => {
+        html += `<li class="b-step"><span class="b-num">${j+1}.</span><span>${s}</span></li>`;
+      });
+      html += '</ol></div>';
+    });
+    html += '</div>';
+  }
+
+  // Footer
+  html += '<div style="text-align:center;padding:8px;font-size:9pt;color:#888;">📱 App: <a href="https://sacharunaaa-max.github.io/Bont/" style="color:#c00;">sacharunaaa-max.github.io/Bont</a> · v0.1</div>';
+
+  container.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", build);
+</script>
+
+<div id="app" style="max-width:1000px;margin:0 auto;">
+  <div style="text-align:center;padding:20px;color:#888;">Generando...</div>
+</div>
+</body>
+</html>

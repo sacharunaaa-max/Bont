@@ -1,0 +1,44 @@
+# Private / sensitive — never commit
+documentos/
+documentos/Ayar/
+ayar-docs-raw/
+Escanar_*.pdf
+Librofamilia_*.pdf
+memory/
+.clawhub/
+.cron-results/
+secret/
+secrets/
+.env
+*.key
+*.pem
+
+# Sync server / infra
+BALIE/sync-server.js
+chat-monitor-output.txt
+cron-output.md
+
+# Temp / generated
+whatsapp-login.html
+whatsapp-qr.png
+qr-table.html
+test-tono.txt
+foto_*.jpg
+foto_*.png
+openclaw-workspace-state.json
+PONYTAIL.md
+
+# Projects outside BONT scope
+baysync/
+BALIE/
+BALIE/balie-data/
+dhl-logistics-training/
+kennisbank/
+skills/
+
+# Config files (personal)
+USER.md
+TOOLS.md
+MEMORY.md
+IDENTITY.md
+HEARTBEAT.md

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>🛡️ Guerrero BONT - Manual</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:#0f1117;color:#e1e4ea;line-height:1.6;min-height:100vh;transition:background .3s,color .3s}
+body.light{background:#f5f5f7;color:#1d1d1f}
+:root{--red:#e74c3c;--yellow:#f1c40f;--green:#2ecc71;--orange:#e67e22;--blue:#3498db;--bg-card:#1a1d27;--bg-nav:#151820;--border:#2a2e3a}
+body.light{--bg-card:#fff;--bg-nav:#f0f0f2;--border:#d2d2d7}
+header{background:var(--bg-nav);border-bottom:1px solid var(--border);padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;position:sticky;top:0;z-index:100}
+header h1{font-size:1.1rem;font-weight:700;cursor:pointer;transition:color .2s}
+header h1:hover{color:var(--green)}header h1 span{color:var(--green)}
+.header-mid{display:flex;align-items:center;gap:.5rem;flex:1;max-width:360px;min-width:160px}
+.header-mid input{flex:1;padding:.4rem .75rem;border:1px solid var(--border);border-radius:8px;background:#0f1117;color:#e1e4ea;font-size:.85rem;outline:none;transition:border .2s}
+body.light .header-mid input{background:#f5f5f7;color:#1d1d1f}
+.header-mid input:focus{border-color:var(--blue)}
+.breadcrumb{font-size:.8rem;color:#8b92a0;white-space:nowrap}
+body.light .breadcrumb{color:#6e6e73}.breadcrumb span{color:var(--orange);font-weight:600}
+.theme-toggle{background:none;border:1px solid var(--border);color:inherit;padding:.35rem .7rem;border-radius:8px;cursor:pointer;font-size:1rem;transition:background .2s}
+.theme-toggle:hover{background:var(--border)}
+#app-views{position:relative;min-height:calc(100vh - 60px)}
+.view{display:none;animation:viewIn .35s ease}.view.active{display:block}
+@keyframes viewIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+#view-index{padding:2rem 1.5rem 3rem;max-width:900px;margin:0 auto}
+.hero{text-align:center;margin-bottom:2rem}.hero h2{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.hero h2 span{color:var(--green)}.hero p{color:#8b92a0;margin-top:.5rem;font-size:1rem}
+body.light .hero p{color:#6e6e73}
+.note-box{background:rgba(52,152,219,.08);border:1px solid var(--blue);border-radius:12px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.85rem;color:#b0b7c4}
+body.light .note-box{background:#e8f0fe;color:#1d1d1f}
+.note-box strong{color:var(--blue)}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1.25rem 0}
+.cat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.25rem;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.cat-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%}
+.cat-card[data-cat="red"]::before{background:var(--red)}
+.cat-card[data-cat="yellow"]::before{background:var(--yellow)}
+.cat-card[data-cat="green"]::before{background:var(--green)}
+.cat-card[data-cat="orange"]::before{background:var(--orange)}
+.cat-card[data-cat="blue"]::before{background:var(--blue)}
+.cat-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.3);border-color:#5a5f6e}
+.cat-card .cat-icon{font-size:1.5rem;margin-bottom:.3rem}
+.cat-card h3{font-size:.95rem;margin-bottom:.3rem}.cat-card p{font-size:.82rem;color:#8b92a0}
+body.light .cat-card p{color:#6e6e73}
+.glossary-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.25rem;cursor:pointer;transition:all .25s;text-align:center}
+.glossary-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.index-checklist{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;margin:1rem 0}
+.index-checklist h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:#8b92a0;margin-bottom:.6rem}
+.index-checklist label{display:flex;align-items:center;gap:.5rem;font-size:.85rem;margin-bottom:.3rem;cursor:pointer}
+.index-checklist input[type="checkbox"]{accent-color:var(--green)}
+.index-checklist label.checked{color:var(--green);text-decoration:line-through;opacity:.7}
+.view-category{padding:1.25rem 1.5rem 3rem;max-width:900px;margin:0 auto}
+.back-btn{display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .8rem;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:inherit;font-size:.85rem;cursor:pointer;transition:background .2s;margin-bottom:1.25rem}
+.back-btn:hover{background:var(--border)}
+.view-category h2{font-size:1.4rem;margin-bottom:.75rem;line-height:1.3}
+.view-category h3{font-size:1.05rem;margin:1.25rem 0 .5rem;color:#c8cdd8}
+body.light .view-category h3{color:#1d1d1f}
+.view-category h4{font-size:.95rem;margin:.75rem 0 .3rem;color:#b0b7c4}
+body.light .view-category h4{color:#515154}
+.view-category p,.view-category li{font-size:.9rem;color:#b0b7c4;line-height:1.6}
+body.light .view-category p,body.light .view-category li{color:#515154}
+.view-category ul,.view-category ol{padding-left:1.5rem;margin:.5rem 0}
+.view-category li{margin-bottom:.25rem}
+.view-category strong{color:inherit}
+.view-category em{color:#8b92a0}.view-category blockquote,.view-category blockquote.warn,.view-category blockquote.tip{border-left:3px solid var(--blue);padding:.75rem 1rem;margin:.75rem 0;background:rgba(52,152,219,.08);border-radius:0 8px 8px 0;font-size:.88rem}
+.view-category blockquote.warn{border-left-color:var(--red);background:rgba(231,76,60,.08)}
+.view-category blockquote.tip{border-left-color:var(--green);background:rgba(46,204,113,.08)}
+.photo-placeholder{background:#0f1117;border:2px dashed var(--border);border-radius:8px;padding:2rem 1rem;text-align:center;color:#5a5f6e;font-size:.85rem;margin:.75rem 0;cursor:pointer;transition:all .2s}
+body.light .photo-placeholder{background:#f5f5f7}.photo-placeholder:hover{border-color:#5a5f6e;color:#8b92a0}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.75rem;font-weight:700}
+.badge.red{background:rgba(231,76,60,.2);color:var(--red)}.badge.yellow{background:rgba(241,196,15,.2);color:var(--yellow)}
+.badge.green{background:rgba(46,204,113,.2);color:var(--green)}.badge.orange{background:rgba(230,126,34,.2);color:var(--orange)}
+.badge.blue{background:rgba(52,152,219,.2);color:var(--blue)}
+code{background:rgba(255,255,255,.06);padding:.1rem .35rem;border-radius:4px;font-size:.85em}
+.glossary-view{padding:1.25rem 1.5rem 3rem;max-width:700px;margin:0 auto}
+.glossary-view h2{font-size:1.3rem;margin-bottom:1rem}
+.glossary-view dl{display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.2rem;font-size:.9rem}
+.glossary-view dt{font-weight:700;color:var(--blue)}.glossary-view dd{color:#b0b7c4}
+body.light .glossary-view dd{color:#515154}
+.doc-info{margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border)}
+.doc-info dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1rem;font-size:.85rem}
+.doc-info dt{font-weight:600;color:#8b92a0}body.light .doc-info dt{color:#6e6e73}
+.doc-info dd{color:#b0b7c4}body.light .doc-info dd{color:#515154}
+.edit-toggle-btn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;padding:.7rem 1.2rem;border:1px solid var(--border);border-radius:12px;background:var(--bg-card);color:inherit;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.4);display:flex;align-items:center;gap:.4rem}
+.edit-toggle-btn:hover{border-color:#5a5f6e}
+.edit-toggle-btn.active{background:var(--orange);color:#0f1117;border-color:var(--orange)}
+.bont-editing{outline:2px dashed var(--orange)!important;outline-offset:2px!important;cursor:crosshair!important}
+.bont-editing:hover{outline:2px solid var(--orange)!important}
+.bont-modal-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;animation:viewIn .15s ease}
+.bont-modal{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;width:90%;max-width:440px;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.bont-modal h4{margin-bottom:.5rem;font-size:.9rem;color:#b0b7c4}
+body.light .bont-modal h4{color:#6e6e73}
+.bont-modal .bont-target-label{font-size:.8rem;color:var(--orange);margin-bottom:.75rem;word-break:break-word}
+.bont-modal textarea{width:100%;padding:.6rem;border:1px solid var(--border);border-radius:8px;background:#0f1117;color:inherit;font-size:.9rem;resize:vertical;min-height:70px;font-family:inherit;outline:none}
+body.light .bont-modal textarea{background:#f5f5f7}
+.bont-modal textarea:focus{border-color:var(--orange)}
+.bont-modal .bont-modal-actions{display:flex;gap:.5rem;margin-top:.75rem;justify-content:flex-end}
+.bont-modal .bont-modal-actions button{padding:.4rem 1rem;border:1px solid var(--border);border-radius:8px;background:transparent;color:inherit;font-size:.85rem;cursor:pointer;transition:background .2s}
+.bont-modal .bont-modal-actions button:hover{background:var(--border)}
+.bont-modal .bont-modal-actions button.primary{background:var(--orange);color:#0f1117;border-color:var(--orange);font-weight:600}
+.bont-modal .bont-modal-actions button.primary:hover{opacity:.9}
+.bont-note{position:absolute;z-index:5000;background:rgba(230,126,34,.18);border:1px solid var(--orange);border-radius:6px;padding:.3rem .5rem;font-size:.75rem;color:var(--orange);pointer-events:none;backdrop-filter:blur(4px);max-width:240px;line-height:1.3}
+.bont-note::before{content:'📝 '}
+.bont-note .bont-note-close{position:absolute;top:-6px;right:-6px;width:16px;height:16px;border-radius:50%;background:var(--red);color:#fff;font-size:10px;line-height:16px;text-align:center;cursor:pointer;pointer-events:auto;border:none;padding:0}
+footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;font-size:.8rem;color:#5a5f6e}
+footer strong{color:#8b92a0}
+@media(max-width:600px){.hero h2{font-size:1.3rem}.cat-grid{grid-template-columns:1fr}header h1{font-size:.9rem}.header-mid{max-width:100%}#view-index{padding:1.5rem 1rem}.view-category,.glossary-view{padding:1rem}}
+</style></head>
+<body>
+<header>
+  <h1 id="logoHome">🛡️ Guerrero <span>BONT</span></h1>
+  <div class="header-mid">
+    <span class="breadcrumb" id="breadcrumb">📋 <span>Índice</span></span>
+    <input type="text" id="searchInput" placeholder="Buscar en el manual…">
+  </div>
+  <div class="header-right">
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+  </div>
+</header>
+<div id="app-views">
+<div class="view active" id="view-index">
+  <div class="hero">
+    <h2>🛡️ MANUAL DEL "GUERRERO BONT" – DHL TIEL</h2>
+    <p>Logística de Clase Mundial: De Operario a Maestro del Proceso</p>
+  </div>
+
+  <div class="note-box">
+    <strong>📌 PARA SUPERVISORES:</strong> Este documento es una propuesta técnica basada en la operativa real. Las secciones con <code>[PENDIENTE DE CONFIRMAR]</code> requieren validación oficial para la versión final 1.0.
+  </div>
+
+  <div class="index-checklist" id="indexChecklist">
+    <h4>🏹 ¿Listo para el Combate? (Checklist de Inicio)</h4>
+    <p style="font-size:.85rem;color:#8b92a0;margin-bottom:.6rem;"><em>Antes de empezar el turno, asegúrate de tener tu equipo completo:</em></p>
+    <label><input type="checkbox" data-key="scanner"> <strong>Escáner</strong>: ¿Tiene batería suficiente?</label>
+    <label><input type="checkbox" data-key="printer"> <strong>Impresora</strong>: ¿Es el mismo número que tu escáner (ej: BNT09)?</label>
+    <label><input type="checkbox" data-key="supplies"> <strong>Suministros</strong>: ¿Tienes un rollo de repuesto y un bolígrafo para anotar LPNs?</label>
+  </div>
+
+  <h3 style="font-size:1.05rem;margin-bottom:.75rem;color:#c8cdd8;">📋 ÍNDICE DE DECISIONES RÁPIDAS</h3>
+  <p style="font-size:.9rem;color:#8b92a0;margin-bottom:1rem;">Identifica tu situación y ve a la categoría correspondiente:</p>
+
+  <div class="cat-grid">
+    <div class="cat-card" data-cat="red">
+      <div class="cat-icon">🔴</div>
+      <h3>CATEGORÍA ROJA</h3>
+      <p>Problemas Físicos de Carga — Cajas mal apiladas, flechas ignoradas, altura excesiva, producto sobresale del RCG, tuberías sobre cajas, krats mal orientados.</p>
+    </div>
+    <div class="cat-card" data-cat="yellow">
+      <div class="cat-icon">🟡</div>
+      <h3>CATEGORÍA AMARILLA</h3>
+      <p>Errores del escáner y sistema — "SSCC number is wrong or missing" <code>[PENDIENTE DE CONFIRMAR]</code>, "No inventory found", "Inventory identifier is invalid" <code>[PENDIENTE DE CONFIRMAR]</code>, escáner no reacciona.</p>
+    </div>
+    <div class="cat-card" data-cat="green">
+      <div class="cat-icon">🟢</div>
+      <h3>CATEGORÍA VERDE</h3>
+      <p>Smart Scanner, impresora y etiquetas — Ingreso de productos ("NOT FOUND", "ANOTHER POSITION"), fallo de impresora, LPN, contenedor cerrado sin stickers.</p>
+    </div>
+    <div class="cat-card" data-cat="orange">
+      <div class="cat-icon">🟠</div>
+      <h3>CATEGORÍA NARANJA</h3>
+      <p>Emergencias y errores humanos — Derrame de pintura, confusión de contenedor, escanear sin colocar, producto mal ubicado.</p>
+    </div>
+    <div class="cat-card" data-cat="blue">
+      <div class="cat-icon">🔵</div>
+      <h3>CATEGORÍA AZUL</h3>
+      <p>Buenas prácticas — Nivel Leyenda — Verificar pantalla, hablar con compañero, limpieza de combate, ayudar a nuevos.</p>
+    </div>
+    <div class="glossary-card" id="gotoGlossary">
+      <div class="cat-icon">📋</div>
+      <h3>GLOSARIO DE APOYO</h3>
+      <p style="font-size:.82rem;color:#8b92a0;margin-top:.3rem;">RCG / Pallet · LPN · SSCC · Blue Yonder · Smart Scanner</p>
+    </div>
+  </div>
+</div>
+<div class="view view-category" id="view-red">
+  <button class="back-btn" data-view="index">← Volver al ÍNDICE DE DECISIONES RÁPIDAS</button>
+
+  <h2>🔴 CATEGORÍA ROJA – Misión: Despacho Impecable</h2>
+  <p><em>"Calidad antes que Velocidad (pero con ritmo de campeón)"</em></p>
+
+  <p>Cargar un RCG o Pallet es como jugar al <strong>Tetris en la vida real</strong>. Aquí no hay botón de "reiniciar", así que cada pieza debe ir en su lugar para asegurar que el cliente reciba su producto perfecto. ¡Demuestra que eres un experto!</p>
+
+  <h3>🏆 EL SALÓN DE LA FAMA (Lo que SÍ se hace)</h3>
+  <p><em>Aquí es donde demostramos nuestro orgullo profesional. El objetivo es un bloque sólido y seguro.</em></p>
+  <ul>
+    <li><strong>El Maestro del Tetris</strong>: Un RCG con cajas perfectamente encajadas, sin huecos peligrosos.</li>
+    <li><strong>El Pallet de Krats de Élite</strong>: Krats alineados, estables y con etiquetas hacia fuera.</li>
+    <li><strong>Armado Mixto Inteligente</strong>: Base pesada abajo, tuberías protegidas a los lados y cajas ligeras arriba.</li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Galería de Éxito: Varios RCG y Pallets bien armados con diferentes productos]</div>
+
+  <h3>⚠️ EVITA EL DESASTRE (Lo que NO se hace)</h3>
+  <p><em>Si BONT se queja, es por estas razones. ¡No les des el gusto!</em></p>
+
+  <h4>🚫 El "Fuera de Juego" (Producto sobresaliendo)</h4>
+  <ul>
+    <li><strong>El Problema:</strong> El producto queda fuera del perímetro metálico del RCG.</li>
+    <li><strong>Consecuencia:</strong> En el camión, los contenedores chocan y <strong>destruyen</strong> lo que sobresale.</li>
+    <li><strong>Solución:</strong> Si no cabe plano, busca otra posición o usa otro RCG. <strong>Nada sale de la jaula.</strong></li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Producto sobresaliendo (MAL) vs Todo dentro (BIEN)]</div>
+
+  <h4>📏 El "Rascacielos Inestable" (Exceso de altura)</h4>
+  <ul>
+    <li><strong>La Regla:</strong> Máximo <strong>2,3 metros</strong>.</li>
+    <li><strong>El Riesgo:</strong> Un RCG demasiado alto se vuelve un peligro para ti y para el transporte. ¡Mantén el límite!</li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: RCG superando la altura permitida]</div>
+
+  <h4>⬆️ La Rebelión de las Flechas (Ignorar la orientación)</h4>
+  <ul>
+    <li><strong>Por qué importa:</strong> Si el fabricante puso flechas, es porque el producto es frágil o lleva líquido.</li>
+    <li><strong>El Compromiso:</strong> Respetar la flecha es asegurar que el cliente reciba un producto sano, no un derrame. <strong>La flecha siempre mira al cielo.</strong></li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Flechas hacia abajo (MAL) vs Flechas hacia arriba (BIEN)]</div>
+
+  <h4>🎩 El Efecto "Sombrero" (Pesado sobre ligero)</h4>
+  <ul>
+    <li><strong>Síntoma:</strong> Cajas grandes o pesadas sobre cajas pequeñas y frágiles.</li>
+    <li><strong>Resultado:</strong> Aplastamiento garantizado. Recuerda: <strong>Lo grande y pesado siempre es la base.</strong></li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Caja pesada aplastando una pequeña]</div>
+
+  <h4>🔧 Tuberías sobre cajas</h4>
+  <ul>
+    <li><strong>Problema:</strong> Tuberías apoyadas sobre cajas de cartón.</li>
+    <li><strong>Solución:</strong> Las tuberías siempre al fondo o lateral del RCG, nunca sobre cajas.</li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Tubería encima de cajas (MAL) vs Tubería al lado (BIEN)]</div>
+</div>
+<div class="view view-category" id="view-yellow">
+  <button class="back-btn" data-view="index">← Volver al ÍNDICE DE DECISIONES RÁPIDAS</button>
+
+  <h2>🟡 CATEGORÍA AMARILLA – El Laberinto de Blue Yonder</h2>
+
+  <h3>🔍 Manual del Detective: Protocolo Inventory DSP</h3>
+  <p><em>Uso: Para resolver el montón de productos que has ido apartando en el suelo durante el turno.</em></p>
+  <ol>
+    <li>Pulsa los tres puntos <code>(...)</code> → selecciona <strong>TOOLS</strong>.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Menú de tres puntos y opción TOOLS]</div>
+    </li>
+    <li>Elige la opción <strong>INVENTORY DSP</strong>.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Pantalla de selección de INVENTORY DSP]</div>
+    </li>
+    <li>Escanea el código del producto.</li>
+    <li><strong>⚠️ EL TRUCO PRO:</strong> Presiona la <strong>FLECHA ABAJO 8 VECES</strong> seguidas hasta que aparezca la información que buscamos.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Resultado final tras presionar 8 veces la flecha]</div>
+    </li>
+  </ol>
+
+  <h3>📝 ¿Cómo leer los resultados?</h3>
+  <ul>
+    <li><strong>rolpalbc</strong>: Producto en RCG o Pallet <strong>ABIERTO</strong>. Debes buscar el número de contenedor manualmente (uno por uno) y depositarlo ahí <strong>SIN ESCANEAR</strong>.</li>
+    <li><strong>PND-A</strong>: Producto <strong>LISTO PARA ESCANEAR HOY</strong> (Abre un RCG/Pallet nuevo o busca el suyo).</li>
+    <li><strong>PND-P</strong>: RCG o Pallet <strong>CERRADO</strong>. Busca el número de contenedor manualmente y deposítalo allí <strong>SIN ESCANEAR</strong>.</li>
+    <li><strong>T3-STGE</strong>: Ya en línea de camiones. Busca el número manualmente y llévalo directo al <strong>Área de Carguío (GC)</strong>.</li>
+  </ul>
+
+  <h3>❌ ERROR: "Inventory identifier is invalid" <span class="badge orange">PENDIENTE DE CONFIRMAR</span></h3>
+  <ul>
+    <li><strong>Qué significa:</strong> El paquete no ha sido ingresado ni por Blue Yonder ni por Smart Scanner, o tiene un error grave.</li>
+    <li><strong>Acción:</strong> Llévalo directamente a los <strong>Teamleaders</strong> o al <strong>Troubleshooter</strong>.</li>
+  </ul>
+
+  <h3>⚡ ESCÁNER NO REACCIONA (no lee el código, pantalla congelada)</h3>
+  <ul>
+    <li><strong>Causas:</strong> distancia incorrecta, código sucio/roto, batería baja.</li>
+    <li><strong>Solución paso a paso:</strong>
+      <ol>
+        <li>Ajustar distancia y limpiar etiqueta.</li>
+        <li>Si persiste, <strong>APARTAR</strong> producto.</li>
+        <li>En baja carga, introducir SSCC manualmente.</li>
+        <li>Si roto, informar a Teamleaders.</li>
+      </ol>
+    </li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Escáner distancia incorrecta / Etiqueta sucia / Introducción manual]</div>
+</div>
+<div class="view view-category" id="view-green">
+  <button class="back-btn" data-view="index">← Volver al ÍNDICE DE DECISIONES RÁPIDAS</button>
+
+  <h2>🟢 CATEGORÍA VERDE – El Maestro de la Smart Scanner</h2>
+
+  <h3>📦 1. INGRESO DE PRODUCTOS (Protocolos Inbound / Surplus)</h3>
+
+  <p><strong>PASO 1: Método INBOUND</strong></p>
+  <ol>
+    <li>Escanear código inferior y elegir tipo (KRT, COL, etc.).
+      <div class="photo-placeholder">📸 [SCREENSHOT: Pantalla principal Inbound / Selección de tipo]</div>
+    </li>
+    <li><strong>¿Dice "NOT FOUND"?</strong> <span class="badge orange">PENDIENTE DE CONFIRMAR</span> → Pasa al PASO 2.</li>
+  </ol>
+
+  <p><strong>PASO 2: Método SURPLUS</strong></p>
+  <ol>
+    <li>Cambiar a modo SURPLUS. Escanear código de abajo + código de arriba (Cliente).
+      <div class="photo-placeholder">📸 [SCREENSHOT: Pantalla modo SURPLUS con los dos códigos escaneados]</div>
+    </li>
+    <li><strong>¿Dice "ANOTHER POSITION"?</strong> <span class="badge orange">PENDIENTE DE CONFIRMAR</span> → El sistema quiere volver al PASO 1 para este producto.</li>
+  </ol>
+
+  <h3>🖨️ 2. GESTIÓN DE ETIQUETAS E IMPRESORA (LPN y cierre)</h3>
+
+  <p><strong>PROTOCOLO A: Recuperar LPN (Para SEGUIR cargando)</strong></p>
+  <blockquote class="warn"><strong>⚠️ IMPORTANTE:</strong> Este procedimiento SOLO funciona si tienes un <strong>producto ya escaneado</strong> (estás en la pantalla que te pide escanear el LPN de destino). Si llegas con las manos vacías a un contenedor sin LPN, acude a los Teamleaders.</blockquote>
+  <ol>
+    <li>En <strong>Blue Yonder</strong>: Pulsa los tres puntos <code>(...)</code> -> selecciona <code>CHANGE POSITION</code>.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Menú Change Position en Blue Yonder]</div>
+    </li>
+    <li>Pulsa una vez la <strong>flecha hacia abajo</strong>. El código LPN aparecerá en tu pantalla.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Código LPN visible tras flecha abajo]</div>
+    </li>
+    <li><strong>⚠️ TRUCO DE SUPERVIVENCIA:</strong> Anota el código en un <strong>PAPEL</strong> (no se puede copiar/pegar directamente a Smart Scanner).</li>
+    <li>Abre <strong>Smart Scanner</strong> → entra en <code>PRINTING</code> → selecciona tu impresora.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Pantalla de selección de impresora BNT XX]</div>
+    </li>
+    <li>Elige la opción <strong>LPN PRINTING</strong> e introduce el código manualmente.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Pantalla LPN PRINTING con código introducido]</div>
+    </li>
+  </ol>
+
+  <p><strong>PROTOCOLO B: Cerrar RCG o Pallet (Sin LPN físico)</strong></p>
+  <ol>
+    <li>Obtén el LPN en Blue Yonder (pasos de Protocolo A).</li>
+    <li>Ve a la pantalla de cierre al hacer <strong>DONE</strong> y pega el código LPN.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Pantalla de cierre DONE con campo LPN completado]</div>
+    </li>
+  </ol>
+
+  <p><strong>PROTOCOLO C: RCG o Pallet YA CERRADO (Sin ningún sticker)</strong></p>
+  <ol>
+    <li>Smart Scanner → <code>PRINTING</code> → Elige <strong>SSCC INTERGAMMA</strong>.
+      <div class="photo-placeholder">📸 [SCREENSHOT: Opción SSCC INTERGAMMA seleccionada]</div>
+    </li>
+    <li>Imprime <strong>2</strong> copias.</li>
+    <li><strong>📌 IMPORTANTE:</strong> Pega un sticker en la parte frontal y el otro junto al LPN original en la parte trasera. <strong>En pallet de krats, coloca el sticker entre los krats para que quede presionado y no se caiga.</strong>
+      <div class="photo-placeholder">📸 [FOTO: Sticker colocado entre krats]</div>
+    </li>
+  </ol>
+
+  <h3>🛠️ Problemas de Impresora</h3>
+  <ul>
+    <li><strong>¿No salen los 2 stickers al hacer "DONE"?</strong> → Reinicia la impresora.</li>
+    <li><strong>¿La impresión sale con manchas o partes blancas?</strong> → Abre la tapa y <strong>limpia bien el cabezal</strong> de impresión.</li>
+    <li><strong>¿Luz Roja en la impresora?</strong> → Falta de papel o batería.</li>
+  </ul>
+</div>
+<div class="view view-category" id="view-orange">
+  <button class="back-btn" data-view="index">← Volver al ÍNDICE DE DECISIONES RÁPIDAS</button>
+
+  <h2>🟠 CATEGORÍA NARANJA – Emergencias y Errores Humanos</h2>
+
+  <h3>🎨 Derrame de Pintura (¡Misión Crítica!)</h3>
+  <ol>
+    <li><strong>¡EL FLUJO NO SE DETIENE!</strong>: Sigue trabajando mientras gestionas la limpieza.</li>
+    <li><strong>Kit de Emergencia (Arena)</strong>: Ve directo al punto de suministros.
+      <div class="photo-placeholder">📸 [FOTO: Punto de almacenamiento de Arena y Kit de Limpieza]</div>
+    </li>
+    <li><strong>Técnica de Limpieza</strong>: Limpia siempre <strong>de afuera hacia adentro</strong>.
+      <div class="photo-placeholder">📸 [FOTO: Ejemplo de limpieza correcta con arena]</div>
+    </li>
+    <li><strong>Aviso Inmediato</strong>: Informa a tu <strong>Teamleader</strong> o <strong>Troubleshooter</strong>.</li>
+  </ol>
+
+  <h3>❌ ERROR HUMANO FRECUENTE: CONFUSIÓN DE CONTENEDOR</h3>
+  <ul>
+    <li><strong>Síntoma:</strong> Escaneas el LPN de un contenedor que no corresponde al destino indicado; el sistema muestra error.</li>
+    <li><strong>Qué hacer:</strong>
+      <ol>
+        <li>No te quedes parado ni des marcha atrás sin más.</li>
+        <li>Verifica el número destino correcto en la pantalla.</li>
+        <li>Compara con el contenedor que escaneaste.</li>
+        <li>Reubica el producto en el contenedor correcto.</li>
+        <li>Si ya lo dejaste mal o ves patrón repetido, <strong>informa a Teamleaders</strong>.</li>
+      </ol>
+    </li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Pantalla de error de LPN / Comparación de dos contenedores]</div>
+
+  <h3>❌ MAL HÁBITO: ESCANEAR UN PRODUCTO SIN COLOCARLO</h3>
+  <ul>
+    <li><strong>¿Qué ocurre?</strong> Escaneas un producto pero no lo colocas (ej. porque el RCG está lleno). El sistema registra el producto como "colocado" en alguna ubicación fantasma. Más tarde, otro operario escanea el mismo producto (que sigue apartado) y el sistema da error.</li>
+    <li><strong>Prevención:</strong> <strong>NUNCA</strong> escanees un producto que no vas a colocar en ese momento. Si el contenedor está lleno, primero ciérralo, repón vacío, luego escanea.</li>
+    <li><strong>Si ya ocurrió:</strong> Intenta colocar el producto si hay espacio; si no lo hay, informa a Teamleaders.</li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Producto escaneado y dejado aparte junto a RCG lleno]</div>
+
+  <h3>👀 ENCUENTRAS UN PRODUCTO MAL UBICADO</h3>
+  <ol>
+    <li>Escanea para ver destino. Si se puede escanear, colócalo donde indique.</li>
+    <li>Si no, usa <strong>INVENTORY DSP</strong> (puede estar en contenedor vecino).</li>
+    <li>Si está en suelo, consulta inventory dsp.</li>
+    <li>Si ves patrón repetido, informa a Teamleaders.</li>
+  </ol>
+  <div class="photo-placeholder">📸 [FOTO: Producto mal ubicado / Producto en suelo siendo escaneado]</div>
+</div>
+<div class="view view-category" id="view-blue">
+  <button class="back-btn" data-view="index">← Volver al ÍNDICE DE DECISIONES RÁPIDAS</button>
+
+  <h2>🔵 CATEGORÍA AZUL – Buenas Prácticas (Nivel Leyenda)</h2>
+
+  <h3>👁️ Ojos en la Pantalla: "La Trampa del Experto"</h3>
+  <ul>
+    <li><strong>La Solución</strong>: <strong>Verifica tu pantalla en CADA escaneo</strong>. Un segundo de revisión evita minutos de errores.</li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Operario verificando pantalla tras escaneo]</div>
+
+  <h3>🤝 Trabajo en Equipo: "Evita la Doble Locación"</h3>
+  <ul>
+    <li><strong>La Regla de Oro</strong>: Si estás ayudando en una línea, <strong>HABLA con tu colega antes de abrir una locación nueva</strong>. La comunicación es tu mejor herramienta.</li>
+  </ul>
+
+  <h3>🧹 Limpieza de Combate (Orden y Disciplina)</h3>
+  <ul>
+    <li><strong>Suelo despejado</strong>: Recoge plásticos y basura del piso. Un puesto limpio es un puesto seguro.</li>
+  </ul>
+  <div class="photo-placeholder">📸 [FOTO: Ejemplo de zona de trabajo limpia y ordenada]</div>
+
+  <h3>🆘 Ayuda a los Nuevos (Comparte el conocimiento)</h3>
+  <ul>
+    <li>Si ves que un compañero con menos experiencia comete un error, <strong>enséñale con respeto</strong>. Todos hemos sido nuevos alguna vez. Un equipo fuerte no deja a nadie atrás.</li>
+  </ul>
+</div>
+
+<div class="view glossary-view" id="view-glossary">
+  <button class="back-btn" data-view="index">← Volver al ÍNDICE DE DECISIONES RÁPIDAS</button>
+  <h2>📋 0. GLOSARIO DE APOYO</h2>
+  <dl>
+    <dt><strong>RCG / Pallet</strong></dt><dd>Tus barcos de carga.</dd>
+    <dt><strong>LPN</strong></dt><dd>El DNI de tu RCG o Pallet.</dd>
+    <dt><strong>SSCC</strong></dt><dd>Código de la caja.</dd>
+    <dt><strong>Blue Yonder</strong></dt><dd>Tu brújula principal.</dd>
+    <dt><strong>Smart Scanner</strong></dt><dd>Tu caja de herramientas.</dd>
+  </dl>
+
+  <h3 style="font-size:1rem;margin-top:1.5rem;">📞 CONTACTO Y ZONAS</h3>
+  <ul style="list-style:none;padding:0;">
+    <li><strong>Teamleaders</strong>: Tus capitanes.</li>
+    <li><strong>Troubleshooter</strong>: Tu soporte técnico.</li>
+    <li><strong>Zona No Resueltos</strong>: <div class="photo-placeholder">📸 [FOTO: Ubicación física de la Zona de No Resueltos]</div></li>
+    <li><strong>Zona Otro Día</strong>: <div class="photo-placeholder">📸 [FOTO: Ubicación física de la Zona de Otro Día]</div></li>
+  </ul>
+
+  <div class="doc-info">
+    <h3 style="font-size:1rem;">🛡️ CONTROL DE DOCUMENTO</h3>
+    <dl>
+      <dt><strong>Versión</strong></dt><dd>2.0 (Borrador Técnico corregido)</dd>
+      <dt><strong>Autor</strong></dt><dd>Boris Orlando Antequera Vargas - Operador BONT</dd>
+      <dt><strong>Fecha</strong></dt><dd>Mayo 2026</dd>
+      <dt><strong>Ubicación</strong></dt><dd>DHL Tiel - Sección BONT</dd>
+    </dl>
+  </div>
+</div>
+</div>
+
+<button class="edit-toggle-btn" id="editToggleBtn">🔧 Modo Edición</button>
+<footer>🛡️ Guerrero <strong>BONT</strong> — DHL Tiel · Mayo 2026</footer>
+
+<script>
+(function(){
+  let editActive = false;
+  function showView(id) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    const t = document.getElementById('view-'+id);
+    if(t) t.classList.add('active');
+    const bc = document.getElementById('breadcrumb');
+    const names={index:'Índice',red:'🔴 Roja',yellow:'🟡 Amarilla',green:'🟢 Verde',orange:'🟠 Naranja',blue:'🔵 Azul',glossary:'📋 Glosario'};
+    bc.innerHTML = id==='index' ? '📋 <span>Índice</span>' : '📋 <span>Índice</span> › '+(names[id]||id);
+    if(editActive) applyEditingClass();
+  }
+  function applyEditingClass() {
+    document.querySelectorAll('.view.active h1,.view.active h2,.view.active h3,.view.active h4,.view.active p,.view.active li,.view.active blockquote,.view.active .photo-placeholder,.view.active .cat-card,.view.active .glossary-card,.view.active .back-btn,.view.active strong,.view.active em,.view.active code,.view.active ul,.view.active ol,.view.active dl,.view.active dt,.view.active dd').forEach(el=>el.classList.add('bont-editing'));
+  }
+  document.getElementById('logoHome').addEventListener('click',()=>showView('index'));
+  document.querySelectorAll('.cat-card').forEach(c=>c.addEventListener('click',()=>showView(c.dataset.cat)));
+  document.getElementById('gotoGlossary').addEventListener('click',()=>showView('glossary'));
+  document.addEventListener('click',e=>{const b=e.target.closest('.back-btn');if(b&&b.dataset.view)showView(b.dataset.view)});
+
+  document.querySelectorAll('#indexChecklist input').forEach(cb=>{
+    const k='bont-cl-'+cb.dataset.key;
+    if(localStorage.getItem(k)==='true'){cb.checked=true;cb.parentElement.classList.add('checked')}
+    cb.addEventListener('change',()=>{localStorage.setItem(k,cb.checked);cb.parentElement.classList.toggle('checked',cb.checked)});
+  });
+
+  document.getElementById('searchInput').addEventListener('input',function(){
+    const q=this.value.toLowerCase().trim();
+    if(!q){showView('index');return}
+    document.querySelectorAll('.view').forEach(v=>v.classList.add('active'));
+    document.querySelectorAll('.view-category,.glossary-view').forEach(v=>{v.style.display=v.textContent.toLowerCase().includes(q)?'block':'none'});
+    document.getElementById('view-index').style.display='none';
+  });
+
+  const tt=document.getElementById('themeToggle');
+  let dark=localStorage.getItem('bont-theme')!=='light';
+  if(!dark)document.body.classList.add('light');
+  tt.textContent=dark?'🌙':'☀️';
+  tt.addEventListener('click',()=>{dark=!dark;document.body.classList.toggle('light',!dark);tt.textContent=dark?'🌙':'☀️';localStorage.setItem('bont-theme',dark?'dark':'light')});
+
+  const eb=document.getElementById('editToggleBtn');
+  let overlay=null;
+  eb.addEventListener('click',e=>{
+    e.stopPropagation();
+    editActive=!editActive;
+    eb.classList.toggle('active',editActive);
+    eb.textContent=editActive?'🔧 Editando… (click en elemento)':'🔧 Modo Edición';
+    if(editActive)applyEditingClass();
+    else document.querySelectorAll('.bont-editing').forEach(el=>el.classList.remove('bont-editing'));
+  });
+  document.addEventListener('click',function(e){
+    if(!editActive)return;
+    if(e.target.closest('.bont-modal-overlay')||e.target.closest('.bont-note')||e.target===eb)return;
+    const el=e.target;
+    if(!el.classList.contains('bont-editing'))return;
+    e.preventDefault();e.stopPropagation();
+    showModal(el);
+    editActive=false;eb.classList.remove('active');eb.textContent='🔧 Modo Edición';
+    document.querySelectorAll('.bont-editing').forEach(el=>el.classList.remove('bont-editing'));
+  });
+  function showModal(target){
+    if(overlay)return;
+    const tag=target.tagName.toLowerCase();
+    const preview=(target.textContent||'').trim().slice(0,50);
+    overlay=document.createElement('div');
+    overlay.className='bont-modal-overlay';
+    overlay.innerHTML='<div class="bont-modal"><h4>✏️ Instrucción de cambio</h4><div class="bont-target-label"><'+tag+'>'+(preview?' "'+preview+'"':'')+'</div><textarea id="bontNoteInput" placeholder="Ej: Haz este texto más grande..."></textarea><div class="bont-modal-actions"><button id="bontModalCancel">Cancelar</button><button class="primary" id="bontModalSave">📝 Anotar</button></div></div>';
+    document.body.appendChild(overlay);
+    const input=overlay.querySelector('#bontNoteInput');
+    setTimeout(()=>input.focus(),100);
+    overlay.querySelector('#bontModalCancel').addEventListener('click',closeModal);
+    overlay.querySelector('#bontModalSave').addEventListener('click',()=>{const t=input.value.trim();if(t)addNote(target,t);closeModal()});
+    input.addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();overlay.querySelector('#bontModalSave').click()}if(e.key==='Escape')closeModal()});
+    overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal()});
+  }
+  function closeModal(){if(overlay){overlay.remove();overlay=null}}
+  function addNote(target,text){
+    const pos=getComputedStyle(target).position;
+    if(pos==='static')target.style.position='relative';
+    const note=document.createElement('div');
+    note.className='bont-note';
+    note.textContent=text;
+    const close=document.createElement('button');
+    close.className='bont-note-close';
+    close.textContent='✕';
+    close.addEventListener('click',e=>{e.stopPropagation();note.remove()});
+    note.prepend(close);
+    note.style.top='4px';note.style.right='4px';
+    target.appendChild(note);
+  }
+})();
+</script>
+
+<!-- Invisible visitor counter (Page Views API) -->
+<script src="https://page-views-api.ratneshc.com/script" data-site="bont-webapp" data-path="/" defer></script>
+</body>
+</html>

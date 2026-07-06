@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<title>HET "BONT KRIJGER" HANDBOEK – DHL Tiel (v0.1)</title>
+<style>
+
+  @page {
+    size: A4;
+    margin: 12mm 14mm 16mm 14mm;
+    @bottom-center {
+      content: "BONT Krijger Handboek – v0.1 (Niet-officieel concept) – Pág. " counter(page);
+      font-size: 7.5pt;
+      color: #888;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 8.5pt; line-height: 1.35; color: #1a1a1a; }
+  .page-break { page-break-before: always; }
+
+  /* title page */
+  .title-page {
+    text-align: center;
+    padding-top: 60px;
+    page-break-after: always;
+  }
+  .title-page .shield { font-size: 60pt; margin-bottom: 8px; }
+  .title-page h1 {
+    font-size: 24pt; color: #c00; margin-bottom: 6px;
+    letter-spacing: 1px; line-height: 1.15;
+  }
+  .title-page h2 { font-size: 12pt; color: #444; font-weight: normal; margin-bottom: 8px; }
+  .title-page .tagline { font-size: 10pt; color: #666; margin-bottom: 30px; font-style: italic; }
+  .title-page .badge {
+    display: inline-block; background: #c00; color: #fff;
+    padding: 6px 24px; font-size: 10pt; font-weight: bold;
+    border-radius: 4px; margin-bottom: 30px; letter-spacing: 1px;
+  }
+  .title-page .author { font-size: 9pt; color: #555; margin-top: 20px; }
+  .title-page .role { font-size: 8.5pt; color: #888; margin-top: 3px; }
+  .title-page .quote { font-style: italic; color: #888; margin-top: 35px; font-size: 9pt; }
+  .title-page .footer-info { margin-top: 40px; font-size: 8pt; color: #aaa; line-height: 1.6; }
+  .title-divider { width: 60%; margin: 16px auto; border: none; border-top: 1.5px solid #ddd; }
+  .title-divider.thick { border-top: 3px solid #c00; width: 40%; }
+
+  /* headings */
+  h2 {
+    font-size: 11pt; color: #c00;
+    border-bottom: 1.5px solid #c00; padding-bottom: 2px;
+    margin-top: 10px; margin-bottom: 4px;
+    page-break-after: avoid;
+  }
+  h3 { font-size: 9.5pt; color: #333; margin-top: 7px; margin-bottom: 3px; page-break-after: avoid; }
+  h4 { font-size: 9pt; color: #555; margin-top: 5px; margin-bottom: 2px; }
+
+  /* tables */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 4px 0 6px 0; font-size: 7.5pt;
+    page-break-inside: avoid;
+  }
+  th { background: #c00; color: #fff; padding: 2px 5px; text-align: left; font-weight: 600; }
+  td { padding: 2px 5px; border: 1px solid #ccc; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+
+  /* lists */
+  ul, ol { margin: 3px 0 5px 18px; }
+  li { margin-bottom: 1px; }
+  .checklist-item { margin: 1px 0; font-size: 8pt; }
+
+  /* code */
+  pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 3px; padding: 5px 8px; font-size: 7.5pt; overflow-x: auto; white-space: pre-wrap; }
+  code { background: #f4f4f4; padding: 1px 3px; border-radius: 2px; font-size: 7.5pt; font-family: "Courier New", monospace; }
+
+  /* section colors */
+  .section-red { border-left: 3px solid #c62828; padding-left: 8px; margin-top: 6px; }
+  .section-yellow { border-left: 3px solid #f57f17; padding-left: 8px; margin-top: 6px; }
+  .section-green { border-left: 3px solid #2e7d32; padding-left: 8px; margin-top: 6px; }
+  .section-orange { border-left: 3px solid #bf360c; padding-left: 8px; margin-top: 6px; }
+  .section-blue { border-left: 3px solid #1565c0; padding-left: 8px; margin-top: 6px; }
+  .section-purple { border-left: 3px solid #7b1fa2; padding-left: 8px; margin-top: 6px; }
+
+  hr { border: none; border-top: 1px solid #ddd; margin: 8px 0; }
+
+  blockquote {
+    background: #f9f9f9; border-left: 3px solid #ccc;
+    padding: 4px 10px; margin: 4px 0; font-style: italic; color: #555; font-size: 8pt;
+  }
+
+  @media print {
+    body { font-size: 8pt; }
+    h2, h3, h4 { page-break-after: avoid; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="title-page">
+  <div class="shield">🛡️</div>
+  <hr class="title-divider thick">
+  <h1>HET<br>"BONT KRIJGER" HANDBOEK</h1>
+  <h2>DHL TIEL</h2>
+  <hr class="title-divider">
+  <div class="tagline">Wereldklasse Logistiek: Van Operator tot Processmeester</div>
+  <div class="badge">VERSIE 0.1 — PERSOONLIJK CONCEPT</div>
+  <div class="author"><strong>Boris Orlando Antequera Vargas</strong></div>
+  <div class="role">BONT-Operator met interesse in ontwikkeling en procesoptimalisatie</div>
+  <div class="quote">"Gedeelde kennis is vermenigvuldigde efficiëntie."</div>
+  <div class="footer-info">
+    Mei 2026 — DHL Tiel, BONT Sectie<br>
+    <span class="lock">🔒 Persoonlijk gebruik. Niet officieel. Niet verspreid door DHL.</span>
+  <hr class="title-divider" style="margin-top:24px;">
+  <div style="text-align:center;margin-top:10px;">
+    <strong style="font-size:8pt;color:#c00;">📱 WEBAPP PROTOTYPE</strong><br>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABm0lEQVRYhdWYMbKDMAxExVBQ5ggchZvFHI2j+AiUKTxWdlfO//PzJ3WECwbzKJC9WsmYfRzFOWx+4NZmr5tPetITkLs+cPLHjfPHepSp8VFyMrtXRuKHIar1sKnhpf0KhPEcpdviVyJmy7ntfeZOXIKEdtpymnlbqr2r6oskspGEXy1d/8nTnOR3bDsuIP+dLh9hPJWXc2NUlVGd4pkJFA0Vh18jJ1dtQaV2MhNk48lp+DWewUluldFkJojBVrnHYT0q5FDQ98kdzsaKDVfmutdQN1Y/NSltkQfDQzzUMg2FpCbcBTkfE5POx2xUPJmJ4rGIh9pBrYGuS26Ccauly6+xF8rD0E5mUlTLGY+xszN10XTtBOQu31APtNNPRp+/W3ICV2YGwvm8wfO0+FRIaiLnQ0/HDp8KUSHfdJrKS2Jw/TFjrUEkLIa5SVG5xi4oKuTh6PAtNYnePzKUZ0CcvdVt9AzkddJ7+VsoJLIxO2lDKqPP1x+M/IRd5x5cknHLTaSdSR7S497P0Y/mJT/ZqH8X7Ef9PU8Tko/jCW3HS58ToGJFAAAAAElFTkSuQmCC" alt="QR App" style="width:100px;height:100px;margin:6px 0;border:1px solid #ddd;border-radius:4px;"><br>
+    <a href="https://sacharunaaa-max.github.io/Bont/" style="font-size:7.5pt;color:#1565c0;word-break:break-all;">https://sacharunaaa-max.github.io/Bont/</a>
+  </div>
+  </div>
+</div>
+
+<h3>⚠️ VERKLARING VAN VERANTWOORDELIJKHEID — LEES MIJ EERST</h3>
+<p><strong>Versie 0.1 — Persoonlijke werkconcept / Niet officieel</strong></p>
+<p>*Mei 2026*</p>
+<p>Dit document is een **persoonlijk en privaat hulpmiddel**, volledig gecreëerd op basis van mijn eigen dagelijkse ervaring als werknemer bij DHL Tiel, sectie BONT. Het enige doel is om mijn interne processen te optimaliseren en als persoonlijke ondersteuningsgids te dienen om de te volgen stappen tijdens mijn werkdag paraat te hebben.</p>
+<p><strong>⚠️ BELANGRIJK — DIT IS GEEN OFFICIEEL DOCUMENT</strong></p>
+<ul>
+<li>❌ **Geen** officieel document van DHL.</li>
+<li>❌ **Niet** beoordeeld, goedgekeurd of onderschreven door het bedrijf, haar leidinggevenden, teamleaders, of enige afdeling van DHL Supply Chain of DHL Global.</li>
+<li>❌ **Niet** bedoeld om de officieel door het bedrijf vastgestelde protocollen, trainingshandleidingen, standaard operationele procedures (SOP's), of de geldende veiligheidsinstructies bij DHL Tiel te vervangen, wijzigen of te vervangen.</li>
+</ul>
+<p><strong>✅ Wat het WEL is:</strong></p>
+<ul>
+<li>✅ Een persoonlijk compendium van in de dagelijkse praktijk geleerde werkwijzen.</li>
+<li>✅ Een snelle naslaggids voor **individueel gebruik** onder mijn eigen verantwoordelijkheid.</li>
+<li>✅ Een eigen verbetervoorstel dat ik deel met wie het wil gebruiken, **altijd onder eigen oordeel en verantwoordelijkheid**.</li>
+</ul>
+<p><strong>🛡️ GEBRUIKSVOORWAARDEN</strong></p>
+<ul>
+<li>Iedereen die dit document gebruikt, doet dat **op eigen verantwoordelijkheid**. Ik, Boris Orlando Antequera Vargas, ben niet aansprakelijk voor fouten, weglatingen, beslissingen genomen op basis van dit document, noch voor gevolgen voortvloeiend uit het gebruik ervan.</li>
+<li>De codes, foutmeldingen, procedures, nomenclaturen, schermafbeeldingen, afbeeldingen, video's en alle andere hierin gerefereerde inhoud **zijn niet gevalideerd of geautoriseerd door DHL**. Hun opname in dit concept is voorlopig en onder voorbehoud van verificatie en officiële goedkeuring alvorens enig uitgebreid gebruik te overwegen.</li>
+<li>**Dit document mag onder geen enkele omstandigheid worden gepresenteerd als officieel DHL-materiaal.**</li>
+<li>Indien DHL dit verlangt, wordt dit document onmiddellijk ingetrokken of aangepast.</li>
+</ul>
+<p><strong>📸 OVER FOTO'S, VIDEO'S EN SCHERMAFBEELDEN:</strong></p>
+<p>Alle visuele verwijzingen in dit document (foto's, video's, screenshots) zijn gemarkeerd als `[IN AFWACHTING VAN GOEDKEURING]`. Er worden geen echte afbeeldingen van personen, apparatuur, faciliteiten, of van het Blue Yonder-systeem opgenomen totdat uitdrukkelijke schriftelijke toestemming is verkregen van de bevoegde autoriteiten bij DHL Tiel, in overeenstemming met het privacy-, veiligheids- en vertrouwelijkheidsbeleid van het bedrijf. De huidige visuele verwijzingen zijn **conceptuele plaatsaanduidingen**.</p>
+<p><strong>📄 VERSIEBEHEER — CONCEPT</strong></p>
+<table>
+<thead><tr>
+<th>Versie</th>
+<th>Status</th>
+<th>Datum</th>
+<th>Beschrijving</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>🔧 Persoonlijk concept</td>
+<td>Mei 2026</td>
+<td>Eerste volledige versie. Alle inhoud is voorlopig. Foto's, codes en procedures [IN AFWACHTING VAN OFFICIËLE VALIDATIE]. Niet gevalideerd door DHL.</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>🎯 Doelstelling</td>
+<td>—</td>
+<td>Versie met officieel gevalideerde en goedgekeurde foto's, video's en codes (indien van toepassing).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>"Gedeelde kennis is vermenigvuldigde efficiëntie."</p>
+<p>*— Boris Orlando Antequera Vargas*</p>
+<hr>
+<h2>🌟 DE GOUDEN REGEL (Je dagelijkse mantra)</h2>
+<blockquote>Gaat er iets mis? Geen paniek.</blockquote>
+<ol>
+<li>**ZET** het afwijkende product aan de kant (opzij, zonder de stroom te blokkeren).</li>
+<li>**GA** verder met het volgende (de stroom is heilig).</li>
+<li>**CONTROLEER** het apart gezette wanneer het ritme daalt (op momenten van lage belasting).</li>
+</ol>
+<hr>
+<h2>🏹 STARTCHECKLIST (Voor de dienst)</h2>
+<p class="checklist-item">☐ **Scanner:** Voldoende batterij? Scherm schoon?</p>
+<p class="checklist-item">☐ **Printer:** Komt het nummer van je printer overeen met dat van de scanner (bijv. BNT09)? Papier geplaatst?</p>
+<p class="checklist-item">☐ **Benodigdheden:** Reserve rollen? Pen om LPN te noteren?</p>
+<hr>
+<h2>📚 SNELWOORDENLIJST (voor nieuwkomers)</h2>
+<blockquote>⚠️ *Noot: De volgende termen, codes en nomenclaturen worden gebruikt in de dagelijkse operationele praktijk bij BONT. Hun definitie hier is voorlopig en [IN AFWACHTING VAN OFFICIËLE VALIDATIE DOOR DHL] om te bevestigen dat ze exact overeenkomen met de bedrijfsterminologie.*</blockquote>
+<table>
+<thead><tr>
+<th>Term</th>
+<th>Betekenis</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**RCG**</td>
+<td>Rolcontainer (kooi) waarin losse pakketten worden geplaatst. [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**Pallet**</td>
+<td>Houten platform voor krats of zware stukken. [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**LPN**</td>
+<td>Streepjescode die elke RCG/pallet identificeert (zijn "identiteitsbewijs"). [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**SSCC**</td>
+<td>Streepjescode van elk product (doos, stuk). [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**Blue Yonder**</td>
+<td>Het WMS-systeem (het hoofdscherm dat je ziet). [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**Smart Scanner**</td>
+<td>Applicatie voor het invoeren van niet-geregistreerde producten of het opnieuw printen van labels. [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**Krat**</td>
+<td>Uniforme plastic bak (stapelbaar). [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**Troubleshooter**</td>
+<td>Technische ondersteuning (Martin op de controlepost). [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**Teamleader**</td>
+<td>Directe leidinggevende. [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🧭 STROOMDIAGRAM – Wat doe ik eerst?</h2>
+<p>*(Volg deze visuele boom. Als je een stap niet begrijpt, ga dan naar de aangegeven categorie.)*</p>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Dit stroomdiagram is een persoonlijke gids gebaseerd op operationele ervaring. Het vervangt de officiële beslissingsprotocollen van DHL niet.]*</blockquote>
+<pre><code>
+    🔍 KIJK WAT ER GEBEURT     │     ┌─────────────────────┼─────────────────────┐     │                     │                     │     ▼                     ▼                     ▼  FYSIEK PROBLEEM?    SCHERMMELDING?        PRINTERPROBLEEM?  (verkeerd geplaatste  (scanner piept en      (print niet,   dozen, hoogte,        geeft tekst of         labelfout, enz.)   leidingen…)           foutmelding)     │                     │                     │     ▼                     ▼                     ▼  [CAT. ROOD]          [CAT. GEEL]          [CAT. GROEN – deel 2]     │     ▼  Staat er "NOT FOUND"  of "INVALID IDENTIFIER"?     │     ┌───────────────────────────────┴───────────────────────────────┐     ▼                                                               ▼  Gebruik Smart Scanner Inventory DSP  (CAT. GROEN – deel 1)          (CAT. GEEL)    ─────────────────────────────────────────────────────────────────────  • Bij een lekkage of containerverwarring → CAT. ORANJE  • Voor goede werkwijzen → CAT. BLAUW</code></pre>
+<hr>
+<h2>📋 CATEGORIEËNOVERZICHT (voor snelle raadpleging)</h2>
+<table>
+<thead><tr>
+<th>Categorie</th>
+<th>Kleur</th>
+<th>Wat vind je hier?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**ROOD**</td>
+<td>🔴</td>
+<td>Fysieke laadproblemen (stapelen, pijlen, hoogte, uitstekende RCG, leidingen, krats)</td>
+</tr>
+<tr>
+<td>**GEEL**</td>
+<td>🟡</td>
+<td>Scanner- en systeemfouten (meldingen "No inventory found", scanner reageert niet, Inventory DSP)</td>
+</tr>
+<tr>
+<td>**GROEN (deel 1)**</td>
+<td>🟢</td>
+<td>Productinvoer met Smart Scanner (INBOUND/SURPLUS)</td>
+</tr>
+<tr>
+<td>**GROEN (deel 2)**</td>
+<td>🟢</td>
+<td>Beheer van LPN-labels, printerproblemen, afsluiten en herprinten</td>
+</tr>
+<tr>
+<td>**ORANJE**</td>
+<td>🟠</td>
+<td>Noodgevallen (lekkages), menselijke fouten (containerverwarring, scannen zonder te plaatsen)</td>
+</tr>
+<tr>
+<td>**BLAUW**</td>
+<td>🔵</td>
+<td>Goede werkwijzen (scherm controleren, teamwerk, schoonmaak, nieuwkomers helpen)</td>
+</tr>
+<tr>
+<td>**PAARS**</td>
+<td>🟣</td>
+<td>Zakcodes (persoonlijke QR, location, equipment, dagdienstcode)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 class="section-red">🔴 CATEGORIE ROOD – Fysieke laadproblemen</h2>
+<blockquote>*"Kwaliteit boven snelheid (maar met een kampioenenritme)"*</blockquote>
+<blockquote></blockquote>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier beschreven laadcriteria zijn gebaseerd op dagelijkse operationele ervaring. Ze vervangen de officiële kwaliteits- en veiligheidsnormen van DHL of de instructies van de teamleaders niet.]*</blockquote>
+<p>Een RCG of pallet laden is als Tetris spelen in het echt. Elk stuk moet op zijn plaats zodat de klant zijn product perfect ontvangt.</p>
+<h3>🏆 Wat WEL mag (Hall of Fame)</h3>
+<ul>
+<li>**De Tetris Meester:** RCG met ingepaste dozen, zonder gevaarlijke gaten.</li>
+<li>**Elite Krats-Pallet:** Krats uitgelijnd, labels naar buiten.</li>
+<li>**Slim gemengd stapelen:** Zware basis onderaan, leidingen beschermd aan de zijkanten, lichte dozen bovenop.</li>
+</ul>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Diverse goed gestapelde RCG's en pallets]**</blockquote>
+<blockquote>*Noot: Toestemming van DHL is vereist om foto's te maken en te publiceren binnen de faciliteiten.*</blockquote>
+<h3>❌ Wat NIET mag (Voorkom de ramp)</h3>
+<table>
+<thead><tr>
+<th>Fout</th>
+<th>Beschrijving</th>
+<th>Oplossing</th>
+<th>Status</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>🚫 Product steekt uit RCG</td>
+<td>Buiten de metalen omtrek.</td>
+<td>Herplaatsen binnen de RCG. Past het niet, gebruik dan een andere RCG.</td>
+<td>In afwachting van officiële validatie</td>
+</tr>
+<tr>
+<td>📏 Hoogte > 2,3 m</td>
+<td>Kantel- of schaderisico.</td>
+<td>Visueel meten. Herverdelen.</td>
+<td>In afwachting van officiële validatie</td>
+</tr>
+<tr>
+<td>⬆️ Pijlen genegeerd</td>
+<td>Doos met pijl naar beneden of opzij.</td>
+<td>Draaien tot pijl omhoog wijst. Geen pijl = breekbaar.</td>
+<td>In afwachting van officiële validatie</td>
+</tr>
+<tr>
+<td>🎩 Hoed-effect</td>
+<td>Grote doos op kleine doos.</td>
+<td>Basis ≥ bovenste doos; zwaar onderaan.</td>
+<td>In afwachting van officiële validatie</td>
+</tr>
+<tr>
+<td>🔧 Leidingen op dozen</td>
+<td>Leidingen steunen op karton.</td>
+<td>Altijd achterin of tegen de zijkant van de RCG.</td>
+<td>In afwachting van officiële validatie</td>
+</tr>
+<tr>
+<td>📋 Krats met labels naar binnen</td>
+<td>Codes verborgen.</td>
+<td>Stickers zichtbaar naar buiten.</td>
+<td>In afwachting van officiële validatie</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Goed/fout voorbeeld per fout]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Hoed-effect (voorbeeld van wat NIET te doen)]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Leidingen correct geplaatst aan de zijkant van de RCG]**</blockquote>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Hoe een gemengde RCG correct opbouwen (stap voor stap)]**</blockquote>
+<hr>
+<h2 class="section-yellow">🟡 CATEGORIE GEEL – Scanner- en systeemfouten</h2>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier beschreven foutmeldingen, systeemcodes en procedures zijn gebaseerd op persoonlijke operationele ervaring en kunnen afwijken van de officiële documentatie van Blue Yonder of DHL. Raadpleeg bij twijfel je teamleader of troubleshooter.]*</blockquote>
+<h3>📋 Tabel met veelvoorkomende meldingen en acties</h3>
+<table>
+<thead><tr>
+<th>Schermmelding</th>
+<th>Wat betekent het?</th>
+<th>Actie</th>
+<th>Status</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"No inventory found"</td>
+<td>Het product heeft geen locatie in het systeem.</td>
+<td>Gebruik INVENTORY DSP (zie hieronder).</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>"SSCC number is wrong or missing"</td>
+<td>De gescande code is ongeldig of ontbreekt.</td>
+<td>→ Ga naar CATEGORIE GROEN (deel 1) – Methode INBOUND/SURPLUS.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>"Pallet position contains a different pallet number"</td>
+<td>Je hebt de verkeerde RCG/pallet gescand.</td>
+<td>Herplaats het product in de juiste container. (Containerverwarring – ook CAT. ORANJE).</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>"Inventory identifier is invalid"</td>
+<td>**🚨 [IN AFWACHTING — Ernstige fout, niet in systeem ingevoerd. Officiële validatie is vereist om de exacte betekenis en de juiste bedrijfsprocedure te bepalen.]**</td>
+<td>Breng product naar Teamleaders of Troubleshooter.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>Scanner reageert niet (bevroren scherm)</td>
+<td>Afstand, vuil label of lege batterij.</td>
+<td>Pas afstand aan, maak schoon, als het aanhoudt product apart zetten en handmatig proberen.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Demonstratie van elke foutmelding op het scherm en hoe deze op te lossen]**</blockquote>
+<h3>🔍 INVENTORY DSP Protocol (voor het oplossen van apart gezette producten)</h3>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De INVENTORY DSP-procedure, menunamen, sneltoetsen (zoals "pijltje omlaag 8 keer"), en de interpretatie van hier beschreven codes zijn empirische bevindingen uit de dagelijkse praktijk. Ze zijn niet bevestigd als de officiële methodologie van DHL of Blue Yonder.]*</blockquote>
+<ol>
+<li>In Blue Yonder → drie puntjes (...) → **TOOLS** → **INVENTORY DSP**.</li>
+<li>Scan het product.</li>
+<li>**PRO TRUC:** Druk 8 keer op pijltje omlaag om alle info te zien.</li>
+<li>Interpreteer de codes:</li>
+</ol>
+<table>
+<thead><tr>
+<th>INVENTORY DSP Code</th>
+<th>Betekenis</th>
+<th>Actie</th>
+<th>Status</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**rolpalbc**</td>
+<td>OPEN container. Zoek nummer en deponeer ZONDER TE SCANNEN.</td>
+<td>Zoek de container en plaats het product zonder de scanner te gebruiken.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>**PND-A**</td>
+<td>Product KLAAR voor vandaag. Open een nieuwe RCG/pallet of zoek de zijne.</td>
+<td>Open een nieuwe container of zoek degene die er al aan is toegewezen.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>**PND-P**</td>
+<td>GESLOTEN RCG of pallet. Zoek nummer en deponeer ZONDER TE SCANNEN.</td>
+<td>Zoek de gesloten container en plaats het product.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>**T3-STGE**</td>
+<td>Al bij de vrachtwagenlijn. Breng het naar het laadgebied (GC).</td>
+<td>Breng het product naar het laadgebied (GC).</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: INVENTORY DSP-scherm met zichtbare resultaten]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: Menu TOOLS in Blue Yonder]**</blockquote>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Volledige INVENTORY DSP-walkthrough stap voor stap]**</blockquote>
+<h3>⚡ Scanner reageert niet – stap-voor-stap oplossing</h3>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Procedure gebaseerd op persoonlijke ervaring. DHL kan een ander technisch ondersteuningsprotocol hebben.]*</blockquote>
+<ol>
+<li>Pas afstand aan en maak het label schoon.</li>
+<li>Als het niet werkt, **ZET** het product **APART**.</li>
+<li>Wanneer de belasting daalt, voer de **SSCC handmatig in** (deze staat gedrukt).</li>
+<li>Als het nog steeds niet werkt of de code is beschadigd, meld dit aan **Teamleaders**.</li>
+</ol>
+<hr>
+<h2 class="section-green">🟢 CATEGORIE GROEN – Smart Scanner, labels en printer</h2>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De Smart Scanner-procedures, INBOUND/SURPLUS-methoden, en de hier beschreven labelprotocollen zijn gebaseerd op de dagelijkse operationele praktijk. Ze zijn niet gevalideerd als officiële procedures door DHL of door de beheerders van het Blue Yonder-systeem.]*</blockquote>
+<h3>📦 DEEL 1: Productinvoer (INBOUND / SURPLUS)</h3>
+<p>Gebruik **Smart Scanner** wanneer de normale scanner "NOT FOUND" of "SSCC number is wrong or missing" zegt.</p>
+<p>#### INBOUND-methode</p>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Codes zoals KRT, COL en hun gebruik in INBOUND zijn voorlopig.]*</blockquote>
+<ol>
+<li>Scan onderste code (SSCC).</li>
+<li>Kies type (KRT, COL…).</li>
+<li>Zegt het **"NOT FOUND"**, ga dan naar SURPLUS.</li>
+</ol>
+<p>#### SURPLUS-methode</p>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier beschreven stroom INBOUND → SURPLUS → INBOUND is een empirische bevinding.]*</blockquote>
+<ol>
+<li>Schakel over naar **SURPLUS**-modus.</li>
+<li>Scan onderste code + bovenste code (klant).</li>
+<li>Zegt het **"ANOTHER POSITION"**, ga dan terug naar INBOUND.</li>
+</ol>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: Smart Scanner-scherm in INBOUND-modus]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: Smart Scanner-scherm in SURPLUS-modus]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: Melding "ANOTHER POSITION"]**</blockquote>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Volledige stroom INBOUND → SURPLUS → INBOUND]**</blockquote>
+<h3>🖨️ DEEL 2: Beheer van LPN-labels, printer en afsluiting</h3>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De labelprotocollen A, B en C, inclusief het gebruik van CHANGE POSITION en SSCC INTERGAMMA, zijn empirische oplossingen ontwikkeld in de dagelijkse praktijk. Het is niet bevestigd dat dit de officiële methoden zijn of dat ze zijn goedgekeurd door de systeembeheerders.]*</blockquote>
+<p>#### PROTOCOL A – LPN herstellen om verder te laden</p>
+<p>⚠️ **Werkt alleen als je een product hebt gescand** (scherm vraagt om LPN-bestemming).</p>
+<ol>
+<li>Blue Yonder → drie puntjes → **CHANGE POSITION**.</li>
+<li>Pijltje omlaag → LPN verschijnt.</li>
+<li>**Noteer het op papier** (kan niet worden gekopieerd naar Smart Scanner).</li>
+<li>Smart Scanner → **PRINTING** → selecteer je printer → **LPN PRINTING** → voer code handmatig in.</li>
+</ol>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: Menu CHANGE POSITION in Blue Yonder]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: LPN zichtbaar in CHANGE POSITION]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: Smart Scanner LPN PRINTING]**</blockquote>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: LPN herstellen stap voor stap (Protocol A)]**</blockquote>
+<p>#### PROTOCOL B – RCG/pallet sluiten zonder fysieke LPN</p>
+<ol>
+<li>Verkrijg LPN via CHANGE POSITION (protocol A).</li>
+<li>Ga naar **DONE** en plak de LPN-code.</li>
+</ol>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — SCREENSHOT: DONE-scherm met geplakte LPN]**</blockquote>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Afsluiten van RCG/pallet zonder fysieke LPN]**</blockquote>
+<p>#### PROTOCOL C – Reeds gesloten RCG/pallet zonder sluitstickers</p>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Het gebruik van "SSCC INTERGAMMA" en het plaatsen van stickers tussen krats zijn praktische oplossingen. Het is niet bevestigd dat ze voldoen aan de officiële labelnormen van DHL.]*</blockquote>
+<ol>
+<li>Smart Scanner → **PRINTING** → kies **SSCC INTERGAMMA**.</li>
+<li>Print **2 exemplaren**.</li>
+<li>Plak:</li>
+</ol>
+<p>   - **Voorzijde** + **naast de originele LPN**.</p>
+<p>   - Bij een pallet met krats, plaats de sticker **tussen de krats** zodat hij niet loslaat.</p>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Sticker tussen krats (voorbeeld van plaatsing)]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Sticker voorzijde + naast de originele LPN]**</blockquote>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Hoe sluitstickers printen en plaatsen (Protocol C)]**</blockquote>
+<h3>🛠️ Printerproblemen</h3>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De printeroplossingen zijn generiek en gebaseerd op ervaring. DHL kan specifieke technische ondersteuningsprocedures hebben voor haar apparatuur.]*</blockquote>
+<table>
+<thead><tr>
+<th>Probleem</th>
+<th>Oplossing</th>
+<th>Status</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Er komen geen stickers uit bij DONE</td>
+<td>Printer resetten.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>Vlekken of witte delen</td>
+<td>Printkop reinigen.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>Rood lampje</td>
+<td>Geen papier of batterij leeg.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Printkop en hoe deze te reinigen]**</blockquote>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Basis printeronderhoud]**</blockquote>
+<hr>
+<h2 class="section-orange">🟠 CATEGORIE ORANJE – Noodgevallen en menselijke fouten</h2>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier beschreven noodprocedures, omgang met lekkages en oplossing van menselijke fouten zijn gebaseerd op operationele ervaring en kunnen afwijken van de officiële veiligheids- en milieuprotocollen van DHL. Volg bij een echte noodsituatie altijd de officiële bedrijfsprotocollen en de instructies van de veiligheidsverantwoordelijken.]*</blockquote>
+<h3>🎨 Verf- of vloeistoflekkage (Kritieke missie)</h3>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De noodkit, de locatie ervan, het type zand en de reinigingsprocedure moeten worden gevalideerd tegen de officiële DHL-protocollen voor het omgaan met lekkages. Ga er niet van uit dat deze procedure de officiële is.]*</blockquote>
+<ol>
+<li>**De stroom stopt NIET** – blijf werken terwijl je het regelt.</li>
+<li>Ga naar de **noodkit (zand)** en strooi het over de lekkage.</li>
+<li>Maak schoon **van buiten naar binnen**.</li>
+<li>Deponeer afval in **speciale containers**.</li>
+<li>Meld onmiddellijk aan **Teamleader of Troubleshooter**.</li>
+</ol>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Schoonmaakkit (locatie en inhoud)]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Onder controle gebrachte lekkage met zand]**</blockquote>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Speciale containers voor afval]**</blockquote>
+<blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Volledige procedure voor lekkagebestrijding]**</blockquote>
+<h3>❌ Containerverwarring (veelvoorkomende menselijke fout)</h3>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Deze fout en de oplossing zijn gebaseerd op ervaring. DHL kan een andere formele procedure hebben voor het corrigeren van toewijzingsfouten.]*</blockquote>
+<ul>
+<li>**Symptoom:** Je scant LPN van een RCG/pallet die niet overeenkomt met de bestemming.</li>
+<li>**Actie:** Controleer bestemming op het scherm, vergelijk nummers, herplaats product.</li>
+<li>Als het een herhaald patroon is, meld dit aan Teamleaders.</li>
+</ul>
+<h3>❌ Een product scannen zonder het te plaatsen (slechte gewoonte)</h3>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Het beschreven gevolg ("het systeem registreert het product als geplaatst") en de voorgestelde oplossing zijn theorieën gebaseerd op ervaring. Het exacte systeemgedrag moet worden gevalideerd tegen de officiële Blue Yonder-documentatie.]*</blockquote>
+<ul>
+<li>**Gevolg:** Het systeem registreert het product als "geplaatst" (maar dat is het niet). Later scant een andere operator hetzelfde product en krijgt een foutmelding.</li>
+<li>**Preventie:** Scan nooit zonder te plaatsen. Als de RCG vol is, sluit hem af, zet een lege neer, scan dan pas.</li>
+<li>**Als het gebeurd is:** Probeer te plaatsen; als er geen ruimte is, meld dit aan Teamleaders.</li>
+</ul>
+<h3>👀 Je vindt een verkeerd geplaatst product</h3>
+<ol>
+<li>Scan om de bestemming te zien.</li>
+<li>Plaats het indien mogelijk waar aangegeven.</li>
+<li>Zo niet, gebruik **INVENTORY DSP** (het kan in een naburige container staan).</li>
+<li>Staat het op de grond, raadpleeg dan INVENTORY DSP.</li>
+<li>Zie je een herhaald patroon, meld dit aan Teamleaders.</li>
+</ol>
+<hr>
+<h2 class="section-blue">🔵 CATEGORIE BLAUW – Goede werkwijzen (Legendary Level)</h2>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier genoemde goede werkwijzen zijn persoonlijke aanbevelingen op basis van ervaring. Ze vormen geen officieel DHL-beleid.]*</blockquote>
+<ul>
+<li>**Ogen op het scherm:** Controleer elke scan. Eén seconde voorkomt minuten aan fouten.</li>
+<li>**Teamwerk:** Als je op een andere lijn helpt, overleg dan eerst met de collega voordat je een nieuwe locatie opent.</li>
+<li>**Gevechtsschoonmaak:** Vloer vrij houden (plastic, afval opruimen). Een schone werkplek is veilig.</li>
+<li>**Help nieuwkomers:** Deel kennis met respect. We zijn allemaal beginner geweest.</li>
+</ul>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-purple">🟣 PAARSE CATEGORIE – Zakcodes</h2>
+<blockquote>*"Wanneer het systeem je eruit gooit, verspil dan geen tijd door naar het codegebied te lopen. Neem ze altijd mee."*</blockquote>
+<blockquote></blockquote>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier genoemde codes worden in de dagelijkse praktijk gebruikt. De exacte waarden, locaties en officiële nomenclatuur moeten door DHL worden gevalideerd voordat ze in zakkaarten of de app worden opgenomen.]*</blockquote>
+<h3>📋 Codes die iedere operator bij de hand zou moeten hebben</h3>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Waarvoor?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**Persoonlijke QR**</td>
+<td>Inloggen in Blue Yonder en Smart Scanner</td>
+</tr>
+<tr>
+<td>**📍 Location**</td>
+<td>Werkgebied (bijv. BNT09)</td>
+</tr>
+<tr>
+<td>**⚙️ Equipment**</td>
+<td>Identificeert je apparatuur (hand in BONT)</td>
+</tr>
+<tr>
+<td>**🔢 Dagdienstcode**</td>
+<td>Code van de werkdag</td>
+</tr>
+</tbody>
+</table>
+<p>Deze codes moeten worden opgenomen in de **zakkaarten** en in de **"BONT Krijger" app**, zodat je ze, wanneer het systeem je per ongeluk eruit gooit, vanaf je werkplek kunt scannen zonder naar het codegebied te hoeven lopen.</p>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Voorbeeld van persoonlijke QR, location, equipment en dagdienstcode]**</blockquote>
+<hr>
+<h2>❓ Veelgestelde vragen (FAQ)</h2>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De antwoorden op deze vragen zijn gebaseerd op persoonlijke operationele ervaring. Het officiële DHL-beleid en de procedures kunnen afwijken.]*</blockquote>
+<table>
+<thead><tr>
+<th>Vraag</th>
+<th>Antwoord</th>
+<th>Status</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Wat doe ik als de scanner geen verbinding maakt?</td>
+<td>Controleer de batterij. Werkt het niet, vraag dan een reserve aan de teamleader.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>Hoe vervang ik de batterij?</td>
+<td>Deze liggen bij de oplader in de rustruimte. Zet de scanner uit, vervang de batterij.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>Waar zijn de labelrollen?</td>
+<td>In het magazijn met benodigdheden (naast de controlepost).</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>Wie bel ik als niets werkt?</td>
+<td>Eerst Teamleader, daarna Troubleshooter (Martin).</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+<tr>
+<td>Kan een gesloten container zonder stickers worden verplaatst?</td>
+<td>Nee. Gebruik protocol C van de Groene categorie om de stickers opnieuw te printen.</td>
+<td>**[IN AFWACHTING VAN OFFICIËLE VALIDATIE]**</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>📞 CONTACTEN EN ZONES</h2>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De contactgegevens, namen, locaties van zones (Niet Opgelost, Andere Dag, controlepost) en hun aanduiding zijn operationele gegevens uit de dagelijkse praktijk die moeten worden geverifieerd met de officiële DHL-planning.]*</blockquote>
+<ul>
+<li>**Teamleaders:** Jouw aanvoerders (op de centrale post).</li>
+<li>**Troubleshooter (Martin):** Controlepost BONT.</li>
+<li>**Zone Niet Opgelost:** Plaats voor producten zonder label of met onleesbare code.</li>
+</ul>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Locatie van Zone Niet Opgelost]**</blockquote>
+<ul>
+<li>**Zone Andere Dag:** Pakketten waarvan de datum niet vandaag is.</li>
+</ul>
+<blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Locatie van Zone Andere Dag]**</blockquote>
+<hr>
+<h2>📚 VOLLEDIG SCENARIO (Praktijkvoorbeeld)</h2>
+<blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Dit scenario is illustratief. De stappen, codes en beslissingen kunnen variëren afhankelijk van de systeemconfiguratie en de officiële protocollen.]*</blockquote>
+<p>Er komt een product binnen, de scanner piept en zegt **"No inventory found"**. Je zet het product apart. Wanneer de belasting daalt, gebruik je **INVENTORY DSP** en zie je dat de code **PND-A** is. Dat betekent dat het voor vandaag is, dus je opent een nieuwe RCG en plaatst het product. Alles goed.</p>
+<hr>
+<h2>🛡️ DOCUMENTBEHEER</h2>
+<table>
+<thead><tr>
+<th>Veld</th>
+<th>Waarde</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**Versie**</td>
+<td>**0.1** — Persoonlijke werkconcept / Niet officieel</td>
+</tr>
+<tr>
+<td>**Status**</td>
+<td>🔧 Voorlopig. Alle inhoud [IN AFWACHTING VAN OFFICIËLE VALIDATIE]</td>
+</tr>
+<tr>
+<td>**Doelstelling v1.0**</td>
+<td>Versie met officieel door DHL gevalideerde en goedgekeurde foto's, video's, codes en procedures (indien van toepassing en als de benodigde toestemmingen worden verkregen)</td>
+</tr>
+<tr>
+<td>**Moederbestand**</td>
+<td>`manual-v0.1.md` (Spaans). Vertalingen: `-en`, `-nl`, `-pl`, `-ro`, `-bg`, `-ar`, `-fa`, `-uk`, `-pt`</td>
+</tr>
+<tr>
+<td>**Auteur**</td>
+<td>Boris Orlando Antequera Vargas – BONT-operator</td>
+</tr>
+<tr>
+<td>**Datum**</td>
+<td>Mei 2026</td>
+</tr>
+<tr>
+<td>**Locatie**</td>
+<td>DHL Tiel – Sectie BONT</td>
+</tr>
+<tr>
+<td>**Huidige rol**</td>
+<td>BONT-operator met interesse in procesontwikkeling en -optimalisatie</td>
+</tr>
+<tr>
+<td>**Eigenaar**</td>
+<td>Boris Orlando Antequera Vargas (persoonlijk document)</td>
+</tr>
+<tr>
+<td>**Classificatie**</td>
+<td>🔒 Persoonlijk gebruik. Niet officieel. Niet verspreid door DHL.</td>
+</tr>
+<tr>
+<td>**Beschikbare talen**</td>
+<td>🇪🇸 ES, 🇬🇧 EN, 🇳🇱 NL, 🇵🇱 PL, 🇷🇴 RO, 🇧🇬 BG, 🇸🇦 AR, 🇮🇷 FA, 🇺🇦 UK, 🇵🇹 PT</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🌍 MEERTALIGE VERSIE — Voor een internationaal team</h2>
+<p>Bij DHL Tiel werken mensen van vele nationaliteiten: Polen, Roemenen, Bulgaren, Oekraïners, Portugezen, Arabieren, Perzen, Engelsen, Nederlanders, en meer. Ieder verdient het om de processen in zijn eigen taal te begrijpen om veilig, snel en foutloos te werken.</p>
+<p>Daarom is dit moederdocument (het originele `.md`-bestand in het Spaans) vertaald in de volgende talen:</p>
+<table>
+<thead><tr>
+<th>Taal</th>
+<th>Bestand</th>
+<th>Status</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>🇪🇸 Spaans</td>
+<td>`manual-v0.1.md`</td>
+<td>Origineel</td>
+</tr>
+<tr>
+<td>🇬🇧 Engels</td>
+<td>`manual-v0.1-en.md`</td>
+<td>Vertaald</td>
+</tr>
+<tr>
+<td>🇳🇱 Nederlands</td>
+<td>`manual-v0.1-nl.md`</td>
+<td>Vertaald</td>
+</tr>
+<tr>
+<td>🇵🇱 Pools</td>
+<td>`manual-v0.1-pl.md`</td>
+<td>Vertaald</td>
+</tr>
+<tr>
+<td>🇷🇴 Roemeens</td>
+<td>`manual-v0.1-ro.md`</td>
+<td>Vertaald</td>
+</tr>
+<tr>
+<td>🇧🇬 Bulgaars</td>
+<td>`manual-v0.1-bg.md`</td>
+<td>Vertaald</td>
+</tr>
+<tr>
+<td>🇸🇦 Arabisch</td>
+<td>`manual-v0.1-ar.md`</td>
+<td>Vertaald</td>
+</tr>
+<tr>
+<td>🇮🇷 Perzisch</td>
+<td>`manual-v0.1-fa.md`</td>
+<td>Vertaald</td>
+</tr>
+<tr>
+<td>🇺🇦 Oekraïens</td>
+<td>`manual-v0.1-uk.md`</td>
+<td>Vertaald</td>
+</tr>
+<tr>
+<td>🇵🇹 Portugees</td>
+<td>`manual-v0.1-pt.md`</td>
+<td>Vertaald</td>
+</tr>
+</tbody>
+</table>
+<blockquote>⚠️ *Noot: Alle vertalingen behouden de volledige inhoud van het origineel. Technische termen (LPN, SSCC, RCG, Blue Yonder, Smart Scanner, INVENTORY DSP, etc.) worden in hun oorspronkelijke nomenclatuur gehandhaafd omdat het systeemtermen zijn. [IN AFWACHTING VAN OFFICIËLE VALIDATIE: De vertalingen zijn niet beoordeeld door DHL of door gecertificeerde moedertaalsprekers. Validatie wordt aanbevolen voor officieel gebruik.]*</blockquote>
+<p>Voor presentatie aan leidinggevenden of chefs wordt aangeraden de **Engelse** of **Nederlandse** versies te gebruiken, aangezien dit de managementtalen zijn bij DHL Tiel.</p>
+<hr>
+<h2>📱 VISIE: "BONT Krijger" Mobiele App</h2>
+<p>Deze handleiding is de conceptuele basis voor een **mobiele applicatie** waarmee:</p>
+<ul>
+<li>**Elke procedure in seconden raadplegen** vanaf de mobiele telefoon (zonder in papieren te zoeken)</li>
+<li>**Visuele navigatie per categorie** met het interactieve stroomdiagram</li>
+<li>**Geïntegreerde foto's en video's** (wanneer goedgekeurd) om echte voorbeelden te zien</li>
+<li>**Meertalig geïntegreerd** — de gebruiker kiest zijn taal en ziet de vertaalde inhoud</li>
+<li>**Snel zoeken** naar fouten, codes (SSCC, LPN, PND-A, etc.)</li>
+<li>**Digitale startchecklist** voor de dienst</li>
+<li>**Offline modus** — zonder internet, altijd beschikbaar in de werkplaats</li>
+</ul>
+<p>Een app kan veel uitgebreider en gedetailleerder zijn dan een gedrukt document: er kunnen demonstratievideo's, animaties, directe links naar elk protocol en realtime updates worden opgenomen.</p>
+<blockquote>⚠️ *[IN AFWACHTING VAN GOEDKEURING: De ontwikkeling van de app is onderworpen aan toestemming van DHL. Deze sectie is conceptueel.]*</blockquote>
+<hr>
+<h2>🃏 ZAKKAARTEN (Praktisch / Pocket Cards)</h2>
+<p>Naast de volledige handleiding en de toekomstige app bestaat het idee om **gelamineerde zakkaarten** te maken met de meest kritieke informatie om in het uniform te dragen:</p>
+<ul>
+<li>**Kant A:** De Gouden Regel + Samengevat stroomdiagram</li>
+<li>**Kant B:** Tabel met scannerfouten en snelle acties</li>
+<li>**Kant C:** INVENTORY DSP-codes (rolpalbc, PND-A, PND-P, T3-STGE)</li>
+<li>**Kant D:** Belangrijke contacten (Teamleaders, Troubleshooter) + zones</li>
+</ul>
+<p>Deze kaarten zijn aanvullend op de handleiding en de app; ze vervangen deze niet.</p>
+<blockquote>⚠️ *[IN AFWACHTING VAN GOEDKEURING: Ontwerp, definitieve inhoud en distributie van de kaarten vereisen toestemming van DHL.]*</blockquote>
+<hr>
+<h2>📜 EINDVERKLARING</h2>
+<p>Dit document is gemaakt met de beste bedoeling: **helpen**. Mezelf helpen de stappen te onthouden, de beginnende collega helpen zich niet verloren te voelen, het team helpen een snelle referentie te hebben. Het pretendeert geen bedrijfshandleiding te zijn of te concurreren met de officiële DHL-training.</p>
+<p>Als dit document iemand helpt zijn werk beter te doen, missie volbracht. Als DHL van mening is dat het moet worden ingetrokken, aangepast of bijgesteld, dan gebeurt dat zonder problemen.</p>
+<hr>
+<h2 class="section-commitment">💡 Mijn toewijding aan DHL</h2>
+<p>Deze handleiding komt voort uit een persoonlijke overtuiging: **kennis is niets waard als hij in het hoofd van één persoon blijft**. Delen is de enige manier waarop het hele team kan verbeteren.</p>
+<p>Mijn dagelijkse doel is eenvoudig:</p>
+<ul>
+<li>✅ **Leren van elke fout** om hem niet te herhalen.</li>
+<li>✅ **De naaste helpen** zonder dat iemand erom vraagt.</li>
+<li>✅ **De werkplek beter achterlaten** dan ik hem aantrof.</li>
+</ul>
+<p>Ik geloof in goed gedaan werk, in kwaliteit als fundament, in veiligheid als prioriteit, en in efficiëntie als gevolg van dingen doen zoals ze moeten. Ik wil dat het team draait, dat de kwaliteit omhoog gaat, dat nieuwkomers niet lijden wat ik leed toen ik begon. En als dat helpt om DHL Tiel tot een referentie te maken — des te beter.</p>
+<p>Deze handleiding is mijn steentje bijdragen. Als iemand het leest en iets leert, was het de moeite waard.</p>
+<blockquote>**"Gedeelde kennis is vermenigvuldigde efficiëntie."**</blockquote>
+<blockquote></blockquote>
+<blockquote>*— Boris Orlando Antequera Vargas — BONT-operator*</blockquote>
+<hr>
+<p>*Einde van het document — Versie 0.1 (Niet-officieel persoonlijk concept)*</p>
+
+
+</body>
+</html>

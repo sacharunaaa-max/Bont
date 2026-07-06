@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<title>EL MANUAL DEL "GUERRERO BONT" – DHL Tiel (v0.1)</title>
+<style>
+
+  @page {
+    size: A4;
+    margin: 12mm 14mm 16mm 14mm;
+    @bottom-center {
+      content: "Manual del Guerrero BONT – v0.1 (Borrador no oficial) – Pág. " counter(page);
+      font-size: 7.5pt;
+      color: #888;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 8.5pt; line-height: 1.35; color: #1a1a1a; }
+  .page-break { page-break-before: always; }
+
+  /* title page */
+  .title-page {
+    text-align: center;
+    padding-top: 60px;
+    page-break-after: always;
+  }
+  .title-page .shield { font-size: 60pt; margin-bottom: 8px; }
+  .title-page h1 {
+    font-size: 24pt; color: #c00; margin-bottom: 6px;
+    letter-spacing: 1px; line-height: 1.15;
+  }
+  .title-page h2 { font-size: 12pt; color: #444; font-weight: normal; margin-bottom: 8px; }
+  .title-page .tagline { font-size: 10pt; color: #666; margin-bottom: 30px; font-style: italic; }
+  .title-page .badge {
+    display: inline-block; background: #c00; color: #fff;
+    padding: 6px 24px; font-size: 10pt; font-weight: bold;
+    border-radius: 4px; margin-bottom: 30px; letter-spacing: 1px;
+  }
+  .title-page .author { font-size: 9pt; color: #555; margin-top: 20px; }
+  .title-page .role { font-size: 8.5pt; color: #888; margin-top: 3px; }
+  .title-page .quote { font-style: italic; color: #888; margin-top: 35px; font-size: 9pt; }
+  .title-page .footer-info { margin-top: 40px; font-size: 8pt; color: #aaa; line-height: 1.6; }
+  .title-divider { width: 60%; margin: 16px auto; border: none; border-top: 1.5px solid #ddd; }
+  .title-divider.thick { border-top: 3px solid #c00; width: 40%; }
+
+  /* headings */
+  h2 {
+    font-size: 11pt; color: #c00;
+    border-bottom: 1.5px solid #c00; padding-bottom: 2px;
+    margin-top: 10px; margin-bottom: 4px;
+    page-break-after: avoid;
+  }
+  h3 { font-size: 9.5pt; color: #333; margin-top: 7px; margin-bottom: 3px; page-break-after: avoid; }
+  h4 { font-size: 9pt; color: #555; margin-top: 5px; margin-bottom: 2px; }
+
+  /* tables */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 4px 0 6px 0; font-size: 7.5pt;
+    page-break-inside: avoid;
+  }
+  th { background: #c00; color: #fff; padding: 2px 5px; text-align: left; font-weight: 600; }
+  td { padding: 2px 5px; border: 1px solid #ccc; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+
+  /* lists */
+  ul, ol { margin: 3px 0 5px 18px; }
+  li { margin-bottom: 1px; }
+  .checklist-item { margin: 1px 0; font-size: 8pt; }
+
+  /* code */
+  pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 3px; padding: 5px 8px; font-size: 7.5pt; overflow-x: auto; white-space: pre-wrap; }
+  code { background: #f4f4f4; padding: 1px 3px; border-radius: 2px; font-size: 7.5pt; font-family: "Courier New", monospace; }
+
+  /* section colors */
+  .section-red { border-left: 3px solid #c62828; padding-left: 8px; margin-top: 6px; }
+  .section-yellow { border-left: 3px solid #f57f17; padding-left: 8px; margin-top: 6px; }
+  .section-green { border-left: 3px solid #2e7d32; padding-left: 8px; margin-top: 6px; }
+  .section-orange { border-left: 3px solid #bf360c; padding-left: 8px; margin-top: 6px; }
+  .section-blue { border-left: 3px solid #1565c0; padding-left: 8px; margin-top: 6px; }
+  .section-purple { border-left: 3px solid #7b1fa2; padding-left: 8px; margin-top: 6px; }
+
+  hr { border: none; border-top: 1px solid #ddd; margin: 8px 0; }
+
+  blockquote {
+    background: #f9f9f9; border-left: 3px solid #ccc;
+    padding: 4px 10px; margin: 4px 0; font-style: italic; color: #555; font-size: 8pt;
+  }
+
+  @media print {
+    body { font-size: 8pt; }
+    h2, h3, h4 { page-break-after: avoid; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="title-page">
+  <div class="shield">🛡️</div>
+  <hr class="title-divider thick">
+  <h1>EL MANUAL DEL<br>"GUERRERO BONT"</h1>
+  <h2>DHL TIEL</h2>
+  <hr class="title-divider">
+  <div class="tagline">Logística de Clase Mundial: De Operario a Maestro del Proceso</div>
+  <div class="badge">VERSIÓN 0.1 — BORRADOR PERSONAL</div>
+  <div class="author"><strong>Boris Orlando Antequera Vargas</strong></div>
+  <div class="role">Operador BONT con interés en desarrollo y optimización de procesos</div>
+  <div class="quote">"Conocimiento compartido es eficiencia multiplicada."</div>
+  <div class="footer-info">
+    Mayo 2026 — DHL Tiel, Sección BONT<br>
+    <span class="lock">🔒 Uso personal. No oficial. No distribuido por DHL.</span>
+  <hr class="title-divider" style="margin-top:24px;">
+  <div style="text-align:center;margin-top:10px;">
+    <strong style="font-size:8pt;color:#c00;">📱 PROTOTIPO WEBAPP</strong><br>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABm0lEQVRYhdWYMbKDMAxExVBQ5ggchZvFHI2j+AiUKTxWdlfO//PzJ3WECwbzKJC9WsmYfRzFOWx+4NZmr5tPetITkLs+cPLHjfPHepSp8VFyMrtXRuKHIar1sKnhpf0KhPEcpdviVyJmy7ntfeZOXIKEdtpymnlbqr2r6oskspGEXy1d/8nTnOR3bDsuIP+dLh9hPJWXc2NUlVGd4pkJFA0Vh18jJ1dtQaV2MhNk48lp+DWewUluldFkJojBVrnHYT0q5FDQ98kdzsaKDVfmutdQN1Y/NSltkQfDQzzUMg2FpCbcBTkfE5POx2xUPJmJ4rGIh9pBrYGuS26Ccauly6+xF8rD0E5mUlTLGY+xszN10XTtBOQu31APtNNPRp+/W3ICV2YGwvm8wfO0+FRIaiLnQ0/HDp8KUSHfdJrKS2Jw/TFjrUEkLIa5SVG5xi4oKuTh6PAtNYnePzKUZ0CcvdVt9AzkddJ7+VsoJLIxO2lDKqPP1x+M/IRd5x5cknHLTaSdSR7S497P0Y/mJT/ZqH8X7Ef9PU8Tko/jCW3HS58ToGJFAAAAAElFTkSuQmCC" alt="QR App" style="width:100px;height:100px;margin:6px 0;border:1px solid #ddd;border-radius:4px;"><br>
+    <a href="https://sacharunaaa-max.github.io/Bont/" style="font-size:7.5pt;color:#1565c0;word-break:break-all;">https://sacharunaaa-max.github.io/Bont/</a>
+  </div>
+  </div>
+</div>
+
+<h3>⚠️ DECLARACIÓN DE RESPONSABILIDAD — LÉEME PRIMERO</h3>
+<p><strong>Versión 0.1 — Borrador de trabajo personal / No oficial</strong></p>
+<p>*Mayo 2026*</p>
+<p>Este documento es una **herramienta personal y privada**, creada íntegramente a partir de mi propia experiencia diaria como trabajador en DHL Tiel, sección BONT. Su único propósito es optimizar mis procesos internos y servirme como guía de apoyo personal para tener presentes los pasos a seguir durante mi jornada laboral.</p>
+<p><strong>⚠️ IMPORTANTE — ESTO NO ES UN DOCUMENTO OFICIAL</strong></p>
+<ul>
+<li>❌ **No** es un documento oficial de DHL.</li>
+<li>❌ **No** ha sido revisado, aprobado, ni respaldado por la empresa, sus supervisores, teamleaders, ni por ningún departamento de DHL Supply Chain o DHL Global.</li>
+<li>❌ **No** pretende sustituir, modificar, ni reemplazar los protocolos establecidos oficialmente por la empresa, los manuales de formación, los procedimientos operativos estándar (SOPs), ni las instrucciones de seguridad vigentes en DHL Tiel.</li>
+</ul>
+<p><strong>✅ Lo QUE SÍ es:</strong></p>
+<ul>
+<li>✅ Un compendio personal de prácticas aprendidas en el día a día.</li>
+<li>✅ Una guía de consulta rápida para **uso individual** bajo mi entera responsabilidad.</li>
+<li>✅ Una propuesta de mejora propia que comparto con quienes deseen usarla, **siempre bajo su propio criterio y responsabilidad**.</li>
+</ul>
+<p><strong>🛡️ TÉRMINOS DE USO</strong></p>
+<ul>
+<li>Cualquier persona que utilice este documento lo hace **bajo su propia responsabilidad**. Yo, Boris Orlando Antequera Vargas, no me hago responsable por errores, omisiones, decisiones tomadas basándome en este documento, ni por consecuencias derivadas de su uso.</li>
+<li>Los códigos, mensajes de error, procedimientos, nomenclaturas, capturas de pantalla, imágenes, videos y cualquier otro contenido referenciado aquí **no han sido validados ni autorizados por DHL**. Su inclusión en este borrador es tentativa y está sujeta a verificación y aprobación oficial antes de considerar cualquier uso extendido.</li>
+<li>**Este documento no debe ser presentado como material oficial de DHL** bajo ninguna circunstancia.</li>
+<li>Si DHL así lo requiere, este documento será retirado o modificado inmediatamente.</li>
+</ul>
+<p><strong>📸 SOBRE FOTOS, VIDEOS Y CAPTURAS:</strong></p>
+<p>Todas las referencias visuales en este documento (fotos, videos, screenshots) están marcadas como `[PENDIENTE DE APROBACIÓN]`. No se incluirán imágenes reales ni de personas, equipos, instalaciones, ni del sistema Blue Yonder hasta contar con la autorización expresa y por escrito de las autoridades competentes en DHL Tiel, cumpliendo con las políticas de privacidad, seguridad y confidencialidad de la empresa. Las referencias visuales actuales son **marcadores de posición conceptuales**.</p>
+<p><strong>📄 CONTROL DE VERSIONES — BORRADOR</strong></p>
+<table>
+<thead><tr>
+<th>Versión</th>
+<th>Estado</th>
+<th>Fecha</th>
+<th>Descripción</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>🔧 Borrador personal</td>
+<td>Mayo 2026</td>
+<td>Primera versión completa. Todo el contenido es tentativo. Fotos, códigos y procedimientos [PENDIENTE DE APROBACIÓN OFICIAL]. Sin validar por DHL.</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>🎯 Objetivo</td>
+<td>—</td>
+<td>Versión con fotos, videos y códigos validados y aprobados oficialmente (si aplica).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>"Conocimiento compartido es eficiencia multiplicada."</p>
+<p>*— Boris Orlando Antequera Vargas*</p>
+<hr>
+<h2>🌟 LA REGLA DE ORO (Tu mantra diario)</h2>
+<blockquote>¿Algo va mal? No entres en pánico.</blockquote>
+<ol>
+<li>**APARTA** el producto rebelde (a un lateral, sin bloquear el flujo).</li>
+<li>**SIGUE** trabajando con el siguiente (el flujo es sagrado).</li>
+<li>**REVISA** lo apartado cuando el ritmo baje (en momentos de baja carga).</li>
+</ol>
+<hr>
+<h2>🏹 CHECKLIST DE INICIO (Antes del turno)</h2>
+<p class="checklist-item">☐ **Escáner:** ¿Batería suficiente? ¿Pantalla limpia?</p>
+<p class="checklist-item">☐ **Impresora:** ¿El número de tu impresora coincide con el del escáner (ej. BNT09)? ¿Papel colocado?</p>
+<p class="checklist-item">☐ **Suministros:** ¿Rollos de repuesto? ¿Bolígrafo para anotar LPN?</p>
+<hr>
+<h2>📚 GLOSARIO RÁPIDO (para nuevos)</h2>
+<blockquote>⚠️ *Nota: Los siguientes términos, códigos y nomenclaturas son los utilizados en el día a día operativo en BONT. Su definición aquí es tentativa y está [PENDIENTE DE VALIDACIÓN OFICIAL POR DHL] para confirmar que corresponden exactamente a la terminología corporativa.*</blockquote>
+<table>
+<thead><tr>
+<th>Término</th>
+<th>Significado</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**RCG**</td>
+<td>Contenedor rodante (jaula) donde se colocan paquetes sueltos. [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**Pallet**</td>
+<td>Plataforma de madera para krats o bultos pesados. [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**LPN**</td>
+<td>Código de barras que identifica cada RCG/pallet (su "DNI"). [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**SSCC**</td>
+<td>Código de barras de cada producto (caja, bulto). [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**Blue Yonder**</td>
+<td>El sistema WMS (la pantalla principal que ves). [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**Smart Scanner**</td>
+<td>Aplicación para ingresar productos no registrados o reimprimir etiquetas. [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**Krat**</td>
+<td>Caja de plástico uniforme (apilable). [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**Troubleshooter**</td>
+<td>Soporte técnico (Martin en puesto control). [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**Teamleader**</td>
+<td>Supervisor directo. [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🧭 DIAGRAMA DE FLUJO – ¿Qué hago primero?</h2>
+<p>*(Sigue este árbol visual. Si no entiendes un paso, acude a la categoría indicada.)*</p>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Este diagrama de flujo es una guía personal basada en experiencia operativa. No reemplaza los protocolos de decisión oficiales de DHL.]*</blockquote>
+<pre><code>
+    🔍 OBSERVA LO QUE OCURRE     │     ┌─────────────────────┼─────────────────────┐     │                     │                     │     ▼                     ▼                     ▼  ¿PROBLEMA FÍSICO?   ¿MENSAJE EN PANTALLA?  ¿PROBLEMA IMPRESORA?  (cajas mal puestas,  (escáner pita y da    (no imprime, fallo   altura, tuberías…)   texto o error)         de etiquetas, etc.)     │                     │                     │     ▼                     ▼                     ▼  [CAT. ROJA]          [CAT. AMARILLA]       [CAT. VERDE – parte 2]     │     ▼  ¿El mensaje dice "NOT FOUND"  o "INVALID IDENTIFIER"?     │     ┌───────────────────────────────┴───────────────────────────────┐     ▼                                                               ▼  Usa Smart Scanner Inventory DSP  (CAT. VERDE – parte 1)          (CAT. AMARILLA)    ─────────────────────────────────────────────────────────────────────  • Si es un derrame o confusión de contenedor → CAT. NARANJA  • Si quieres buenas prácticas → CAT. AZUL</code></pre>
+<hr>
+<h2>📋 ÍNDICE DE CATEGORÍAS (para consulta rápida)</h2>
+<table>
+<thead><tr>
+<th>Categoría</th>
+<th>Color</th>
+<th>¿Qué encontrarás aquí?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**ROJA**</td>
+<td>🔴</td>
+<td>Problemas físicos de carga (apilado, flechas, altura, RCG sobresaliente, tuberías, krats)</td>
+</tr>
+<tr>
+<td>**AMARILLA**</td>
+<td>🟡</td>
+<td>Errores del escáner y sistema (mensajes "No inventory found", escáner no reacciona, Inventory DSP)</td>
+</tr>
+<tr>
+<td>**VERDE (parte 1)**</td>
+<td>🟢</td>
+<td>Ingreso de productos con Smart Scanner (INBOUND/SURPLUS)</td>
+</tr>
+<tr>
+<td>**VERDE (parte 2)**</td>
+<td>🟢</td>
+<td>Gestión de etiquetas LPN, problemas de impresora, cierre y reimpresión</td>
+</tr>
+<tr>
+<td>**NARANJA**</td>
+<td>🟠</td>
+<td>Emergencias (derrames), errores humanos (confusión de contenedor, escanear sin colocar)</td>
+</tr>
+<tr>
+<td>**AZUL**</td>
+<td>🔵</td>
+<td>Buenas prácticas (verificar pantalla, trabajo en equipo, limpieza, ayudar a nuevos)</td>
+</tr>
+<tr>
+<td>**MORADA**</td>
+<td>🟣</td>
+<td>Códigos de bolsillo (QR personal, location, equipment, turno de día)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-red">🔴 CATEGORÍA ROJA – Problemas físicos de carga</h2>
+<blockquote>*"Calidad antes que velocidad (pero con ritmo de campeón)"*</blockquote>
+<blockquote></blockquote>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Los criterios de carga aquí descritos se basan en la experiencia operativa diaria. No sustituyen los estándares de calidad y seguridad oficiales de DHL ni las instrucciones de los teamleaders.]*</blockquote>
+<p>Cargar un RCG o pallet es como jugar al Tetris en la vida real. Cada pieza debe ir en su lugar para que el cliente reciba su producto perfecto.</p>
+<h3>🏆 Lo que SÍ se hace (Salón de la Fama)</h3>
+<ul>
+<li>**El Maestro del Tetris:** RCG con cajas encajadas, sin huecos peligrosos.</li>
+<li>**Pallet de Krats de Élite:** Krats alineados, etiquetas hacia fuera.</li>
+<li>**Armado mixto inteligente:** Base pesada abajo, tuberías protegidas a los lados, cajas ligeras arriba.</li>
+</ul>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Varios RCG y pallets bien armados]**</blockquote>
+<blockquote>*Nota: Se requiere autorización de DHL para tomar y publicar fotografías dentro de las instalaciones.*</blockquote>
+<h3>❌ Lo que NO se hace (Evita el desastre)</h3>
+<table>
+<thead><tr>
+<th>Error</th>
+<th>Descripción</th>
+<th>Solución</th>
+<th>Estado</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>🚫 Producto sobresale del RCG</td>
+<td>Fuera del perímetro metálico.</td>
+<td>Reubicar dentro. Si no cabe, usar otro RCG.</td>
+<td>Pendiente de validación oficial</td>
+</tr>
+<tr>
+<td>📏 Altura > 2,3 m</td>
+<td>Riesgo de vuelco o daño.</td>
+<td>Medir visualmente. Redistribuir.</td>
+<td>Pendiente de validación oficial</td>
+</tr>
+<tr>
+<td>⬆️ Flechas ignoradas</td>
+<td>Caja con flecha hacia abajo o lado.</td>
+<td>Girar hasta flecha arriba. Sin flecha = frágil.</td>
+<td>Pendiente de validación oficial</td>
+</tr>
+<tr>
+<td>🎩 Efecto sombrero</td>
+<td>Caja grande sobre pequeña.</td>
+<td>Base ≥ caja superior; pesado abajo.</td>
+<td>Pendiente de validación oficial</td>
+</tr>
+<tr>
+<td>🔧 Tuberías sobre cajas</td>
+<td>Tuberías apoyadas en cartón.</td>
+<td>Siempre al fondo o lateral del RCG.</td>
+<td>Pendiente de validación oficial</td>
+</tr>
+<tr>
+<td>📋 Krats con etiquetas hacia dentro</td>
+<td>Códigos ocultos.</td>
+<td>Stickers visibles hacia fuera.</td>
+<td>Pendiente de validación oficial</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Ejemplo bien/mal para cada error]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Efecto sombrero (ejemplo de lo que NO hacer)]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Tuberías correctamente colocadas al lateral del RCG]**</blockquote>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Cómo armar un RCG mixto correctamente (paso a paso)]**</blockquote>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-yellow">🟡 CATEGORÍA AMARILLA – Errores de escáner y sistema</h2>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Los mensajes de error, códigos de sistema y procedimientos descritos aquí se basan en la experiencia operativa personal y pueden no coincidir exactamente con la documentación oficial de Blue Yonder o DHL. Ante cualquier duda, consulta con tu teamleader o troubleshooter.]*</blockquote>
+<h3>📋 Tabla de mensajes comunes y acciones</h3>
+<table>
+<thead><tr>
+<th>Mensaje en pantalla</th>
+<th>¿Qué significa?</th>
+<th>Acción</th>
+<th>Estado</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"No inventory found"</td>
+<td>El producto no tiene ubicación en el sistema.</td>
+<td>Usa INVENTORY DSP (ver más abajo).</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>"SSCC number is wrong or missing"</td>
+<td>El código escaneado no es válido o falta.</td>
+<td>→ Ve a CATEGORÍA VERDE (parte 1) – Método INBOUND/SURPLUS.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>"Pallet position contains a different pallet number"</td>
+<td>Escaneaste un RCG/pallet equivocado.</td>
+<td>Reubica el producto en el contenedor correcto. (Confusión de contenedor – también CAT. NARANJA).</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>"Inventory identifier is invalid"</td>
+<td>**🚨 [PENDIENTE — Error grave, no ingresado en sistema. Se requiere validación oficial para determinar el significado exacto y el procedimiento corporativo correcto.]**</td>
+<td>Lleva producto a Teamleaders o Troubleshooter.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>Escáner no reacciona (pantalla congelada)</td>
+<td>Distancia, etiqueta sucia o batería baja.</td>
+<td>Ajusta distancia, limpia, si persiste aparta producto y prueba manual.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Demostración de cada mensaje de error en pantalla y cómo resolverlo]**</blockquote>
+<h3>🔍 Protocolo INVENTORY DSP (para resolver productos apartados)</h3>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: El procedimiento INVENTORY DSP, nombres de menús, atajos de teclado (como "flecha abajo 8 veces"), y la interpretación de códigos descritos aquí son hallazgos empíricos de la operativa diaria. No han sido confirmados como la metodología oficial por DHL o Blue Yonder.]*</blockquote>
+<ol>
+<li>En Blue Yonder → tres puntos (...) → **TOOLS** → **INVENTORY DSP**.</li>
+<li>Escanea el producto.</li>
+<li>**TRUCO PRO:** Pulsa flecha abajo 8 veces para ver toda la info.</li>
+<li>Interpreta los códigos:</li>
+</ol>
+<table>
+<thead><tr>
+<th>Código INVENTORY DSP</th>
+<th>Significado</th>
+<th>Acción</th>
+<th>Estado</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**rolpalbc**</td>
+<td>Contenedor ABIERTO. Busca número y deposita SIN ESCANEAR.</td>
+<td>Busca el contenedor y coloca el producto sin usar el escáner.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>**PND-A**</td>
+<td>Producto LISTO para hoy. Abre un nuevo RCG/pallet o busca el suyo.</td>
+<td>Abre un nuevo contenedor o busca el que ya tiene asignado.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>**PND-P**</td>
+<td>RCG o pallet CERRADO. Busca número y deposita SIN ESCANEAR.</td>
+<td>Busca el contenedor cerrado y coloca.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>**T3-STGE**</td>
+<td>Ya en línea de camiones. Llévalo al área de carguío (GC).</td>
+<td>Lleva el producto al área de carguío (GC).</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: Pantalla INVENTORY DSP con resultados visibles]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: Menú TOOLS en Blue Yonder]**</blockquote>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Recorrido completo de INVENTORY DSP paso a paso]**</blockquote>
+<h3>⚡ Escáner no reacciona – solución paso a paso</h3>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Procedimiento basado en experiencia personal. DHL puede tener un protocolo de soporte técnico diferente.]*</blockquote>
+<ol>
+<li>Ajusta distancia y limpia etiqueta.</li>
+<li>Si no funciona, **APARTA** el producto.</li>
+<li>Cuando baje la carga, introduce el **SSCC manualmente** (está impreso).</li>
+<li>Si aún así no funciona o el código está roto, informa a **Teamleaders**.</li>
+</ol>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-green">🟢 CATEGORÍA VERDE – Smart Scanner, etiquetas e impresora</h2>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Los procedimientos de Smart Scanner, métodos INBOUND/SURPLUS, y los protocolos de etiquetado aquí descritos se basan en la práctica operativa diaria. No han sido validados como procedimientos oficiales por DHL ni por los administradores del sistema Blue Yonder.]*</blockquote>
+<h3>📦 PARTE 1: Ingreso de productos (INBOUND / SURPLUS)</h3>
+<p>Usa **Smart Scanner** cuando el escáner normal dice "NOT FOUND" o "SSCC number is wrong or missing".</p>
+<p>#### Método INBOUND</p>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Códigos como KRT, COL y su uso en INBOUND son tentativos.]*</blockquote>
+<ol>
+<li>Escanea código inferior (SSCC).</li>
+<li>Elige tipo (KRT, COL…).</li>
+<li>Si dice **"NOT FOUND"**, pasa a SURPLUS.</li>
+</ol>
+<p>#### Método SURPLUS</p>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: El flujo INBOUND → SURPLUS → INBOUND descrito aquí es un hallazgo empírico.]*</blockquote>
+<ol>
+<li>Cambia a modo **SURPLUS**.</li>
+<li>Escanea código inferior + código superior (cliente).</li>
+<li>Si dice **"ANOTHER POSITION"**, vuelve a INBOUND.</li>
+</ol>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: Pantalla de Smart Scanner modo INBOUND]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: Pantalla de Smart Scanner modo SURPLUS]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: Mensaje "ANOTHER POSITION"]**</blockquote>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Flujo completo INBOUND → SURPLUS → INBOUND]**</blockquote>
+<h3>🖨️ PARTE 2: Gestión de etiquetas LPN, impresora y cierre</h3>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Los protocolos A, B y C de etiquetado, incluyendo el uso de CHANGE POSITION y SSCC INTERGAMMA, son soluciones empíricas desarrolladas en la operativa diaria. No está confirmado que sean los métodos oficiales ni que estén aprobados por los administradores del sistema.]*</blockquote>
+<p>#### PROTOCOLO A – Recuperar LPN para seguir cargando</p>
+<p>⚠️ **Solo funciona si tienes un producto escaneado** (pantalla pide LPN destino).</p>
+<ol>
+<li>Blue Yonder → tres puntos → **CHANGE POSITION**.</li>
+<li>Flecha abajo → aparece LPN.</li>
+<li>**Anótalo en papel** (no se puede copiar a Smart Scanner).</li>
+<li>Smart Scanner → **PRINTING** → selecciona tu impresora → **LPN PRINTING** → introduce código manual.</li>
+</ol>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: Menú CHANGE POSITION en Blue Yonder]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: LPN visible en CHANGE POSITION]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: Smart Scanner LPN PRINTING]**</blockquote>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Recuperar LPN paso a paso (Protocolo A)]**</blockquote>
+<p>#### PROTOCOLO B – Cerrar RCG/pallet sin LPN físico</p>
+<ol>
+<li>Obtén LPN con CHANGE POSITION (protocolo A).</li>
+<li>Ve a **DONE** y pega el código LPN.</li>
+</ol>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — SCREENSHOT: Pantalla DONE con LPN pegado]**</blockquote>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Cierre de RCG/pallet sin LPN físico]**</blockquote>
+<p>#### PROTOCOLO C – RCG/pallet ya cerrado sin stickers de cierre</p>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: El uso de "SSCC INTERGAMMA" y la colocación de stickers entre krats son soluciones prácticas. No está confirmado que cumplan con los estándares de etiquetado oficiales de DHL.]*</blockquote>
+<ol>
+<li>Smart Scanner → **PRINTING** → elige **SSCC INTERGAMMA**.</li>
+<li>Imprime **2 copias**.</li>
+<li>Pega:</li>
+</ol>
+<p>   - **Frontal** + **junto al LPN original**.</p>
+<p>   - En pallet de krats, coloca el sticker **entre los krats** para que no se caiga.</p>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Sticker entre krats (ejemplo de colocación)]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Sticker frontal + junto al LPN original]**</blockquote>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Cómo imprimir y colocar stickers de cierre (Protocolo C)]**</blockquote>
+<h3>🛠️ Problemas de impresora</h3>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Las soluciones de impresora son genéricas y basadas en experiencia. DHL puede tener procedimientos de soporte técnico específicos para sus equipos.]*</blockquote>
+<table>
+<thead><tr>
+<th>Problema</th>
+<th>Solución</th>
+<th>Estado</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>No salen stickers al hacer DONE</td>
+<td>Reiniciar impresora.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>Manchas o partes blancas</td>
+<td>Limpiar cabezal de impresión.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>Luz roja</td>
+<td>Falta papel o batería.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Cabezal de impresión y cómo limpiarlo]**</blockquote>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Mantenimiento básico de impresora]**</blockquote>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-orange">🟠 CATEGORÍA NARANJA – Emergencias y errores humanos</h2>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Los procedimientos de emergencia, manejo de derrames, y resolución de errores humanos aquí descritos son basados en experiencia operativa y pueden diferir de los protocolos oficiales de seguridad y medio ambiente de DHL. En caso de emergencia real, sigue siempre los protocolos oficiales de la empresa y las instrucciones de los responsables de seguridad.]*</blockquote>
+<h3>🎨 Derrame de pintura o líquido (Misión crítica)</h3>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: El kit de emergencia, su ubicación, el tipo de arena, y el procedimiento de limpieza deben validarse contra los protocolos oficiales de DHL para manejo de derrames. No asumas que este procedimiento es el oficial.]*</blockquote>
+<ol>
+<li>**El flujo NO se detiene** – sigue trabajando mientras gestionas.</li>
+<li>Ve al **kit de emergencia (arena)** y espárcela sobre derrame.</li>
+<li>Limpia **de afuera hacia adentro**.</li>
+<li>Deposita residuos en **contenedores especiales**.</li>
+<li>Informa a **Teamleader o Troubleshooter** inmediatamente.</li>
+</ol>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Kit de limpieza (ubicación y contenido)]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Derrame controlado con arena]**</blockquote>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Contenedores especiales para residuos]**</blockquote>
+<blockquote>🎥 **[PENDIENTE DE APROBACIÓN — VIDEO: Procedimiento completo de control de derrames]**</blockquote>
+<h3>❌ Confusión de contenedor (error humano frecuente)</h3>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Este error y su solución se basan en la experiencia. DHL puede tener un procedimiento formal diferente para la corrección de errores de asignación.]*</blockquote>
+<ul>
+<li>**Síntoma:** Escaneas LPN de un RCG/pallet que no corresponde al destino.</li>
+<li>**Acción:** Verifica destino en pantalla, compara números, reubica producto.</li>
+<li>Si es patrón repetido, informa a Teamleaders.</li>
+</ul>
+<h3>❌ Escanear un producto sin colocarlo (mal hábito)</h3>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: La consecuencia descrita ("el sistema registra el producto como colocado") y la solución propuesta son teorías basadas en la experiencia. El comportamiento exacto del sistema debe ser validado contra la documentación oficial de Blue Yonder.]*</blockquote>
+<ul>
+<li>**Consecuencia:** El sistema registra el producto como "colocado" (pero no lo está). Luego otro operario escanea el mismo producto y da error.</li>
+<li>**Prevención:** Nunca escanees sin colocar. Si el RCG está lleno, ciérralo, repón vacío, luego escanea.</li>
+<li>**Si ocurrió:** Intenta colocar; si no hay espacio, informa a Teamleaders.</li>
+</ul>
+<h3>👀 Encuentras un producto mal ubicado</h3>
+<ol>
+<li>Escanea para ver destino.</li>
+<li>Si se puede, colócalo donde indique.</li>
+<li>Si no, usa **INVENTORY DSP** (puede estar en contenedor vecino).</li>
+<li>Si está en el suelo, consulta inventory dsp.</li>
+<li>Si ves patrón repetido, informa a Teamleaders.</li>
+</ol>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-blue">🔵 CATEGORÍA AZUL – Buenas prácticas (Nivel Leyenda)</h2>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Las buenas prácticas aquí listadas son recomendaciones personales basadas en la experiencia. No constituyen políticas oficiales de DHL.]*</blockquote>
+<ul>
+<li>**Ojos en la pantalla:** Verifica cada escaneo. Un segundo evita minutos de errores.</li>
+<li>**Trabajo en equipo:** Si ayudas en otra línea, habla con el colega antes de abrir una locación nueva.</li>
+<li>**Limpieza de combate:** Suelo despejado (recoge plásticos, basura). Un puesto limpio es seguro.</li>
+<li>**Ayuda a los nuevos:** Comparte conocimiento con respeto. Todos hemos sido novatos.</li>
+</ul>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-purple">🟣 CATEGORÍA MORADA – Códigos de bolsillo</h2>
+<blockquote>*"Cuando el sistema te saca, no pierdas tiempo yendo al área de códigos. Llévalos siempre contigo."*</blockquote>
+<blockquote></blockquote>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Los códigos aquí mencionados son de uso operativo diario. Los valores exactos, ubicaciones y nomenclatura oficial deben ser validados por DHL antes de incluirse en tarjetas de bolsillo o la app.]*</blockquote>
+<h3>📋 Códigos que todo operario debería tener a mano</h3>
+<table>
+<thead><tr>
+<th>Tipo</th>
+<th>¿Para qué?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**QR Personal**</td>
+<td>Login en Blue Yonder y Smart Scanner</td>
+</tr>
+<tr>
+<td>**📍 Location**</td>
+<td>Área de trabajo (ej. BNT09)</td>
+</tr>
+<tr>
+<td>**⚙️ Equipment**</td>
+<td>Identifica tu equipo (hand en BONT)</td>
+</tr>
+<tr>
+<td>**🔢 Turno de día**</td>
+<td>Código del día laboral</td>
+</tr>
+</tbody>
+</table>
+<p>Estos códigos deben incluirse en las **tarjetas de bolsillo** y en la **app "Guerrero BONT"** para que, cuando el sistema te saque por error, puedas escanearlos desde tu puesto sin tener que caminar hasta el área de códigos.</p>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Ejemplo de códigos QR personal, location, equipment y turno]**</blockquote>
+<hr>
+<h2>❓ Preguntas frecuentes (FAQ)</h2>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Las respuestas a estas preguntas se basan en experiencia operativa personal. Las políticas y procedimientos oficiales de DHL pueden diferir.]*</blockquote>
+<table>
+<thead><tr>
+<th>Pregunta</th>
+<th>Respuesta</th>
+<th>Estado</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>¿Qué hago si el escáner no se conecta?</td>
+<td>Verifica batería. Si falla, pide uno de repuesto al teamleader.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>¿Cómo cambio la batería?</td>
+<td>Están en el cargador de la zona de descanso. Apaga el escáner, reemplaza.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>¿Dónde están los rollos de etiquetas?</td>
+<td>En el almacén de suministros (junto al puesto de control).</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>¿A quién llamo si nada funciona?</td>
+<td>Primero a Teamleader, luego a Troubleshooter (Martin).</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+<tr>
+<td>¿Se puede mover un contenedor cerrado sin stickers?</td>
+<td>No. Usa protocolo C de la categoría Verde para reimprimir los stickers.</td>
+<td>**[PENDIENTE DE VALIDACIÓN OFICIAL]**</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>📞 CONTACTOS Y ZONAS</h2>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: La información de contacto, nombres, ubicaciones de zonas (No Resueltos, Otro Día, puesto de control) y su designación son datos operativos del día a día que deben ser verificados con la planificación oficial de DHL.]*</blockquote>
+<ul>
+<li>**Teamleaders:** Tus capitanes (en el puesto central).</li>
+<li>**Troubleshooter (Martin):** Puesto de control BONT.</li>
+<li>**Zona No Resueltos:** Lugar para productos sin etiqueta o código ilegible.</li>
+</ul>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Ubicación de Zona No Resueltos]**</blockquote>
+<ul>
+<li>**Zona Otro Día:** Paquetes cuya fecha no es la de hoy.</li>
+</ul>
+<blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Ubicación de Zona Otro Día]**</blockquote>
+<hr>
+<h2>📚 ESCENARIO COMPLETO (Ejemplo práctico)</h2>
+<blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Este escenario es ilustrativo. Los pasos, códigos y decisiones pueden variar según la configuración del sistema y los protocolos oficiales.]*</blockquote>
+<p>Llega un producto, el escáner pita y dice **"No inventory found"**. Apartas el producto. Cuando baja la carga, usas **INVENTORY DSP** y ves que el código es **PND-A**. Significa que es para hoy, así que abres un RCG nuevo y lo colocas. Todo bien.</p>
+<hr>
+<h2>🛡️ CONTROL DE DOCUMENTO</h2>
+<table>
+<thead><tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**Versión**</td>
+<td>**0.1** — Borrador de trabajo personal / No oficial</td>
+</tr>
+<tr>
+<td>**Estado**</td>
+<td>🔧 Tentativo. Todo el contenido [PENDIENTE DE VALIDACIÓN OFICIAL]</td>
+</tr>
+<tr>
+<td>**Objetivo v1.0**</td>
+<td>Versión con fotos, videos, códigos y procedimientos validados y aprobados oficialmente por DHL (si aplica y si se obtienen las autorizaciones correspondientes)</td>
+</tr>
+<tr>
+<td>**Archivo madre**</td>
+<td>`manual-v0.1.md` (español). Traducciones: `-en`, `-nl`, `-pl`, `-ro`, `-bg`, `-ar`, `-fa`, `-uk`, `-pt`</td>
+</tr>
+<tr>
+<td>**Autor**</td>
+<td>Boris Orlando Antequera Vargas – Operador BONT</td>
+</tr>
+<tr>
+<td>**Fecha**</td>
+<td>Mayo 2026</td>
+</tr>
+<tr>
+<td>**Ubicación**</td>
+<td>DHL Tiel – Sección BONT</td>
+</tr>
+<tr>
+<td>**Rol actual**</td>
+<td>Operador BONT con interés en desarrollo y optimización de procesos</td>
+</tr>
+<tr>
+<td>**Propietario**</td>
+<td>Boris Orlando Antequera Vargas (documento personal)</td>
+</tr>
+<tr>
+<td>**Clasificación**</td>
+<td>🔒 Uso personal. No oficial. No distribuido por DHL.</td>
+</tr>
+<tr>
+<td>**Idiomas disponibles**</td>
+<td>🇪🇸 ES, 🇬🇧 EN, 🇳🇱 NL, 🇵🇱 PL, 🇷🇴 RO, 🇧🇬 BG, 🇸🇦 AR, 🇮🇷 FA, 🇺🇦 UK, 🇵🇹 PT</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🌍 VERSIÓN MULTILINGÜE — Para un equipo internacional</h2>
+<p>En DHL Tiel trabajamos personas de muchas nacionalidades: polacos, rumanos, búlgaros, ucranianos, portugueses, árabes, persas, ingleses, neerlandeses, y más. Cada uno merece entender los procesos en su propio idioma para trabajar seguro, rápido y sin errores.</p>
+<p>Por eso este documento madre (el archivo `.md` original en español) se ha traducido a los siguientes idiomas:</p>
+<table>
+<thead><tr>
+<th>Idioma</th>
+<th>Archivo</th>
+<th>Estado</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>🇪🇸 Español</td>
+<td>`manual-v0.1.md`</td>
+<td>Original</td>
+</tr>
+<tr>
+<td>🇬🇧 Inglés</td>
+<td>`manual-v0.1-en.md`</td>
+<td>Traducido</td>
+</tr>
+<tr>
+<td>🇳🇱 Neerlandés</td>
+<td>`manual-v0.1-nl.md`</td>
+<td>Traducido</td>
+</tr>
+<tr>
+<td>🇵🇱 Polaco</td>
+<td>`manual-v0.1-pl.md`</td>
+<td>Traducido</td>
+</tr>
+<tr>
+<td>🇷🇴 Rumano</td>
+<td>`manual-v0.1-ro.md`</td>
+<td>Traducido</td>
+</tr>
+<tr>
+<td>🇧🇗 Búlgaro</td>
+<td>`manual-v0.1-bg.md`</td>
+<td>Traducido</td>
+</tr>
+<tr>
+<td>🇸🇦 Árabe</td>
+<td>`manual-v0.1-ar.md`</td>
+<td>Traducido</td>
+</tr>
+<tr>
+<td>🇮🇷 Persa</td>
+<td>`manual-v0.1-fa.md`</td>
+<td>Traducido</td>
+</tr>
+<tr>
+<td>🇺🇦 Ucraniano</td>
+<td>`manual-v0.1-uk.md`</td>
+<td>Traducido</td>
+</tr>
+<tr>
+<td>🇵🇹 Portugués</td>
+<td>`manual-v0.1-pt.md`</td>
+<td>Traducido</td>
+</tr>
+</tbody>
+</table>
+<blockquote>⚠️ *Nota: Todas las traducciones mantienen el contenido íntegro del original. Los términos técnicos (LPN, SSCC, RCG, Blue Yonder, Smart Scanner, INVENTORY DSP, etc.) se mantienen en su nomenclatura original por ser términos del sistema. [PENDIENTE DE VALIDACIÓN OFICIAL: Las traducciones no han sido revisadas por DHL ni por hablantes nativos certificados. Se recomienda validación antes de uso oficial.]*</blockquote>
+<p>Para impresión frente a supervisores o jefes, se recomienda usar las versiones en **inglés** o **neerlandés**, que son los idiomas de gestión en DHL Tiel.</p>
+<hr>
+<h2>📱 VISIÓN: App Móvil "Guerrero BONT"</h2>
+<p>Este manual es la base conceptual para una **aplicación móvil** que permita:</p>
+<ul>
+<li>**Consultar cualquier procedimiento en segundos** desde el móvil (sin buscar en papeles)</li>
+<li>**Navegación visual por categorías** con el diagrama de flujo interactivo</li>
+<li>**Fotos y videos integrados** (cuando se aprueben) para ver ejemplos reales</li>
+<li>**Multiidioma integrado** — el usuario elige su idioma y ve el contenido traducido</li>
+<li>**Búsqueda rápida** de errores, códigos (SSCC, LPN, PND-A, etc.)</li>
+<li>**Checklist digital** de inicio de turno</li>
+<li>**Modo offline** — sin internet, siempre disponible en el taller</li>
+</ul>
+<p>Una app permite ser mucho más extenso y detallado que un documento impreso: se pueden incluir videos demostrativos, animaciones, enlaces directos a cada protocolo, y actualizaciones en tiempo real.</p>
+<blockquote>⚠️ *[PENDIENTE DE APROBACIÓN: El desarrollo de la app está sujeto a autorización de DHL. Esta sección es conceptual.]*</blockquote>
+<hr>
+<h2>🃏 TARJETAS DE BOLSILLO (Práctico / Pocket Cards)</h2>
+<p>Además del manual completo y la futura app, existe la idea de crear **tarjetas de bolsillo laminadas** con la información más crítica para llevar en el uniforme:</p>
+<ul>
+<li>**Cara A:** La Regla de Oro + Diagrama de flujo resumido</li>
+<li>**Cara B:** Tabla de errores del escáner con acciones rápidas</li>
+<li>**Cara C:** Códigos INVENTORY DSP (rolpalbc, PND-A, PND-P, T3-STGE)</li>
+<li>**Cara D:** Contactos clave (Teamleaders, Troubleshooter) + zonas</li>
+</ul>
+<p>Estas tarjetas son complementarias al manual y a la app; no lo sustituyen.</p>
+<blockquote>⚠️ *[PENDIENTE DE APROBACIÓN: Diseño, contenido final y distribución de las tarjetas requieren autorización de DHL.]*</blockquote>
+<hr>
+<h2>📜 DECLARACIÓN FINAL</h2>
+<p>Este documento ha sido creado con la mejor intención: **ayudar**. Ayudarme a mí mismo a recordar los pasos, ayudar a quien empieza a no sentirse perdido, ayudar al equipo a tener una referencia rápida. No pretende ser un manual corporativo ni competir con la formación oficial de DHL.</p>
+<p>Si este documento ayuda a alguien a hacer mejor su trabajo, misión cumplida. Si DHL considera que debe ser retirado, modificado o adaptado, se hará sin problema.</p>
+<hr>
+<h2 class="section-commitment">💡 Mi compromiso con DHL</h2>
+<p>Este manual nace de una convicción personal: **el conocimiento no vale nada si se queda en la cabeza de uno**. Compartirlo es la única forma de que el equipo entero mejore.</p>
+<p>Mi objetivo diario es simple:</p>
+<ul>
+<li>✅ **Aprender de cada error** para no repetirlo.</li>
+<li>✅ **Ayudar al de al lado** sin que nadie me lo pida.</li>
+<li>✅ **Dejar el puesto mejor de lo que lo encontré.**</li>
+</ul>
+<p>Creo en el trabajo bien hecho, en la calidad como pilar, en la seguridad como prioridad, y en la eficiencia como consecuencia de hacer las cosas como tocan. Quiero que el equipo funcione, que la calidad suba, que los nuevos no sufran lo que yo sufrí al empezar. Y si eso ayuda a que DHL Tiel sea referencia — bienvenido sea.</p>
+<p>Este manual es mi granito de arena. Si alguien lo lee y aprende algo, ya valió la pena.</p>
+<blockquote>**"Conocimiento compartido es eficiencia multiplicada."**</blockquote>
+<blockquote></blockquote>
+<blockquote>*— Boris Orlando Antequera Vargas — Operador BONT*</blockquote>
+<hr>
+<p>*Fin del documento — Versión 0.1 (Borrador personal no oficial)*</p>
+
+
+</body>
+</html>
