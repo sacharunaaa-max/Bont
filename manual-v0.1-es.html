@@ -2,102 +2,59 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex,nofollow">
 <title>EL MANUAL DEL "GUERRERO BONT" – DHL Tiel (v0.1)</title>
 <style>
 
   @page {
     size: A4;
-    margin: 12mm 14mm 16mm 14mm;
+    margin: 18mm 16mm 22mm 16mm;
     @bottom-center {
       content: "Manual del Guerrero BONT – v0.1 (Borrador no oficial) – Pág. " counter(page);
-      font-size: 7.5pt;
+      font-size: 8pt;
       color: #888;
       font-family: "Segoe UI", Arial, sans-serif;
     }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 8.5pt; line-height: 1.35; color: #1a1a1a; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 9.5pt; line-height: 1.45; color: #1a1a1a; }
   .page-break { page-break-before: always; }
-
-  /* title page */
-  .title-page {
-    text-align: center;
-    padding-top: 60px;
-    page-break-after: always;
-  }
-  .title-page .shield { font-size: 60pt; margin-bottom: 8px; }
-  .title-page h1 {
-    font-size: 24pt; color: #c00; margin-bottom: 6px;
-    letter-spacing: 1px; line-height: 1.15;
-  }
-  .title-page h2 { font-size: 12pt; color: #444; font-weight: normal; margin-bottom: 8px; }
-  .title-page .tagline { font-size: 10pt; color: #666; margin-bottom: 30px; font-style: italic; }
-  .title-page .badge {
-    display: inline-block; background: #c00; color: #fff;
-    padding: 6px 24px; font-size: 10pt; font-weight: bold;
-    border-radius: 4px; margin-bottom: 30px; letter-spacing: 1px;
-  }
-  .title-page .author { font-size: 9pt; color: #555; margin-top: 20px; }
-  .title-page .role { font-size: 8.5pt; color: #888; margin-top: 3px; }
-  .title-page .quote { font-style: italic; color: #888; margin-top: 35px; font-size: 9pt; }
-  .title-page .footer-info { margin-top: 40px; font-size: 8pt; color: #aaa; line-height: 1.6; }
-  .title-divider { width: 60%; margin: 16px auto; border: none; border-top: 1.5px solid #ddd; }
+  .title-page { text-align: center; padding-top: 80px; page-break-after: always; }
+  .title-page .shield { font-size: 72pt; margin-bottom: 10px; }
+  .title-page h1 { font-size: 28pt; color: #c00; margin-bottom: 8px; letter-spacing: 1px; line-height: 1.15; }
+  .title-page h2 { font-size: 14pt; color: #444; font-weight: normal; margin-bottom: 10px; }
+  .title-page .tagline { font-size: 11pt; color: #666; margin-bottom: 40px; font-style: italic; }
+  .title-page .badge { display: inline-block; background: #c00; color: #fff; padding: 7px 28px; font-size: 11pt; font-weight: bold; border-radius: 4px; margin-bottom: 40px; letter-spacing: 1px; }
+  .title-page .author { font-size: 10pt; color: #555; margin-top: 30px; }
+  .title-page .role { font-size: 9pt; color: #888; margin-top: 4px; }
+  .title-page .quote { font-style: italic; color: #888; margin-top: 50px; font-size: 10pt; }
+  .title-page .footer-info { margin-top: 60px; font-size: 8.5pt; color: #aaa; line-height: 1.6; }
+  .title-page .footer-info .lock { font-size: 10pt; margin-top: 8px; }
+  .title-divider { width: 60%; margin: 20px auto; border: none; border-top: 1.5px solid #ddd; }
   .title-divider.thick { border-top: 3px solid #c00; width: 40%; }
-
-  /* headings */
-  h2 {
-    font-size: 11pt; color: #c00;
-    border-bottom: 1.5px solid #c00; padding-bottom: 2px;
-    margin-top: 10px; margin-bottom: 4px;
-    page-break-after: avoid;
-  }
-  h3 { font-size: 9.5pt; color: #333; margin-top: 7px; margin-bottom: 3px; page-break-after: avoid; }
-  h4 { font-size: 9pt; color: #555; margin-top: 5px; margin-bottom: 2px; }
-
-  /* tables */
-  table {
-    width: 100%; border-collapse: collapse;
-    margin: 4px 0 6px 0; font-size: 7.5pt;
-    page-break-inside: avoid;
-  }
-  th { background: #c00; color: #fff; padding: 2px 5px; text-align: left; font-weight: 600; }
-  td { padding: 2px 5px; border: 1px solid #ccc; vertical-align: top; }
+  h2 { font-size: 13pt; color: #c00; border-bottom: 2px solid #c00; padding-bottom: 3px; margin-top: 16px; margin-bottom: 6px; page-break-after: avoid; }
+  h3 { font-size: 11pt; color: #333; margin-top: 10px; margin-bottom: 4px; page-break-after: avoid; }
+  h4 { font-size: 10pt; color: #555; margin-top: 8px; margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 10px 0; font-size: 8.5pt; page-break-inside: avoid; }
+  th { background: #c00; color: #fff; padding: 4px 6px; text-align: left; font-weight: 600; }
+  td { padding: 3px 6px; border: 1px solid #ccc; vertical-align: top; }
   tr:nth-child(even) td { background: #fafafa; }
-
-  /* lists */
-  ul, ol { margin: 3px 0 5px 18px; }
-  li { margin-bottom: 1px; }
-  .checklist-item { margin: 1px 0; font-size: 8pt; }
-
-  /* code */
-  pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 3px; padding: 5px 8px; font-size: 7.5pt; overflow-x: auto; white-space: pre-wrap; }
-  code { background: #f4f4f4; padding: 1px 3px; border-radius: 2px; font-size: 7.5pt; font-family: "Courier New", monospace; }
-
-  /* section colors */
-  .section-red { border-left: 3px solid #c62828; padding-left: 8px; margin-top: 6px; }
-  .section-yellow { border-left: 3px solid #f57f17; padding-left: 8px; margin-top: 6px; }
-  .section-green { border-left: 3px solid #2e7d32; padding-left: 8px; margin-top: 6px; }
-  .section-orange { border-left: 3px solid #bf360c; padding-left: 8px; margin-top: 6px; }
-  .section-blue { border-left: 3px solid #1565c0; padding-left: 8px; margin-top: 6px; }
-  .section-purple { border-left: 3px solid #7b1fa2; padding-left: 8px; margin-top: 6px; }
-
-  hr { border: none; border-top: 1px solid #ddd; margin: 8px 0; }
-
-  blockquote {
-    background: #f9f9f9; border-left: 3px solid #ccc;
-    padding: 4px 10px; margin: 4px 0; font-style: italic; color: #555; font-size: 8pt;
-  }
-
-  @media print {
-    body { font-size: 8pt; }
-    h2, h3, h4 { page-break-after: avoid; }
-  }
-
+  ul, ol { margin: 4px 0 6px 20px; }
+  li { margin-bottom: 2px; }
+  .checklist-item { margin: 2px 0; font-size: 9pt; }
+  pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 8px; font-size: 8pt; overflow-x: auto; }
+  code { background: #f4f4f4; padding: 1px 4px; border-radius: 2px; font-size: 8.5pt; font-family: "Courier New", monospace; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 14px 0; }
+  blockquote { background: #f9f9f9; border-left: 4px solid #ccc; padding: 6px 12px; margin: 6px 0; font-style: italic; color: #555; }
+  .section-red { border-left: 4px solid #c62828; padding-left: 10px; }
+  .section-yellow { border-left: 4px solid #f57f17; padding-left: 10px; }
+  .section-green { border-left: 4px solid #2e7d32; padding-left: 10px; }
+  .section-orange { border-left: 4px solid #bf360c; padding-left: 10px; }
+  .section-blue { border-left: 4px solid #1565c0; padding-left: 10px; }
+  .section-purple { border-left: 4px solid #7b1fa2; padding-left: 10px; }
+  @media print { body { font-size: 9pt; } }
 </style>
 </head>
 <body>
-
 <div class="title-page">
   <div class="shield">🛡️</div>
   <hr class="title-divider thick">
@@ -112,15 +69,8 @@
   <div class="footer-info">
     Mayo 2026 — DHL Tiel, Sección BONT<br>
     <span class="lock">🔒 Uso personal. No oficial. No distribuido por DHL.</span>
-  <hr class="title-divider" style="margin-top:24px;">
-  <div style="text-align:center;margin-top:10px;">
-    <strong style="font-size:8pt;color:#c00;">📱 PROTOTIPO WEBAPP</strong><br>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABm0lEQVRYhdWYMbKDMAxExVBQ5ggchZvFHI2j+AiUKTxWdlfO//PzJ3WECwbzKJC9WsmYfRzFOWx+4NZmr5tPetITkLs+cPLHjfPHepSp8VFyMrtXRuKHIar1sKnhpf0KhPEcpdviVyJmy7ntfeZOXIKEdtpymnlbqr2r6oskspGEXy1d/8nTnOR3bDsuIP+dLh9hPJWXc2NUlVGd4pkJFA0Vh18jJ1dtQaV2MhNk48lp+DWewUluldFkJojBVrnHYT0q5FDQ98kdzsaKDVfmutdQN1Y/NSltkQfDQzzUMg2FpCbcBTkfE5POx2xUPJmJ4rGIh9pBrYGuS26Ccauly6+xF8rD0E5mUlTLGY+xszN10XTtBOQu31APtNNPRp+/W3ICV2YGwvm8wfO0+FRIaiLnQ0/HDp8KUSHfdJrKS2Jw/TFjrUEkLIa5SVG5xi4oKuTh6PAtNYnePzKUZ0CcvdVt9AzkddJ7+VsoJLIxO2lDKqPP1x+M/IRd5x5cknHLTaSdSR7S497P0Y/mJT/ZqH8X7Ef9PU8Tko/jCW3HS58ToGJFAAAAAElFTkSuQmCC" alt="QR App" style="width:100px;height:100px;margin:6px 0;border:1px solid #ddd;border-radius:4px;"><br>
-    <a href="https://sacharunaaa-max.github.io/Bont/" style="font-size:7.5pt;color:#1565c0;word-break:break-all;">https://sacharunaaa-max.github.io/Bont/</a>
-  </div>
   </div>
 </div>
-
 <h3>⚠️ DECLARACIÓN DE RESPONSABILIDAD — LÉEME PRIMERO</h3>
 <p><strong>Versión 0.1 — Borrador de trabajo personal / No oficial</strong></p>
 <p>*Mayo 2026*</p>
@@ -173,6 +123,7 @@
 <p>"Conocimiento compartido es eficiencia multiplicada."</p>
 <p>*— Boris Orlando Antequera Vargas*</p>
 <hr>
+<div class="page-break"></div>
 <h2>🌟 LA REGLA DE ORO (Tu mantra diario)</h2>
 <blockquote>¿Algo va mal? No entres en pánico.</blockquote>
 <ol>
@@ -181,11 +132,13 @@
 <li>**REVISA** lo apartado cuando el ritmo baje (en momentos de baja carga).</li>
 </ol>
 <hr>
+<div class="page-break"></div>
 <h2>🏹 CHECKLIST DE INICIO (Antes del turno)</h2>
 <p class="checklist-item">☐ **Escáner:** ¿Batería suficiente? ¿Pantalla limpia?</p>
 <p class="checklist-item">☐ **Impresora:** ¿El número de tu impresora coincide con el del escáner (ej. BNT09)? ¿Papel colocado?</p>
 <p class="checklist-item">☐ **Suministros:** ¿Rollos de repuesto? ¿Bolígrafo para anotar LPN?</p>
 <hr>
+<div class="page-break"></div>
 <h2>📚 GLOSARIO RÁPIDO (para nuevos)</h2>
 <blockquote>⚠️ *Nota: Los siguientes términos, códigos y nomenclaturas son los utilizados en el día a día operativo en BONT. Su definición aquí es tentativa y está [PENDIENTE DE VALIDACIÓN OFICIAL POR DHL] para confirmar que corresponden exactamente a la terminología corporativa.*</blockquote>
 <table>
@@ -233,12 +186,38 @@
 </tbody>
 </table>
 <hr>
+<div class="page-break"></div>
 <h2>🧭 DIAGRAMA DE FLUJO – ¿Qué hago primero?</h2>
 <p>*(Sigue este árbol visual. Si no entiendes un paso, acude a la categoría indicada.)*</p>
 <blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Este diagrama de flujo es una guía personal basada en experiencia operativa. No reemplaza los protocolos de decisión oficiales de DHL.]*</blockquote>
 <pre><code>
-    🔍 OBSERVA LO QUE OCURRE     │     ┌─────────────────────┼─────────────────────┐     │                     │                     │     ▼                     ▼                     ▼  ¿PROBLEMA FÍSICO?   ¿MENSAJE EN PANTALLA?  ¿PROBLEMA IMPRESORA?  (cajas mal puestas,  (escáner pita y da    (no imprime, fallo   altura, tuberías…)   texto o error)         de etiquetas, etc.)     │                     │                     │     ▼                     ▼                     ▼  [CAT. ROJA]          [CAT. AMARILLA]       [CAT. VERDE – parte 2]     │     ▼  ¿El mensaje dice "NOT FOUND"  o "INVALID IDENTIFIER"?     │     ┌───────────────────────────────┴───────────────────────────────┐     ▼                                                               ▼  Usa Smart Scanner Inventory DSP  (CAT. VERDE – parte 1)          (CAT. AMARILLA)    ─────────────────────────────────────────────────────────────────────  • Si es un derrame o confusión de contenedor → CAT. NARANJA  • Si quieres buenas prácticas → CAT. AZUL</code></pre>
+    🔍 OBSERVA LO QUE OCURRE
+     │
+     ┌─────────────────────┼─────────────────────┐
+     │                     │                     │
+     ▼                     ▼                     ▼
+  ¿PROBLEMA FÍSICO?   ¿MENSAJE EN PANTALLA?  ¿PROBLEMA IMPRESORA?
+  (cajas mal puestas,  (escáner pita y da    (no imprime, fallo
+   altura, tuberías…)   texto o error)         de etiquetas, etc.)
+     │                     │                     │
+     ▼                     ▼                     ▼
+  [CAT. ROJA]          [CAT. AMARILLA]       [CAT. VERDE – parte 2]
+     │
+     ▼
+  ¿El mensaje dice "NOT FOUND"
+  o "INVALID IDENTIFIER"?
+     │
+     ┌───────────────────────────────┴───────────────────────────────┐
+     ▼                                                               ▼
+  Usa Smart Scanner Inventory DSP
+  (CAT. VERDE – parte 1)          (CAT. AMARILLA)
+  
+  ─────────────────────────────────────────────────────────────────────
+  • Si es un derrame o confusión de contenedor → CAT. NARANJA
+  • Si quieres buenas prácticas → CAT. AZUL
+</code></pre>
 <hr>
+<div class="page-break"></div>
 <h2>📋 ÍNDICE DE CATEGORÍAS (para consulta rápida)</h2>
 <table>
 <thead><tr>
@@ -617,6 +596,7 @@
 <p>Estos códigos deben incluirse en las **tarjetas de bolsillo** y en la **app "Guerrero BONT"** para que, cuando el sistema te saque por error, puedas escanearlos desde tu puesto sin tener que caminar hasta el área de códigos.</p>
 <blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Ejemplo de códigos QR personal, location, equipment y turno]**</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2>❓ Preguntas frecuentes (FAQ)</h2>
 <blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Las respuestas a estas preguntas se basan en experiencia operativa personal. Las políticas y procedimientos oficiales de DHL pueden diferir.]*</blockquote>
 <table>
@@ -654,6 +634,7 @@
 </tbody>
 </table>
 <hr>
+<div class="page-break"></div>
 <h2>📞 CONTACTOS Y ZONAS</h2>
 <blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: La información de contacto, nombres, ubicaciones de zonas (No Resueltos, Otro Día, puesto de control) y su designación son datos operativos del día a día que deben ser verificados con la planificación oficial de DHL.]*</blockquote>
 <ul>
@@ -667,10 +648,12 @@
 </ul>
 <blockquote>📷 **[PENDIENTE DE APROBACIÓN — FOTO: Ubicación de Zona Otro Día]**</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2>📚 ESCENARIO COMPLETO (Ejemplo práctico)</h2>
 <blockquote>⚠️ *[PENDIENTE DE VALIDACIÓN OFICIAL: Este escenario es ilustrativo. Los pasos, códigos y decisiones pueden variar según la configuración del sistema y los protocolos oficiales.]*</blockquote>
 <p>Llega un producto, el escáner pita y dice **"No inventory found"**. Apartas el producto. Cuando baja la carga, usas **INVENTORY DSP** y ves que el código es **PND-A**. Significa que es para hoy, así que abres un RCG nuevo y lo colocas. Todo bien.</p>
 <hr>
+<div class="page-break"></div>
 <h2>🛡️ CONTROL DE DOCUMENTO</h2>
 <table>
 <thead><tr>
@@ -725,6 +708,7 @@
 </tbody>
 </table>
 <hr>
+<div class="page-break"></div>
 <h2>🌍 VERSIÓN MULTILINGÜE — Para un equipo internacional</h2>
 <p>En DHL Tiel trabajamos personas de muchas nacionalidades: polacos, rumanos, búlgaros, ucranianos, portugueses, árabes, persas, ingleses, neerlandeses, y más. Cada uno merece entender los procesos en su propio idioma para trabajar seguro, rápido y sin errores.</p>
 <p>Por eso este documento madre (el archivo `.md` original en español) se ha traducido a los siguientes idiomas:</p>
@@ -790,6 +774,7 @@
 <blockquote>⚠️ *Nota: Todas las traducciones mantienen el contenido íntegro del original. Los términos técnicos (LPN, SSCC, RCG, Blue Yonder, Smart Scanner, INVENTORY DSP, etc.) se mantienen en su nomenclatura original por ser términos del sistema. [PENDIENTE DE VALIDACIÓN OFICIAL: Las traducciones no han sido revisadas por DHL ni por hablantes nativos certificados. Se recomienda validación antes de uso oficial.]*</blockquote>
 <p>Para impresión frente a supervisores o jefes, se recomienda usar las versiones en **inglés** o **neerlandés**, que son los idiomas de gestión en DHL Tiel.</p>
 <hr>
+<div class="page-break"></div>
 <h2>📱 VISIÓN: App Móvil "Guerrero BONT"</h2>
 <p>Este manual es la base conceptual para una **aplicación móvil** que permita:</p>
 <ul>
@@ -804,6 +789,7 @@
 <p>Una app permite ser mucho más extenso y detallado que un documento impreso: se pueden incluir videos demostrativos, animaciones, enlaces directos a cada protocolo, y actualizaciones en tiempo real.</p>
 <blockquote>⚠️ *[PENDIENTE DE APROBACIÓN: El desarrollo de la app está sujeto a autorización de DHL. Esta sección es conceptual.]*</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2>🃏 TARJETAS DE BOLSILLO (Práctico / Pocket Cards)</h2>
 <p>Además del manual completo y la futura app, existe la idea de crear **tarjetas de bolsillo laminadas** con la información más crítica para llevar en el uniforme:</p>
 <ul>
@@ -815,11 +801,13 @@
 <p>Estas tarjetas son complementarias al manual y a la app; no lo sustituyen.</p>
 <blockquote>⚠️ *[PENDIENTE DE APROBACIÓN: Diseño, contenido final y distribución de las tarjetas requieren autorización de DHL.]*</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2>📜 DECLARACIÓN FINAL</h2>
 <p>Este documento ha sido creado con la mejor intención: **ayudar**. Ayudarme a mí mismo a recordar los pasos, ayudar a quien empieza a no sentirse perdido, ayudar al equipo a tener una referencia rápida. No pretende ser un manual corporativo ni competir con la formación oficial de DHL.</p>
 <p>Si este documento ayuda a alguien a hacer mejor su trabajo, misión cumplida. Si DHL considera que debe ser retirado, modificado o adaptado, se hará sin problema.</p>
 <hr>
-<h2 class="section-commitment">💡 Mi compromiso con DHL</h2>
+<div class="page-break"></div>
+<h2>💡 Mi compromiso con DHL</h2>
 <p>Este manual nace de una convicción personal: **el conocimiento no vale nada si se queda en la cabeza de uno**. Compartirlo es la única forma de que el equipo entero mejore.</p>
 <p>Mi objetivo diario es simple:</p>
 <ul>
@@ -835,9 +823,5 @@
 <hr>
 <p>*Fin del documento — Versión 0.1 (Borrador personal no oficial)*</p>
 
-
-
-<!-- Invisible visitor counter (Page Views API) -->
-<script src="https://page-views-api.ratneshc.com/script" data-site="bont-manual" data-path="/" defer></script>
 </body>
 </html>

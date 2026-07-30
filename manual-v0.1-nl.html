@@ -2,102 +2,59 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex,nofollow">
 <title>HET "BONT KRIJGER" HANDBOEK – DHL Tiel (v0.1)</title>
 <style>
 
   @page {
     size: A4;
-    margin: 12mm 14mm 16mm 14mm;
+    margin: 18mm 16mm 22mm 16mm;
     @bottom-center {
       content: "BONT Krijger Handboek – v0.1 (Niet-officieel concept) – Pág. " counter(page);
-      font-size: 7.5pt;
+      font-size: 8pt;
       color: #888;
       font-family: "Segoe UI", Arial, sans-serif;
     }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 8.5pt; line-height: 1.35; color: #1a1a1a; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 9.5pt; line-height: 1.45; color: #1a1a1a; }
   .page-break { page-break-before: always; }
-
-  /* title page */
-  .title-page {
-    text-align: center;
-    padding-top: 60px;
-    page-break-after: always;
-  }
-  .title-page .shield { font-size: 60pt; margin-bottom: 8px; }
-  .title-page h1 {
-    font-size: 24pt; color: #c00; margin-bottom: 6px;
-    letter-spacing: 1px; line-height: 1.15;
-  }
-  .title-page h2 { font-size: 12pt; color: #444; font-weight: normal; margin-bottom: 8px; }
-  .title-page .tagline { font-size: 10pt; color: #666; margin-bottom: 30px; font-style: italic; }
-  .title-page .badge {
-    display: inline-block; background: #c00; color: #fff;
-    padding: 6px 24px; font-size: 10pt; font-weight: bold;
-    border-radius: 4px; margin-bottom: 30px; letter-spacing: 1px;
-  }
-  .title-page .author { font-size: 9pt; color: #555; margin-top: 20px; }
-  .title-page .role { font-size: 8.5pt; color: #888; margin-top: 3px; }
-  .title-page .quote { font-style: italic; color: #888; margin-top: 35px; font-size: 9pt; }
-  .title-page .footer-info { margin-top: 40px; font-size: 8pt; color: #aaa; line-height: 1.6; }
-  .title-divider { width: 60%; margin: 16px auto; border: none; border-top: 1.5px solid #ddd; }
+  .title-page { text-align: center; padding-top: 80px; page-break-after: always; }
+  .title-page .shield { font-size: 72pt; margin-bottom: 10px; }
+  .title-page h1 { font-size: 28pt; color: #c00; margin-bottom: 8px; letter-spacing: 1px; line-height: 1.15; }
+  .title-page h2 { font-size: 14pt; color: #444; font-weight: normal; margin-bottom: 10px; }
+  .title-page .tagline { font-size: 11pt; color: #666; margin-bottom: 40px; font-style: italic; }
+  .title-page .badge { display: inline-block; background: #c00; color: #fff; padding: 7px 28px; font-size: 11pt; font-weight: bold; border-radius: 4px; margin-bottom: 40px; letter-spacing: 1px; }
+  .title-page .author { font-size: 10pt; color: #555; margin-top: 30px; }
+  .title-page .role { font-size: 9pt; color: #888; margin-top: 4px; }
+  .title-page .quote { font-style: italic; color: #888; margin-top: 50px; font-size: 10pt; }
+  .title-page .footer-info { margin-top: 60px; font-size: 8.5pt; color: #aaa; line-height: 1.6; }
+  .title-page .footer-info .lock { font-size: 10pt; margin-top: 8px; }
+  .title-divider { width: 60%; margin: 20px auto; border: none; border-top: 1.5px solid #ddd; }
   .title-divider.thick { border-top: 3px solid #c00; width: 40%; }
-
-  /* headings */
-  h2 {
-    font-size: 11pt; color: #c00;
-    border-bottom: 1.5px solid #c00; padding-bottom: 2px;
-    margin-top: 10px; margin-bottom: 4px;
-    page-break-after: avoid;
-  }
-  h3 { font-size: 9.5pt; color: #333; margin-top: 7px; margin-bottom: 3px; page-break-after: avoid; }
-  h4 { font-size: 9pt; color: #555; margin-top: 5px; margin-bottom: 2px; }
-
-  /* tables */
-  table {
-    width: 100%; border-collapse: collapse;
-    margin: 4px 0 6px 0; font-size: 7.5pt;
-    page-break-inside: avoid;
-  }
-  th { background: #c00; color: #fff; padding: 2px 5px; text-align: left; font-weight: 600; }
-  td { padding: 2px 5px; border: 1px solid #ccc; vertical-align: top; }
+  h2 { font-size: 13pt; color: #c00; border-bottom: 2px solid #c00; padding-bottom: 3px; margin-top: 16px; margin-bottom: 6px; page-break-after: avoid; }
+  h3 { font-size: 11pt; color: #333; margin-top: 10px; margin-bottom: 4px; page-break-after: avoid; }
+  h4 { font-size: 10pt; color: #555; margin-top: 8px; margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 10px 0; font-size: 8.5pt; page-break-inside: avoid; }
+  th { background: #c00; color: #fff; padding: 4px 6px; text-align: left; font-weight: 600; }
+  td { padding: 3px 6px; border: 1px solid #ccc; vertical-align: top; }
   tr:nth-child(even) td { background: #fafafa; }
-
-  /* lists */
-  ul, ol { margin: 3px 0 5px 18px; }
-  li { margin-bottom: 1px; }
-  .checklist-item { margin: 1px 0; font-size: 8pt; }
-
-  /* code */
-  pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 3px; padding: 5px 8px; font-size: 7.5pt; overflow-x: auto; white-space: pre-wrap; }
-  code { background: #f4f4f4; padding: 1px 3px; border-radius: 2px; font-size: 7.5pt; font-family: "Courier New", monospace; }
-
-  /* section colors */
-  .section-red { border-left: 3px solid #c62828; padding-left: 8px; margin-top: 6px; }
-  .section-yellow { border-left: 3px solid #f57f17; padding-left: 8px; margin-top: 6px; }
-  .section-green { border-left: 3px solid #2e7d32; padding-left: 8px; margin-top: 6px; }
-  .section-orange { border-left: 3px solid #bf360c; padding-left: 8px; margin-top: 6px; }
-  .section-blue { border-left: 3px solid #1565c0; padding-left: 8px; margin-top: 6px; }
-  .section-purple { border-left: 3px solid #7b1fa2; padding-left: 8px; margin-top: 6px; }
-
-  hr { border: none; border-top: 1px solid #ddd; margin: 8px 0; }
-
-  blockquote {
-    background: #f9f9f9; border-left: 3px solid #ccc;
-    padding: 4px 10px; margin: 4px 0; font-style: italic; color: #555; font-size: 8pt;
-  }
-
-  @media print {
-    body { font-size: 8pt; }
-    h2, h3, h4 { page-break-after: avoid; }
-  }
-
+  ul, ol { margin: 4px 0 6px 20px; }
+  li { margin-bottom: 2px; }
+  .checklist-item { margin: 2px 0; font-size: 9pt; }
+  pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 8px; font-size: 8pt; overflow-x: auto; }
+  code { background: #f4f4f4; padding: 1px 4px; border-radius: 2px; font-size: 8.5pt; font-family: "Courier New", monospace; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 14px 0; }
+  blockquote { background: #f9f9f9; border-left: 4px solid #ccc; padding: 6px 12px; margin: 6px 0; font-style: italic; color: #555; }
+  .section-red { border-left: 4px solid #c62828; padding-left: 10px; }
+  .section-yellow { border-left: 4px solid #f57f17; padding-left: 10px; }
+  .section-green { border-left: 4px solid #2e7d32; padding-left: 10px; }
+  .section-orange { border-left: 4px solid #bf360c; padding-left: 10px; }
+  .section-blue { border-left: 4px solid #1565c0; padding-left: 10px; }
+  .section-purple { border-left: 4px solid #7b1fa2; padding-left: 10px; }
+  @media print { body { font-size: 9pt; } }
 </style>
 </head>
 <body>
-
 <div class="title-page">
   <div class="shield">🛡️</div>
   <hr class="title-divider thick">
@@ -112,15 +69,8 @@
   <div class="footer-info">
     Mei 2026 — DHL Tiel, BONT Sectie<br>
     <span class="lock">🔒 Persoonlijk gebruik. Niet officieel. Niet verspreid door DHL.</span>
-  <hr class="title-divider" style="margin-top:24px;">
-  <div style="text-align:center;margin-top:10px;">
-    <strong style="font-size:8pt;color:#c00;">📱 WEBAPP PROTOTYPE</strong><br>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABm0lEQVRYhdWYMbKDMAxExVBQ5ggchZvFHI2j+AiUKTxWdlfO//PzJ3WECwbzKJC9WsmYfRzFOWx+4NZmr5tPetITkLs+cPLHjfPHepSp8VFyMrtXRuKHIar1sKnhpf0KhPEcpdviVyJmy7ntfeZOXIKEdtpymnlbqr2r6oskspGEXy1d/8nTnOR3bDsuIP+dLh9hPJWXc2NUlVGd4pkJFA0Vh18jJ1dtQaV2MhNk48lp+DWewUluldFkJojBVrnHYT0q5FDQ98kdzsaKDVfmutdQN1Y/NSltkQfDQzzUMg2FpCbcBTkfE5POx2xUPJmJ4rGIh9pBrYGuS26Ccauly6+xF8rD0E5mUlTLGY+xszN10XTtBOQu31APtNNPRp+/W3ICV2YGwvm8wfO0+FRIaiLnQ0/HDp8KUSHfdJrKS2Jw/TFjrUEkLIa5SVG5xi4oKuTh6PAtNYnePzKUZ0CcvdVt9AzkddJ7+VsoJLIxO2lDKqPP1x+M/IRd5x5cknHLTaSdSR7S497P0Y/mJT/ZqH8X7Ef9PU8Tko/jCW3HS58ToGJFAAAAAElFTkSuQmCC" alt="QR App" style="width:100px;height:100px;margin:6px 0;border:1px solid #ddd;border-radius:4px;"><br>
-    <a href="https://sacharunaaa-max.github.io/Bont/" style="font-size:7.5pt;color:#1565c0;word-break:break-all;">https://sacharunaaa-max.github.io/Bont/</a>
-  </div>
   </div>
 </div>
-
 <h3>⚠️ VERKLARING VAN VERANTWOORDELIJKHEID — LEES MIJ EERST</h3>
 <p><strong>Versie 0.1 — Persoonlijke werkconcept / Niet officieel</strong></p>
 <p>*Mei 2026*</p>
@@ -173,6 +123,7 @@
 <p>"Gedeelde kennis is vermenigvuldigde efficiëntie."</p>
 <p>*— Boris Orlando Antequera Vargas*</p>
 <hr>
+<div class="page-break"></div>
 <h2>🌟 DE GOUDEN REGEL (Je dagelijkse mantra)</h2>
 <blockquote>Gaat er iets mis? Geen paniek.</blockquote>
 <ol>
@@ -181,11 +132,13 @@
 <li>**CONTROLEER** het apart gezette wanneer het ritme daalt (op momenten van lage belasting).</li>
 </ol>
 <hr>
+<div class="page-break"></div>
 <h2>🏹 STARTCHECKLIST (Voor de dienst)</h2>
 <p class="checklist-item">☐ **Scanner:** Voldoende batterij? Scherm schoon?</p>
 <p class="checklist-item">☐ **Printer:** Komt het nummer van je printer overeen met dat van de scanner (bijv. BNT09)? Papier geplaatst?</p>
 <p class="checklist-item">☐ **Benodigdheden:** Reserve rollen? Pen om LPN te noteren?</p>
 <hr>
+<div class="page-break"></div>
 <h2>📚 SNELWOORDENLIJST (voor nieuwkomers)</h2>
 <blockquote>⚠️ *Noot: De volgende termen, codes en nomenclaturen worden gebruikt in de dagelijkse operationele praktijk bij BONT. Hun definitie hier is voorlopig en [IN AFWACHTING VAN OFFICIËLE VALIDATIE DOOR DHL] om te bevestigen dat ze exact overeenkomen met de bedrijfsterminologie.*</blockquote>
 <table>
@@ -233,12 +186,39 @@
 </tbody>
 </table>
 <hr>
+<div class="page-break"></div>
 <h2>🧭 STROOMDIAGRAM – Wat doe ik eerst?</h2>
 <p>*(Volg deze visuele boom. Als je een stap niet begrijpt, ga dan naar de aangegeven categorie.)*</p>
 <blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Dit stroomdiagram is een persoonlijke gids gebaseerd op operationele ervaring. Het vervangt de officiële beslissingsprotocollen van DHL niet.]*</blockquote>
 <pre><code>
-    🔍 KIJK WAT ER GEBEURT     │     ┌─────────────────────┼─────────────────────┐     │                     │                     │     ▼                     ▼                     ▼  FYSIEK PROBLEEM?    SCHERMMELDING?        PRINTERPROBLEEM?  (verkeerd geplaatste  (scanner piept en      (print niet,   dozen, hoogte,        geeft tekst of         labelfout, enz.)   leidingen…)           foutmelding)     │                     │                     │     ▼                     ▼                     ▼  [CAT. ROOD]          [CAT. GEEL]          [CAT. GROEN – deel 2]     │     ▼  Staat er "NOT FOUND"  of "INVALID IDENTIFIER"?     │     ┌───────────────────────────────┴───────────────────────────────┐     ▼                                                               ▼  Gebruik Smart Scanner Inventory DSP  (CAT. GROEN – deel 1)          (CAT. GEEL)    ─────────────────────────────────────────────────────────────────────  • Bij een lekkage of containerverwarring → CAT. ORANJE  • Voor goede werkwijzen → CAT. BLAUW</code></pre>
+    🔍 KIJK WAT ER GEBEURT
+     │
+     ┌─────────────────────┼─────────────────────┐
+     │                     │                     │
+     ▼                     ▼                     ▼
+  FYSIEK PROBLEEM?    SCHERMMELDING?        PRINTERPROBLEEM?
+  (verkeerd geplaatste  (scanner piept en      (print niet,
+   dozen, hoogte,        geeft tekst of         labelfout, enz.)
+   leidingen…)           foutmelding)
+     │                     │                     │
+     ▼                     ▼                     ▼
+  [CAT. ROOD]          [CAT. GEEL]          [CAT. GROEN – deel 2]
+     │
+     ▼
+  Staat er "NOT FOUND"
+  of "INVALID IDENTIFIER"?
+     │
+     ┌───────────────────────────────┴───────────────────────────────┐
+     ▼                                                               ▼
+  Gebruik Smart Scanner Inventory DSP
+  (CAT. GROEN – deel 1)          (CAT. GEEL)
+  
+  ─────────────────────────────────────────────────────────────────────
+  • Bij een lekkage of containerverwarring → CAT. ORANJE
+  • Voor goede werkwijzen → CAT. BLAUW
+</code></pre>
 <hr>
+<div class="page-break"></div>
 <h2>📋 CATEGORIEËNOVERZICHT (voor snelle raadpleging)</h2>
 <table>
 <thead><tr>
@@ -285,6 +265,7 @@
 </tbody>
 </table>
 <hr>
+<div class="page-break"></div>
 <h2 class="section-red">🔴 CATEGORIE ROOD – Fysieke laadproblemen</h2>
 <blockquote>*"Kwaliteit boven snelheid (maar met een kampioenenritme)"*</blockquote>
 <blockquote></blockquote>
@@ -350,6 +331,7 @@
 <blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Leidingen correct geplaatst aan de zijkant van de RCG]**</blockquote>
 <blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Hoe een gemengde RCG correct opbouwen (stap voor stap)]**</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2 class="section-yellow">🟡 CATEGORIE GEEL – Scanner- en systeemfouten</h2>
 <blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier beschreven foutmeldingen, systeemcodes en procedures zijn gebaseerd op persoonlijke operationele ervaring en kunnen afwijken van de officiële documentatie van Blue Yonder of DHL. Raadpleeg bij twijfel je teamleader of troubleshooter.]*</blockquote>
 <h3>📋 Tabel met veelvoorkomende meldingen en acties</h3>
@@ -448,6 +430,7 @@
 <li>Als het nog steeds niet werkt of de code is beschadigd, meld dit aan **Teamleaders**.</li>
 </ol>
 <hr>
+<div class="page-break"></div>
 <h2 class="section-green">🟢 CATEGORIE GROEN – Smart Scanner, labels en printer</h2>
 <blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De Smart Scanner-procedures, INBOUND/SURPLUS-methoden, en de hier beschreven labelprotocollen zijn gebaseerd op de dagelijkse operationele praktijk. Ze zijn niet gevalideerd als officiële procedures door DHL of door de beheerders van het Blue Yonder-systeem.]*</blockquote>
 <h3>📦 DEEL 1: Productinvoer (INBOUND / SURPLUS)</h3>
@@ -532,6 +515,7 @@
 <blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Printkop en hoe deze te reinigen]**</blockquote>
 <blockquote>🎥 **[IN AFWACHTING VAN GOEDKEURING — VIDEO: Basis printeronderhoud]**</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2 class="section-orange">🟠 CATEGORIE ORANJE – Noodgevallen en menselijke fouten</h2>
 <blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier beschreven noodprocedures, omgang met lekkages en oplossing van menselijke fouten zijn gebaseerd op operationele ervaring en kunnen afwijken van de officiële veiligheids- en milieuprotocollen van DHL. Volg bij een echte noodsituatie altijd de officiële bedrijfsprotocollen en de instructies van de veiligheidsverantwoordelijken.]*</blockquote>
 <h3>🎨 Verf- of vloeistoflekkage (Kritieke missie)</h3>
@@ -570,6 +554,7 @@
 <li>Zie je een herhaald patroon, meld dit aan Teamleaders.</li>
 </ol>
 <hr>
+<div class="page-break"></div>
 <h2 class="section-blue">🔵 CATEGORIE BLAUW – Goede werkwijzen (Legendary Level)</h2>
 <blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De hier genoemde goede werkwijzen zijn persoonlijke aanbevelingen op basis van ervaring. Ze vormen geen officieel DHL-beleid.]*</blockquote>
 <ul>
@@ -612,6 +597,7 @@
 <p>Deze codes moeten worden opgenomen in de **zakkaarten** en in de **"BONT Krijger" app**, zodat je ze, wanneer het systeem je per ongeluk eruit gooit, vanaf je werkplek kunt scannen zonder naar het codegebied te hoeven lopen.</p>
 <blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Voorbeeld van persoonlijke QR, location, equipment en dagdienstcode]**</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2>❓ Veelgestelde vragen (FAQ)</h2>
 <blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De antwoorden op deze vragen zijn gebaseerd op persoonlijke operationele ervaring. Het officiële DHL-beleid en de procedures kunnen afwijken.]*</blockquote>
 <table>
@@ -649,6 +635,7 @@
 </tbody>
 </table>
 <hr>
+<div class="page-break"></div>
 <h2>📞 CONTACTEN EN ZONES</h2>
 <blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: De contactgegevens, namen, locaties van zones (Niet Opgelost, Andere Dag, controlepost) en hun aanduiding zijn operationele gegevens uit de dagelijkse praktijk die moeten worden geverifieerd met de officiële DHL-planning.]*</blockquote>
 <ul>
@@ -662,10 +649,12 @@
 </ul>
 <blockquote>📷 **[IN AFWACHTING VAN GOEDKEURING — FOTO: Locatie van Zone Andere Dag]**</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2>📚 VOLLEDIG SCENARIO (Praktijkvoorbeeld)</h2>
 <blockquote>⚠️ *[IN AFWACHTING VAN OFFICIËLE VALIDATIE: Dit scenario is illustratief. De stappen, codes en beslissingen kunnen variëren afhankelijk van de systeemconfiguratie en de officiële protocollen.]*</blockquote>
 <p>Er komt een product binnen, de scanner piept en zegt **"No inventory found"**. Je zet het product apart. Wanneer de belasting daalt, gebruik je **INVENTORY DSP** en zie je dat de code **PND-A** is. Dat betekent dat het voor vandaag is, dus je opent een nieuwe RCG en plaatst het product. Alles goed.</p>
 <hr>
+<div class="page-break"></div>
 <h2>🛡️ DOCUMENTBEHEER</h2>
 <table>
 <thead><tr>
@@ -720,6 +709,7 @@
 </tbody>
 </table>
 <hr>
+<div class="page-break"></div>
 <h2>🌍 MEERTALIGE VERSIE — Voor een internationaal team</h2>
 <p>Bij DHL Tiel werken mensen van vele nationaliteiten: Polen, Roemenen, Bulgaren, Oekraïners, Portugezen, Arabieren, Perzen, Engelsen, Nederlanders, en meer. Ieder verdient het om de processen in zijn eigen taal te begrijpen om veilig, snel en foutloos te werken.</p>
 <p>Daarom is dit moederdocument (het originele `.md`-bestand in het Spaans) vertaald in de volgende talen:</p>
@@ -785,6 +775,7 @@
 <blockquote>⚠️ *Noot: Alle vertalingen behouden de volledige inhoud van het origineel. Technische termen (LPN, SSCC, RCG, Blue Yonder, Smart Scanner, INVENTORY DSP, etc.) worden in hun oorspronkelijke nomenclatuur gehandhaafd omdat het systeemtermen zijn. [IN AFWACHTING VAN OFFICIËLE VALIDATIE: De vertalingen zijn niet beoordeeld door DHL of door gecertificeerde moedertaalsprekers. Validatie wordt aanbevolen voor officieel gebruik.]*</blockquote>
 <p>Voor presentatie aan leidinggevenden of chefs wordt aangeraden de **Engelse** of **Nederlandse** versies te gebruiken, aangezien dit de managementtalen zijn bij DHL Tiel.</p>
 <hr>
+<div class="page-break"></div>
 <h2>📱 VISIE: "BONT Krijger" Mobiele App</h2>
 <p>Deze handleiding is de conceptuele basis voor een **mobiele applicatie** waarmee:</p>
 <ul>
@@ -799,6 +790,7 @@
 <p>Een app kan veel uitgebreider en gedetailleerder zijn dan een gedrukt document: er kunnen demonstratievideo's, animaties, directe links naar elk protocol en realtime updates worden opgenomen.</p>
 <blockquote>⚠️ *[IN AFWACHTING VAN GOEDKEURING: De ontwikkeling van de app is onderworpen aan toestemming van DHL. Deze sectie is conceptueel.]*</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2>🃏 ZAKKAARTEN (Praktisch / Pocket Cards)</h2>
 <p>Naast de volledige handleiding en de toekomstige app bestaat het idee om **gelamineerde zakkaarten** te maken met de meest kritieke informatie om in het uniform te dragen:</p>
 <ul>
@@ -810,11 +802,13 @@
 <p>Deze kaarten zijn aanvullend op de handleiding en de app; ze vervangen deze niet.</p>
 <blockquote>⚠️ *[IN AFWACHTING VAN GOEDKEURING: Ontwerp, definitieve inhoud en distributie van de kaarten vereisen toestemming van DHL.]*</blockquote>
 <hr>
+<div class="page-break"></div>
 <h2>📜 EINDVERKLARING</h2>
 <p>Dit document is gemaakt met de beste bedoeling: **helpen**. Mezelf helpen de stappen te onthouden, de beginnende collega helpen zich niet verloren te voelen, het team helpen een snelle referentie te hebben. Het pretendeert geen bedrijfshandleiding te zijn of te concurreren met de officiële DHL-training.</p>
 <p>Als dit document iemand helpt zijn werk beter te doen, missie volbracht. Als DHL van mening is dat het moet worden ingetrokken, aangepast of bijgesteld, dan gebeurt dat zonder problemen.</p>
 <hr>
-<h2 class="section-commitment">💡 Mijn toewijding aan DHL</h2>
+<div class="page-break"></div>
+<h2>💡 Mijn toewijding aan DHL</h2>
 <p>Deze handleiding komt voort uit een persoonlijke overtuiging: **kennis is niets waard als hij in het hoofd van één persoon blijft**. Delen is de enige manier waarop het hele team kan verbeteren.</p>
 <p>Mijn dagelijkse doel is eenvoudig:</p>
 <ul>
@@ -829,7 +823,6 @@
 <blockquote>*— Boris Orlando Antequera Vargas — BONT-operator*</blockquote>
 <hr>
 <p>*Einde van het document — Versie 0.1 (Niet-officieel persoonlijk concept)*</p>
-
 
 </body>
 </html>
