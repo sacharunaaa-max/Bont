@@ -356,6 +356,9 @@ function renderMD(text) {
   html = html.replace(/- \[ \] /g, '☐ ');
   html = html.replace(/- \[x\] /g, '☑ ');
 
+  // Photo placeholder: convert marker to styled box
+  html = html.replace(/\[📷 FOTO\]/g, '<div style="border:2px dashed #ccc;border-radius:8px;padding:16px;margin:12px 0;text-align:center;color:#999;background:#f9f9f9;font-size:14px;">📷 FOTO PENDIENTE</div>');
+
   return html;
 }
 
