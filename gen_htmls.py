@@ -5,9 +5,9 @@ def read_md(path):
     with open(path) as f:
         return f.read()
 
-es_md = read_md("/home/sacharuna/.openclaw/workspace/BONT/manual-v0.1.md")
-en_md = read_md("/home/sacharuna/.openclaw/workspace/BONT/manual-v0.1-en.md")
-nl_md = read_md("/home/sacharuna/.openclaw/workspace/BONT/manual-v0.1-nl.md")
+es_md = read_md("/home/sacharuna/dev/Bont/manual-v0.1.md")
+en_md = read_md("/home/sacharuna/dev/Bont/manual-v0.1-en.md")
+nl_md = read_md("/home/sacharuna/dev/Bont/manual-v0.1-nl.md")
 
 versions = {
     "es": {
@@ -341,7 +341,7 @@ def generate_html(lang_key, md_text):
 
 
 for lang_key, md in [("es", es_md), ("en", en_md), ("nl", nl_md)]:
-    out = f"/home/sacharuna/.openclaw/workspace/BONT/manual-v0.1-{lang_key}.html"
+    out = f"/home/sacharuna/dev/Bont/manual-v0.1-{lang_key}.html"
     html = generate_html(lang_key, md)
     with open(out, "w") as f:
         f.write(html)

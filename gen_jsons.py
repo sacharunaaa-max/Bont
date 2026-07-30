@@ -2,7 +2,7 @@
 """Generate JSON data files for all 10 languages."""
 import json, os, re
 
-BASE = "/home/sacharuna/.openclaw/workspace/BONT"
+BASE = "/home/sacharuna/dev/Bont"
 OUT = f"{BASE}/webapp/data"
 os.makedirs(OUT, exist_ok=True)
 

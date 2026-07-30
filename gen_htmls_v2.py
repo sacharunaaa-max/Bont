@@ -420,7 +420,7 @@ def generate_html(lang_key, md_text):
 #  MAIN
 # ============================================================
 if __name__ == "__main__":
-    base = "/home/sacharuna/.openclaw/workspace/BONT"
+    base = "/home/sacharuna/dev/Bont"
     sources = {
         "es": f"{base}/manual-v0.1.md",
         "en": f"{base}/manual-v0.1-en.md",

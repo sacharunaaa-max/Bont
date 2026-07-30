@@ -6,7 +6,7 @@ BONT App Builder — Genera index.html + data/*.json para la webapp
 
 import json, os, re
 
-BASE = "/home/sacharuna/.openclaw/workspace/BONT"
+BASE = "/home/sacharuna/dev/Bont"
 OUT = f"{BASE}/webapp"
 DATA = f"{OUT}/data"
 
@@ -595,4 +595,112 @@ function renderRoute() {{
 
   data.sections.forEach(s => {{
     if (s.tier === 'other' || s.tier === 'flow' || s.tier === 'index' ||
-        s.tier === 'multilingual' || s.tier === 'vision' || s
+        s.tier === 'multilingual' || s.tier === 'vision' || s.tier === 'pocket') return;
+    html += `<div class="section" id="${{s.id}}" data-tier="${{s.tier}}">`;
+    html += `<h2>${{s.title}}</h2>`;
+    html += `<div class="section-content">${{renderMD(s.content)}}</div>`;
+    html += `</div>`;
+  }});
+
+  main.innerHTML = html;
+
+  // Scroll to hash if present
+  const hash = window.location.hash;
+  if (hash) {{
+    setTimeout(() => scrollToSection(hash.substring(1)), 100);
+  }}
+}}
+
+function scrollToSection(id) {{
+  const el = document.getElementById(id);
+  if (el) {{
+    el.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+    window.location.hash = id;
+  }}
+}}
+
+function switchLang(lang) {{
+  if (currentLang === lang) return;
+  currentLang = lang;
+  localStorage.setItem("bont-lang", lang);
+  updateLangUI();
+  loadLang(lang);
+}}
+
+function updateLangUI() {{
+  const info = LANGS[currentLang];
+  if (!info) return;
+  document.getElementById("langFlag").textContent = info.flag;
+  document.getElementById("langLabel").textContent = info.name;
+  document.body.dir = info.rtl ? "rtl" : "ltr";
+  // Update active button
+  document.querySelectorAll(".lang-btn").forEach(b => {{
+    b.classList.toggle("active", b.getAttribute("data-lang") === currentLang);
+  }});
+}}
+
+function toggleLang() {{
+  document.getElementById("langDropdown").classList.toggle("show");
+}}
+
+function toggleTheme() {{
+  const isDark = document.body.classList.toggle("dark");
+  localStorage.setItem("bont-theme", isDark ? "dark" : "light");
+  const btn = document.querySelector(".theme-btn");
+  btn.textContent = isDark ? "☀️" : "🌙";
+}}
+
+// Close dropdown when clicking outside
+document.addEventListener("click", (e) => {{
+  if (!e.target.closest("#langToggle")) {{
+    document.getElementById("langDropdown").classList.remove("show");
+  }}
+}});
+
+// Init
+(function init() {{
+  // Load theme
+  const savedTheme = localStorage.getItem("bont-theme");
+  if (savedTheme === "dark") {{
+    document.body.classList.add("dark");
+    document.querySelector(".theme-btn").textContent = "☀️";
+  }}
+  // Load language
+  updateLangUI();
+  loadLang(currentLang);
+}})();
+</script>
+</body>
+</html>"""
+
+# ============================================================
+#  MAIN
+# ============================================================
+if __name__ == "__main__":
+    print("🔨 Building BONT webapp...")
+    print(f"   Base: {BASE}")
+    print(f"   Output: {OUT}")
+
+    # Generate JSON data files
+    for lang_key, lang_info in LANGUAGES.items():
+        print(f"   Processing {lang_key} ({lang_info['name']})...")
+        data = build_json(lang_key, lang_info)
+        json_path = f"{DATA}/{lang_key}.json"
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        sections_count = len(data["sections"])
+        kb = os.path.getsize(json_path) / 1024
+        print(f"     ✅ {lang_key}: {kb:.0f} KB, {sections_count} sections")
+
+    # Generate index.html
+    print("   Generating index.html...")
+    index_html = build_index_html()
+    index_path = f"{OUT}/index.html"
+    with open(index_path, "w", encoding="utf-8") as f:
+        f.write(index_html)
+    kb = os.path.getsize(index_path) / 1024
+    print(f"     ✅ index.html: {kb:.0f} KB")
+
+    print(f"\n✅ Done. Webapp ready at {OUT}/")
+    print(f"   {OUT}/index.html")
+    print(f"   {DATA}/ (10 language JSONs)")

@@ -536,7 +536,7 @@ html = f'''<!DOCTYPE html>
 </body>
 </html>'''
 
-out_path = "/home/sacharuna/.openclaw/workspace/BONT/pocket-cards.html"
+out_path = "/home/sacharuna/dev/Bont/pocket-cards.html"
 with open(out_path, "w", encoding="utf-8") as f:
     f.write(html)
 
