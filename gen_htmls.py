@@ -8,6 +8,7 @@ def read_md(path):
 es_md = read_md("/home/sacharuna/dev/Bont/manual-v0.1.md")
 en_md = read_md("/home/sacharuna/dev/Bont/manual-v0.1-en.md")
 nl_md = read_md("/home/sacharuna/dev/Bont/manual-v0.1-nl.md")
+ro_md = read_md("/home/sacharuna/dev/Bont/manual-v0.1-ro.md")
 
 versions = {
     "es": {
@@ -48,6 +49,19 @@ versions = {
         "date_location": "Mei 2026 \u2014 DHL Tiel, BONT Sectie",
         "disclaimer": "Persoonlijk gebruik. Niet officieel. Niet verspreid door DHL.",
         "page_footer": "BONT Krijger Handboek \u2013 v0.1 (Niet-officieel concept)",
+    },
+    "ro": {
+        "lang": "ro",
+        "title": 'MANUALUL<br>"R\u0102ZBOINICULUI BONT"',
+        "subtitle": "DHL TIEL",
+        "tagline": "Ligistics de Clas\u0103 Mondial\u0103: De la Operator la Maestru al Procesului",
+        "version_text": "VERSIUNEA 0.1 \u2014 PROIECT PERSONAL",
+        "author": "Boris Orlando Antequera Vargas",
+        "role": "Operator BONT cu interes \u00een dezvoltare \u0219i optimizare procese",
+        "quote": "\"Cuno\u0219tin\u021bele \u00eemp\u0103rt\u0103\u0219ite \u00eenseamn\u0103 eficien\u021b\u0103 multiplicat\u0103.\"",
+        "date_location": "Mai 2026 \u2014 DHL Tiel, Sec\u021bia BONT",
+        "disclaimer": "Uz personal. Neoficial. Nu este distribuit de DHL.",
+        "page_footer": "Manualul R\u0103zboinicului BONT \u2013 v0.1 (Proiect neoficial)",
     }
 }
 
@@ -340,11 +354,11 @@ def generate_html(lang_key, md_text):
     return "".join(html_parts)
 
 
-for lang_key, md in [("es", es_md), ("en", en_md), ("nl", nl_md)]:
+for lang_key, md in [("es", es_md), ("en", en_md), ("nl", nl_md), ("ro", ro_md)]:
     out = f"/home/sacharuna/dev/Bont/manual-v0.1-{lang_key}.html"
     html = generate_html(lang_key, md)
     with open(out, "w") as f:
         f.write(html)
     print(f"{lang_key.upper()}: {len(html)/1024:.0f} KB, {html.count(chr(10))} lines")
 
-print("\nDONE \U0001f389 All 3 HTMLs regenerated with PURPLE CATEGORY included.")
+print("\nDONE \U0001f389 All 4 HTMLs regenerated with PURPLE CATEGORY included.")

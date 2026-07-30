@@ -18,7 +18,6 @@
     --border: #e0e0e0;
     --shadow: 0 2px 8px rgba(0,0,0,0.08);
     --radius: 10px;
-    --sidebar-w: 260px;
     --header-h: 60px;
     --tier-red: #c62828;
     --tier-yellow: #f57f17;
@@ -108,40 +107,12 @@
   /* ===== LAYOUT ===== */
   .app { margin-top: var(--header-h); display: flex; min-height: calc(100vh - var(--header-h)); }
 
-  /* ===== SIDEBAR ===== */
-  .sidebar {
-    width: var(--sidebar-w); background: var(--bg-alt);
-    border-right: 1px solid var(--border); padding: 16px 0;
-    position: fixed; top: var(--header-h); left: 0; bottom: 0;
-    overflow-y: auto; z-index: 50;
-  }
-  .sidebar-section {
-    padding: 8px 16px; cursor: pointer;
-    display: flex; align-items: center; gap: 8px;
-    font-size: 12.5px; color: var(--text); text-decoration: none;
-    border-left: 3px solid transparent; transition: all .15s;
-  }
-  .sidebar-section:hover { background: var(--bg); }
-  .sidebar-section.active { background: var(--bg); font-weight: 600; }
-  .sidebar-section[data-tier="rule"] { border-left-color: var(--dhl-red); }
-  .sidebar-section[data-tier="red"] { border-left-color: var(--tier-red); }
-  .sidebar-section[data-tier="yellow"] { border-left-color: var(--tier-yellow); }
-  .sidebar-section[data-tier="green"] { border-left-color: var(--tier-green); }
-  .sidebar-section[data-tier="orange"] { border-left-color: var(--tier-orange); }
-  .sidebar-section[data-tier="blue"] { border-left-color: var(--tier-blue); }
-  .sidebar-section[data-tier="purple"] { border-left-color: var(--tier-purple); }
-  .sidebar-divider {
-    height: 1px; background: var(--border); margin: 8px 16px;
-  }
-  .sidebar-title {
-    padding: 12px 16px 4px; font-size: 10px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted);
-  }
 
   /* ===== MAIN CONTENT ===== */
   .main {
-    margin-left: var(--sidebar-w); flex: 1;
+    flex: 1;
     padding: 24px 32px 80px; max-width: 900px;
+    margin: 0 auto;
   }
   .content-section {
     display: none;
@@ -241,8 +212,7 @@
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
-    .sidebar { display: none; }
-    .main { margin-left: 0; padding: 16px; }
+    .main { padding: 16px; }
     .quick-grid { grid-template-columns: 1fr; }
     .codes-grid { grid-template-columns: 1fr; }
     .lang-dropdown { min-width: 160px; }
@@ -324,10 +294,7 @@
 </div>
 
 <div class="app">
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-title">Secciones</div>
-    <div id="sidebarContent"></div>
-  </div>
+
   <div class="main" id="mainContent">
     <div class="loading"><div class="spinner"></div> Cargando...</div>
   </div>
@@ -416,28 +383,10 @@ function renderView(lang) {
   if (!data) return;
   allSections = data.sections;
 
-  // Render sidebar
-  renderSidebar(data);
-
   // Show main content
   renderRoute();
 }
 
-function renderSidebar(data) {
-  const sb = document.getElementById("sidebarContent");
-  let html = '';
-  data.sections.forEach(s => {
-    if (s.tier === 'other') return;
-    if (s.tier === 'flow' || s.tier === 'index') return;
-    if (s.tier === 'multilingual' || s.tier === 'vision' || s.tier === 'pocket') return;
-    const title = s.title.replace(/^[🔴🟡🟢🟠🔵🟣🌟📚🏹🧭📋❓📞🛡️🌍📱🃏📜💡™️]+\s*/g, '');
-    html += `<div class="sidebar-section" data-tier="${s.tier}" onclick="scrollToSection('${s.id}')">${title}</div>`;
-    if (s.tier === 'purple' || s.tier === 'faq' || s.tier === 'scenario') {
-      html += '<div class="sidebar-divider"></div>';
-    }
-  });
-  sb.innerHTML = html;
-}
 
 function renderRoute() {
   const data = allData[currentLang];

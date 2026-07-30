@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>MANUALUL "RĂZBOINICULUI BONT" – DHL Tiel (v0.1)</title>
+<style>
+
+  @page {
+    size: A4;
+    margin: 18mm 16mm 22mm 16mm;
+    @bottom-center {
+      content: "Manualul Războinicului BONT – v0.1 (Proiect neoficial) – Pág. " counter(page);
+      font-size: 8pt;
+      color: #888;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 9.5pt; line-height: 1.45; color: #1a1a1a; }
+  .page-break { page-break-before: always; }
+  .title-page { text-align: center; padding-top: 80px; page-break-after: always; }
+  .title-page .shield { font-size: 72pt; margin-bottom: 10px; }
+  .title-page h1 { font-size: 28pt; color: #c00; margin-bottom: 8px; letter-spacing: 1px; line-height: 1.15; }
+  .title-page h2 { font-size: 14pt; color: #444; font-weight: normal; margin-bottom: 10px; }
+  .title-page .tagline { font-size: 11pt; color: #666; margin-bottom: 40px; font-style: italic; }
+  .title-page .badge { display: inline-block; background: #c00; color: #fff; padding: 7px 28px; font-size: 11pt; font-weight: bold; border-radius: 4px; margin-bottom: 40px; letter-spacing: 1px; }
+  .title-page .author { font-size: 10pt; color: #555; margin-top: 30px; }
+  .title-page .role { font-size: 9pt; color: #888; margin-top: 4px; }
+  .title-page .quote { font-style: italic; color: #888; margin-top: 50px; font-size: 10pt; }
+  .title-page .footer-info { margin-top: 60px; font-size: 8.5pt; color: #aaa; line-height: 1.6; }
+  .title-page .footer-info .lock { font-size: 10pt; margin-top: 8px; }
+  .title-divider { width: 60%; margin: 20px auto; border: none; border-top: 1.5px solid #ddd; }
+  .title-divider.thick { border-top: 3px solid #c00; width: 40%; }
+  h2 { font-size: 13pt; color: #c00; border-bottom: 2px solid #c00; padding-bottom: 3px; margin-top: 16px; margin-bottom: 6px; page-break-after: avoid; }
+  h3 { font-size: 11pt; color: #333; margin-top: 10px; margin-bottom: 4px; page-break-after: avoid; }
+  h4 { font-size: 10pt; color: #555; margin-top: 8px; margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 10px 0; font-size: 8.5pt; page-break-inside: avoid; }
+  th { background: #c00; color: #fff; padding: 4px 6px; text-align: left; font-weight: 600; }
+  td { padding: 3px 6px; border: 1px solid #ccc; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+  ul, ol { margin: 4px 0 6px 20px; }
+  li { margin-bottom: 2px; }
+  .checklist-item { margin: 2px 0; font-size: 9pt; }
+  pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 8px; font-size: 8pt; overflow-x: auto; }
+  code { background: #f4f4f4; padding: 1px 4px; border-radius: 2px; font-size: 8.5pt; font-family: "Courier New", monospace; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 14px 0; }
+  blockquote { background: #f9f9f9; border-left: 4px solid #ccc; padding: 6px 12px; margin: 6px 0; font-style: italic; color: #555; }
+  .section-red { border-left: 4px solid #c62828; padding-left: 10px; }
+  .section-yellow { border-left: 4px solid #f57f17; padding-left: 10px; }
+  .section-green { border-left: 4px solid #2e7d32; padding-left: 10px; }
+  .section-orange { border-left: 4px solid #bf360c; padding-left: 10px; }
+  .section-blue { border-left: 4px solid #1565c0; padding-left: 10px; }
+  .section-purple { border-left: 4px solid #7b1fa2; padding-left: 10px; }
+  @media print { body { font-size: 9pt; } }
+</style>
+</head>
+<body>
+<div class="title-page">
+  <div class="shield">🛡️</div>
+  <hr class="title-divider thick">
+  <h1>MANUALUL<br>"RĂZBOINICULUI BONT"</h1>
+  <h2>DHL TIEL</h2>
+  <hr class="title-divider">
+  <div class="tagline">Ligistics de Clasă Mondială: De la Operator la Maestru al Procesului</div>
+  <div class="badge">VERSIUNEA 0.1 — PROIECT PERSONAL</div>
+  <div class="author"><strong>Boris Orlando Antequera Vargas</strong></div>
+  <div class="role">Operator BONT cu interes în dezvoltare și optimizare procese</div>
+  <div class="quote">"Cunoștințele împărtășite înseamnă eficiență multiplicată."</div>
+  <div class="footer-info">
+    Mai 2026 — DHL Tiel, Secția BONT<br>
+    <span class="lock">🔒 Uz personal. Neoficial. Nu este distribuit de DHL.</span>
+  </div>
+</div>
+<h3>⚠️ DECLARAȚIE DE RESPONSABILITATE — CITEȘTE-MĂ MAI ÎNTÂI</h3>
+<p><strong>Versiunea 0.1 — Schiță de lucru personală / Neoficială</strong></p>
+<p>*Mai 2026*</p>
+<p>Acest document este un **instrument personal și privat**, creat în întregime din propria mea experiență zilnică ca lucrător la DHL Tiel, secția BONT. Unicul său scop este de a-mi optimiza procesele interne și de a-mi servi drept ghid de sprijin personal pentru a reține pașii de urmat în timpul programului meu de lucru.</p>
+<p><strong>⚠️ IMPORTANT — ACESTA NU ESTE UN DOCUMENT OFICIAL</strong></p>
+<ul>
+<li>❌ **Nu** este un document oficial al DHL.</li>
+<li>❌ **Nu** a fost revizuit, aprobat, nici susținut de companie, de supraveghetorii săi, teamleaderi, nici de vreun departament al DHL Supply Chain sau DHL Global.</li>
+<li>❌ **Nu** intenționează să înlocuiască, modifice sau înlocuiască protocoalele stabilite oficial de companie, manualele de formare, procedurile operaționale standard (SOP-uri), nici instrucțiunile de securitate în vigoare la DHL Tiel.</li>
+</ul>
+<p><strong>✅ CEEA CE ESTE CU ADEVĂRAT:</strong></p>
+<ul>
+<li>✅ Un compendiu personal de practici învățate zi de zi.</li>
+<li>✅ Un ghid de consultare rapidă pentru **uz individual** sub întreaga mea responsabilitate.</li>
+<li>✅ O propunere proprie de îmbunătățire pe care o împărtășesc cu cei care doresc să o folosească, **întotdeauna pe propria răspundere și la propriul criteriu**.</li>
+</ul>
+<p><strong>🛡️ TERMENI DE UTILIZARE</strong></p>
+<ul>
+<li>Orice persoană care utilizează acest document o face **pe propria răspundere**. Eu, Boris Orlando Antequera Vargas, nu îmi asum responsabilitatea pentru erori, omisiuni, decizii luate pe baza acestui document, nici pentru consecințe derivând din utilizarea sa.</li>
+<li>Codurile, mesajele de eroare, procedurile, nomenclaturile, capturile de ecran, imaginile, videoclipurile și orice alt conținut menționat aici **nu au fost validate sau autorizate de DHL**. Includerea lor în această schiță este tentativă și este supusă verificării și aprobării oficiale înainte de a lua în considerare orice utilizare extinsă.</li>
+<li>**Acest document nu trebuie prezentat ca material oficial DHL** sub nicio circumstanță.</li>
+<li>Dacă DHL solicită acest lucru, documentul va fi retras sau modificat imediat.</li>
+</ul>
+<p><strong>📸 DESPRE FOTOGRAFII, VIDEOURI ȘI CAPTURI DE ECRAN:</strong></p>
+<p>Toate referințele vizuale din acest document sunt marcate ca `[PENDIENTE DE APROBACIÓN]`. Nu vor fi incluse imagini reale ale persoanelor, echipamentelor, instalațiilor sau ale sistemului Blue Yonder până la obținerea autorizației exprese și scrise din partea autorităților competente la DHL Tiel, respectând politicile de confidențialitate, securitate și confidențialitate ale companiei. Referințele vizuale actuale sunt **marcaje de loc conceptuale**.</p>
+<p><strong>📄 CONTROL VERSIUNI — SCHIȚĂ</strong></p>
+<table>
+<thead><tr>
+<th>Versiune</th>
+<th>Stare</th>
+<th>Dată</th>
+<th>Descriere</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>🔧 Schiță personală</td>
+<td>Mai 2026</td>
+<td>Prima versiune completă. Tot conținutul este tentativ. Fotografii, coduri și proceduri [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]. Nevalidat de DHL.</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>🎯 Obiectiv</td>
+<td>—</td>
+<td>Versiune cu fotografii, videoclipuri și coduri validate și aprobate oficial (dacă este cazul).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>"Cunoașterea împărtășită este eficiență multiplicată."</p>
+<p>*— Boris Orlando Antequera Vargas*</p>
+<hr>
+<div class="page-break"></div>
+<h2>🌟 REGULA DE AUR (Mantra ta zilnică)</h2>
+<blockquote>Ceva merge prost? Nu intra în panică.</blockquote>
+<ol>
+<li>**SEPARĂ** produsul rebel (într-o parte, fără a bloca fluxul).</li>
+<li>**CONTINUĂ** să lucrezi cu următorul (fluxul este sacru).</li>
+<li>**VERIFICĂ** produsul separat când ritmul scade (în momente de sarcină redusă).</li>
+</ol>
+<hr>
+<div class="page-break"></div>
+<h2>🏹 CHECKLIST DE ÎNCEPERE (Înainte de tură)</h2>
+<p class="checklist-item">☐ **Scanner:** Baterie suficientă? Ecran curat?</p>
+<p class="checklist-item">☐ **Imprimantă:** Numărul imprimantei tale corespunde cu cel al scannerului (ex. BNT09)? Hârtie introdusă?</p>
+<p class="checklist-item">☐ **Consumabile:** Role de rezervă? Pix pentru notat LPN?</p>
+<hr>
+<div class="page-break"></div>
+<h2>📚 GLOSAR RAPID (pentru începători)</h2>
+<blockquote>⚠️ *Notă: Termenii, codurile și nomenclaturile următoare sunt cele utilizate în activitatea zilnică operațională la BONT. Definiția lor aici este tentativă și este [ÎN AȘTEPTAREA VALIDĂRII OFICIALE DE CĂTRE DHL] pentru a confirma că corespund exact terminologiei corporative.*</blockquote>
+<table>
+<thead><tr>
+<th>Termen</th>
+<th>Semnificație</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**RCG**</td>
+<td>Container rulant (cușcă) unde se plasează coletele libere. [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**Pallet**</td>
+<td>Platformă de lemn pentru kraturi sau colete grele. [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**LPN**</td>
+<td>Cod de bare care identifică fiecare RCG/pallet („buletinul" său). [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**SSCC**</td>
+<td>Cod de bare al fiecărui produs (cutie, colet). [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**Blue Yonder**</td>
+<td>Sistemul WMS (ecranul principal pe care îl vezi). [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**Smart Scanner**</td>
+<td>Aplicație pentru introducerea produselor neînregistrate sau reimprimarea etichetelor. [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**Krat**</td>
+<td>Cutie de plastic uniformă (stivuibilă). [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**Troubleshooter**</td>
+<td>Suport tehnic (Martin la postul de control). [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**Teamleader**</td>
+<td>Supraveghetor direct. [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="page-break"></div>
+<h2>🧭 DIAGRAMĂ DE FLUX – Ce fac mai întâi?</h2>
+<p>*(Urmează acest arbore vizual. Dacă nu înțelegi un pas, mergi la categoria indicată.)*</p>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Această diagramă de flux este un ghid personal bazat pe experiența operațională. Nu înlocuiește protocoalele de decizie oficiale ale DHL.]*</blockquote>
+<pre><code>
+    🔍 OBSERVĂ CE SE ÎNTÂMPLĂ
+     │
+     ┌─────────────────────┼─────────────────────┐
+     │                     │                     │
+     ▼                     ▼                     ▼
+  PROBLEMĂ FIZICĂ?     MESAJ PE ECRAN?       PROBLEMĂ IMPRIMANTĂ?
+  (cutii prost puse,   (scannerul bipăie și   (nu imprimă, eroare
+   înălțime, țevi…)     dă text sau eroare)    de etichete, etc.)
+     │                     │                     │
+     ▼                     ▼                     ▼
+  [CAT. ROȘIE]         [CAT. GALBENĂ]        [CAT. VERDE – partea 2]
+     │
+     ▼
+  Mesajul spune "NOT FOUND"
+  sau "INVALID IDENTIFIER"?
+     │
+     ┌───────────────────────────────┴───────────────────────────────┐
+     ▼                                                               ▼
+  Folosește Smart Scanner   Inventory DSP
+  (CAT. VERDE – partea 1)   (CAT. GALBENĂ)
+  
+  ─────────────────────────────────────────────────────────────────────
+  • Dacă este o scurgere sau confuzie de container → CAT. PORTOCALIE
+  • Dacă vrei bune practici → CAT. ALBASTRĂ
+</code></pre>
+<hr>
+<div class="page-break"></div>
+<h2>📋 INDEX DE CATEGORII (pentru consultare rapidă)</h2>
+<table>
+<thead><tr>
+<th>Categorie</th>
+<th>Culoare</th>
+<th>Ce vei găsi aici?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**ROȘIE**</td>
+<td>🔴</td>
+<td>Probleme fizice de încărcare (stivuire, săgeți, înălțime, RCG ieșit în afară, țevi, kraturi)</td>
+</tr>
+<tr>
+<td>**GALBENĂ**</td>
+<td>🟡</td>
+<td>Erori ale scannerului și sistemului (mesaje "No inventory found", scannerul nu reacționează, Inventory DSP)</td>
+</tr>
+<tr>
+<td>**VERDE (partea 1)**</td>
+<td>🟢</td>
+<td>Introducerea produselor cu Smart Scanner (INBOUND/SURPLUS)</td>
+</tr>
+<tr>
+<td>**VERDE (partea 2)**</td>
+<td>🟢</td>
+<td>Gestionarea etichetelor LPN, probleme de imprimantă, închidere și reimprimare</td>
+</tr>
+<tr>
+<td>**PORTOCALIE**</td>
+<td>🟠</td>
+<td>Urgențe (scurgeri), erori umane (confuzie de container, scanare fără a plasa)</td>
+</tr>
+<tr>
+<td>**ALBASTRĂ**</td>
+<td>🔵</td>
+<td>Bune practici (verificarea ecranului, lucru în echipă, curățenie, ajutor pentru începători)</td>
+</tr>
+<tr>
+<td>**MOV**</td>
+<td>🟣</td>
+<td>Coduri de buzunar (QR personal, location, equipment, codul zilei de lucru)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-red">🔴 CATEGORIA ROȘIE – Probleme fizice de încărcare</h2>
+<blockquote>*"Calitate înainte de viteză (dar cu ritm de campion)"*</blockquote>
+<blockquote></blockquote>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Criteriile de încărcare descrise aici se bazează pe experiența operațională zilnică. Nu înlocuiesc standardele de calitate și securitate oficiale ale DHL, nici instrucțiunile teamleaderilor.]*</blockquote>
+<p>A încărca un RCG sau pallet este ca și cum ai juca Tetris în viața reală. Fiecare piesă trebuie să fie la locul ei pentru ca clientul să primească produsul perfect.</p>
+<h3>🏆 Ce se FACE (Sala Famei)</h3>
+<ul>
+<li>**Maestrul Tetris:** RCG cu cutii îmbucate, fără goluri periculoase.</li>
+<li>**Pallet de Kraturi de Elită:** Kraturi aliniate, etichete spre exterior.</li>
+<li>**Asamblare mixtă inteligentă:** Bază grea jos, țevi protejate pe laterale, cutii ușoare sus.</li>
+</ul>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Diverse RCG-uri și paleți bine asamblați]**</blockquote>
+<blockquote>*Notă: Este necesară autorizația DHL pentru a face și publica fotografii în interiorul incintei.*</blockquote>
+<h3>❌ Ce NU se FACE (Evită dezastrul)</h3>
+<table>
+<thead><tr>
+<th>Eroare</th>
+<th>Descriere</th>
+<th>Soluție</th>
+<th>Stare</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>🚫 Produsul iese din RCG</td>
+<td>În afara perimetrului metalic.</td>
+<td>Relochează în interior. Dacă nu încape, folosește alt RCG.</td>
+<td>În așteptarea validării oficiale</td>
+</tr>
+<tr>
+<td>📏 Înălțime > 2,3 m</td>
+<td>Risc de răsturnare sau deteriorare.</td>
+<td>Măsoară vizual. Redistribuie.</td>
+<td>În așteptarea validării oficiale</td>
+</tr>
+<tr>
+<td>⬆️ Săgeți ignorate</td>
+<td>Cutie cu săgeată în jos sau lateral.</td>
+<td>Roteste până când săgeata este în sus. Fără săgeată = fragil.</td>
+<td>În așteptarea validării oficiale</td>
+</tr>
+<tr>
+<td>🎩 Efect pălărie</td>
+<td>Cutie mare pe una mică.</td>
+<td>Bază ≥ cutia de deasupra; greu jos.</td>
+<td>În așteptarea validării oficiale</td>
+</tr>
+<tr>
+<td>🔧 Țevi peste cutii</td>
+<td>Țevi sprijinite pe carton.</td>
+<td>Întotdeauna la fundul sau lateralul RCG-ului.</td>
+<td>În așteptarea validării oficiale</td>
+</tr>
+<tr>
+<td>📋 Kraturi cu etichete spre interior</td>
+<td>Coduri ascunse.</td>
+<td>Stickere vizibile spre exterior.</td>
+<td>În așteptarea validării oficiale</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Exemplu corect/greșit pentru fiecare eroare]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Efect pălărie (exemplu a ce NU trebuie făcut)]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Țevi plasate corect pe lateralul RCG-ului]**</blockquote>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Cum se asamblează corect un RCG mixt (pas cu pas)]**</blockquote>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-yellow">🟡 CATEGORIA GALBENĂ – Erori de scanner și sistem</h2>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Mesajele de eroare, codurile de sistem și procedurile descrise aici se bazează pe experiența operațională personală și este posibil să nu coincidă exact cu documentația oficială Blue Yonder sau DHL. La orice îndoială, consultă teamleaderul sau troubleshooterul tău.]*</blockquote>
+<h3>📋 Tabel de mesaje comune și acțiuni</h3>
+<table>
+<thead><tr>
+<th>Mesaj pe ecran</th>
+<th>Ce înseamnă?</th>
+<th>Acțiune</th>
+<th>Stare</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>"No inventory found"</td>
+<td>Produsul nu are o locație în sistem.</td>
+<td>Folosește INVENTORY DSP (vezi mai jos).</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>"SSCC number is wrong or missing"</td>
+<td>Codul scanat nu este valid sau lipsește.</td>
+<td>→ Mergi la CATEGORIA VERDE (partea 1) – Metoda INBOUND/SURPLUS.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>"Pallet position contains a different pallet number"</td>
+<td>Ai scanat un RCG/pallet greșit.</td>
+<td>Relochează produsul în containerul corect. (Confuzie de container – vezi și CAT. PORTOCALIE).</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>"Inventory identifier is invalid"</td>
+<td>**🚨 [ÎN AȘTEPTARE — Eroare gravă, neintrodusă în sistem. Este necesară validarea oficială pentru a determina semnificația exactă și procedura corporativă corectă.]**</td>
+<td>Du produsul la Teamleaderi sau Troubleshooter.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>Scannerul nu reacționează (ecran înghețat)</td>
+<td>Distanță, etichetă murdară sau baterie descărcată.</td>
+<td>Ajustează distanța, curăță, dacă persistă separă produsul și încearcă manual.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Demonstrație a fiecărui mesaj de eroare pe ecran și cum se rezolvă]**</blockquote>
+<h3>🔍 Protocolul INVENTORY DSP (pentru rezolvarea produselor separate)</h3>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Procedura INVENTORY DSP, numele de meniuri, scurtăturile de tastatură (cum ar fi „săgeată jos de 8 ori"), și interpretarea codurilor descrise aici sunt descoperiri empirice din operațiunea zilnică. Nu au fost confirmate ca metodologie oficială de către DHL sau Blue Yonder.]*</blockquote>
+<ol>
+<li>În Blue Yonder → trei puncte (...) → **TOOLS** → **INVENTORY DSP**.</li>
+<li>Scanează produsul.</li>
+<li>**TRUC PRO:** Apasă săgeată jos de 8 ori pentru a vedea toate informațiile.</li>
+<li>Interpretarea codurilor:</li>
+</ol>
+<table>
+<thead><tr>
+<th>Cod INVENTORY DSP</th>
+<th>Semnificație</th>
+<th>Acțiune</th>
+<th>Stare</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**rolpalbc**</td>
+<td>Container DESCHIS. Caută numărul și depune FĂRĂ A SCANA.</td>
+<td>Caută containerul și plasează produsul fără a folosi scannerul.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>**PND-A**</td>
+<td>Produs GATA pentru azi. Deschide un RCG/pallet nou sau caută-l pe al său.</td>
+<td>Deschide un container nou sau caută-l pe cel deja asignat.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>**PND-P**</td>
+<td>RCG sau pallet ÎNCHIS. Caută numărul și depune FĂRĂ A SCANA.</td>
+<td>Caută containerul închis și plasează.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>**T3-STGE**</td>
+<td>Deja pe linia de camioane. Du-l în zona de încărcare (GC).</td>
+<td>Du produsul în zona de încărcare (GC).</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: Ecranul INVENTORY DSP cu rezultate vizibile]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: Meniul TOOLS în Blue Yonder]**</blockquote>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Parcurs complet INVENTORY DSP pas cu pas]**</blockquote>
+<h3>⚡ Scannerul nu reacționează – soluție pas cu pas</h3>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Procedură bazată pe experiența personală. DHL poate avea un protocol de suport tehnic diferit.]*</blockquote>
+<ol>
+<li>Ajustează distanța și curăță eticheta.</li>
+<li>Dacă nu funcționează, **SEPARĂ** produsul.</li>
+<li>Când încărcarea scade, introdu **SSCC-ul manual** (este tipărit).</li>
+<li>Dacă nici așa nu funcționează sau codul este rupt, informează **Teamleaderii**.</li>
+</ol>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-green">🟢 CATEGORIA VERDE – Smart Scanner, etichete și imprimantă</h2>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Procedurile Smart Scanner, metodele INBOUND/SURPLUS și protocoalele de etichetare descrise aici se bazează pe practica operațională zilnică. Nu au fost validate ca proceduri oficiale de către DHL sau de către administratorii sistemului Blue Yonder.]*</blockquote>
+<h3>📦 PARTEA 1: Introducerea produselor (INBOUND / SURPLUS)</h3>
+<p>Folosește **Smart Scanner** când scannerul normal spune "NOT FOUND" sau "SSCC number is wrong or missing".</p>
+<p>#### Metoda INBOUND</p>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Coduri precum KRT, COL și utilizarea lor în INBOUND sunt tentative.]*</blockquote>
+<ol>
+<li>Scanează codul inferior (SSCC).</li>
+<li>Alege tipul (KRT, COL…).</li>
+<li>Dacă spune **"NOT FOUND"**, treci la SURPLUS.</li>
+</ol>
+<p>#### Metoda SURPLUS</p>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Fluxul INBOUND → SURPLUS → INBOUND descris aici este o descoperire empirică.]*</blockquote>
+<ol>
+<li>Comută în modul **SURPLUS**.</li>
+<li>Scanează codul inferior + codul superior (client).</li>
+<li>Dacă spune **"ANOTHER POSITION"**, revino la INBOUND.</li>
+</ol>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: Ecran Smart Scanner mod INBOUND]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: Ecran Smart Scanner mod SURPLUS]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: Mesaj "ANOTHER POSITION"]**</blockquote>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Flux complet INBOUND → SURPLUS → INBOUND]**</blockquote>
+<h3>🖨️ PARTEA 2: Gestionarea etichetelor LPN, imprimantă și închidere</h3>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Protocoalele A, B și C de etichetare, inclusiv utilizarea CHANGE POSITION și SSCC INTERGAMMA, sunt soluții empirice dezvoltate în operațiunea zilnică. Nu este confirmat că sunt metodele oficiale sau că au fost aprobate de administratorii sistemului.]*</blockquote>
+<p>#### PROTOCOLUL A – Recuperarea LPN pentru a continua încărcarea</p>
+<p>⚠️ **Funcționează doar dacă ai un produs scanat** (ecranul cere LPN destinație).</p>
+<ol>
+<li>Blue Yonder → trei puncte → **CHANGE POSITION**.</li>
+<li>Săgeată jos → apare LPN.</li>
+<li>**Notează-l pe hârtie** (nu poate fi copiat în Smart Scanner).</li>
+<li>Smart Scanner → **PRINTING** → selectează imprimanta ta → **LPN PRINTING** → introdu codul manual.</li>
+</ol>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: Meniul CHANGE POSITION în Blue Yonder]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: LPN vizibil în CHANGE POSITION]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: Smart Scanner LPN PRINTING]**</blockquote>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Recuperarea LPN pas cu pas (Protocolul A)]**</blockquote>
+<p>#### PROTOCOLUL B – Închiderea RCG/pallet fără LPN fizic</p>
+<ol>
+<li>Obține LPN cu CHANGE POSITION (protocolul A).</li>
+<li>Mergi la **DONE** și lipește codul LPN.</li>
+</ol>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — CAPTURĂ ECRAN: Ecran DONE cu LPN lipit]**</blockquote>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Închiderea RCG/pallet fără LPN fizic]**</blockquote>
+<p>#### PROTOCOLUL C – RCG/pallet deja închis fără stickere de închidere</p>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Utilizarea "SSCC INTERGAMMA" și plasarea stickerelor între kraturi sunt soluții practice. Nu este confirmat că respectă standardele oficiale de etichetare ale DHL.]*</blockquote>
+<ol>
+<li>Smart Scanner → **PRINTING** → alege **SSCC INTERGAMMA**.</li>
+<li>Imprimă **2 copii**.</li>
+<li>Lipește:</li>
+</ol>
+<p>   - **Frontal** + **lângă LPN-ul original**.</p>
+<p>   - Pe pallet de kraturi, plasează stickerele **între kraturi** pentru a nu cădea.</p>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Sticker între kraturi (exemplu de plasare)]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Sticker frontal + lângă LPN-ul original]**</blockquote>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Cum se imprimă și se plasează stickerele de închidere (Protocolul C)]**</blockquote>
+<h3>🛠️ Probleme de imprimantă</h3>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Soluțiile pentru imprimantă sunt generice și bazate pe experiență. DHL poate avea proceduri de suport tehnic specifice pentru echipamentele sale.]*</blockquote>
+<table>
+<thead><tr>
+<th>Problemă</th>
+<th>Soluție</th>
+<th>Stare</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Nu ies stickere la DONE</td>
+<td>Repornește imprimanta.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>Pete sau părți albe</td>
+<td>Curăță capul de imprimare.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>Lumină roșie</td>
+<td>Nu este hârtie sau baterie descărcată.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+</tbody>
+</table>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Cap de imprimare și cum se curăță]**</blockquote>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Întreținere de bază a imprimantei]**</blockquote>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-orange">🟠 CATEGORIA PORTOCALIE – Urgențe și erori umane</h2>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Procedurile de urgență, gestionarea scurgerilor și rezolvarea erorilor umane descrise aici se bazează pe experiența operațională și pot diferi de protocoalele oficiale de securitate și mediu ale DHL. În caz de urgență reală, urmează întotdeauna protocoalele oficiale ale companiei și instrucțiunile responsabililor de securitate.]*</blockquote>
+<h3>🎨 Scurgere de vopsea sau lichid (Misiune critică)</h3>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Kitul de urgență, locația acestuia, tipul de nisip și procedura de curățare trebuie validate față de protocoalele oficiale DHL pentru gestionarea scurgerilor. Nu presupune că această procedură este cea oficială.]*</blockquote>
+<ol>
+<li>**Fluxul NU se oprește** – continuă să lucrezi în timp ce gestionezi.</li>
+<li>Mergi la **kitul de urgență (nisip)** și împrăștie-l peste scurgere.</li>
+<li>Curăță **dinspre exterior spre interior**.</li>
+<li>Depune deșeurile în **containere speciale**.</li>
+<li>Informează **Teamleaderul sau Troubleshooterul** imediat.</li>
+</ol>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Kit de curățare (locație și conținut)]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Scurgere controlată cu nisip]**</blockquote>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Containere speciale pentru deșeuri]**</blockquote>
+<blockquote>🎥 **[ÎN AȘTEPTAREA APROBĂRII — VIDEO: Procedura completă de control al scurgerilor]**</blockquote>
+<h3>❌ Confuzie de container (eroare umană frecventă)</h3>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Această eroare și soluția sa se bazează pe experiență. DHL poate avea o procedură formală diferită pentru corectarea erorilor de atribuire.]*</blockquote>
+<ul>
+<li>**Simptom:** Scanezi LPN-ul unui RCG/pallet care nu corespunde destinației.</li>
+<li>**Acțiune:** Verifică destinația pe ecran, compară numerele, relochează produsul.</li>
+<li>Dacă este un tipar repetat, informează Teamleaderii.</li>
+</ul>
+<h3>❌ Scanarea unui produs fără a-l plasa (obicei prost)</h3>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Consecința descrisă ("sistemul înregistrează produsul ca fiind plasat") și soluția propusă sunt teorii bazate pe experiență. Comportamentul exact al sistemului trebuie validat față de documentația oficială Blue Yonder.]*</blockquote>
+<ul>
+<li>**Consecință:** Sistemul înregistrează produsul ca „plasat" (dar nu este). Apoi un alt operator scanează același produs și apare eroare.</li>
+<li>**Prevenire:** Nu scana niciodată fără a plasa. Dacă RCG-ul este plin, închide-l, înlocuiește cu unul gol, apoi scanează.</li>
+<li>**Dacă s-a întâmplat:** Încearcă să plasezi; dacă nu este spațiu, informează Teamleaderii.</li>
+</ul>
+<h3>👀 Găsești un produs amplasat greșit</h3>
+<ol>
+<li>Scanează pentru a vedea destinația.</li>
+<li>Dacă se poate, plasează-l acolo unde indică.</li>
+<li>Dacă nu, folosește **INVENTORY DSP** (poate fi în containerul vecin).</li>
+<li>Dacă este pe jos, consultă inventory dsp.</li>
+<li>Dacă vezi un tipar repetat, informează Teamleaderii.</li>
+</ol>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-blue">🔵 CATEGORIA ALBASTRĂ – Bune practici (Nivel Legendă)</h2>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Bunele practici enumerate aici sunt recomandări personale bazate pe experiență. Nu constituie politici oficiale DHL.]*</blockquote>
+<ul>
+<li>**Ochii pe ecran:** Verifică fiecare scanare. O secundă previne minute de erori.</li>
+<li>**Lucru în echipă:** Dacă ajuți pe altă linie, vorbește cu colegul înainte de a deschide o locație nouă.</li>
+<li>**Curățenie de luptă:** Podea liberă (strânge materiale plastice, gunoi). Un post curat este sigur.</li>
+<li>**Ajută-i pe începători:** Împărtășește cunoștințele cu respect. Cu toții am fost începători.</li>
+</ul>
+<hr>
+<div class="page-break"></div>
+<h2 class="section-purple">🟣 CATEGORIA MOV – Coduri de buzunar</h2>
+<blockquote>*"Când sistemul te dă afară, nu pierde timpul mergând în zona de coduri. Poartă-i întotdeauna cu tine."*</blockquote>
+<blockquote></blockquote>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Codurile menționate aici sunt de uz operațional zilnic. Valorile exacte, locațiile și nomenclatura oficială trebuie validate de DHL înainte de a fi incluse în cardurile de buzunar sau aplicație.]*</blockquote>
+<h3>📋 Coduri pe care orice operator ar trebui să le aibă la îndemână</h3>
+<table>
+<thead><tr>
+<th>Tip</th>
+<th>Pentru ce?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**QR Personal**</td>
+<td>Autentificare în Blue Yonder și Smart Scanner</td>
+</tr>
+<tr>
+<td>**📍 Location**</td>
+<td>Zona de lucru (ex. BNT09)</td>
+</tr>
+<tr>
+<td>**⚙️ Equipment**</td>
+<td>Identifică echipamentul tău (hand în BONT)</td>
+</tr>
+<tr>
+<td>**🔢 Codul zilei de lucru**</td>
+<td>Codul zilei de lucru</td>
+</tr>
+</tbody>
+</table>
+<p>Aceste coduri trebuie incluse în **cardurile de buzunar** și în **aplicația „Războinicul BONT"** pentru ca, atunci când sistemul te dă afară din greșeală, să le poți scana de la postul tău fără a fi nevoie să mergi până în zona de coduri.</p>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Exemplu de coduri QR personal, location, equipment și codul zilei de lucru]**</blockquote>
+<hr>
+<div class="page-break"></div>
+<h2>❓ Întrebări frecvente (FAQ)</h2>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Răspunsurile la aceste întrebări se bazează pe experiența operațională personală. Politicile și procedurile oficiale DHL pot diferi.]*</blockquote>
+<table>
+<thead><tr>
+<th>Întrebare</th>
+<th>Răspuns</th>
+<th>Stare</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Ce fac dacă scannerul nu se conectează?</td>
+<td>Verifică bateria. Dacă nu funcționează, cere unul de rezervă de la teamleader.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>Cum schimb bateria?</td>
+<td>Sunt în încărcătorul din zona de odihnă. Oprește scannerul, înlocuiește.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>Unde sunt rolele de etichete?</td>
+<td>În depozitul de consumabile (lângă postul de control).</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>Pe cine sun dacă nimic nu funcționează?</td>
+<td>Mai întâi Teamleaderul, apoi Troubleshooterul (Martin).</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+<tr>
+<td>Se poate muta un container închis fără stickere?</td>
+<td>Nu. Folosește protocolul C din categoria Verde pentru a reimprima stickerele.</td>
+<td>**[ÎN AȘTEPTAREA VALIDĂRII OFICIALE]**</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="page-break"></div>
+<h2>📞 CONTACTE ȘI ZONE</h2>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Informațiile de contact, numele, locațiile zonelor (Nerezolvate, Altă Zi, postul de control) și denumirea acestora sunt date operaționale de zi cu zi care trebuie verificate cu planificarea oficială DHL.]*</blockquote>
+<ul>
+<li>**Teamleaderi:** Căpitanii tăi (la postul central).</li>
+<li>**Troubleshooter (Martin):** Postul de control BONT.</li>
+<li>**Zona Nerezolvate:** Loc pentru produse fără etichetă sau cod ilizibil.</li>
+</ul>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Locația Zonei Nerezolvate]**</blockquote>
+<ul>
+<li>**Zona Altă Zi:** Colete a căror dată nu este cea de azi.</li>
+</ul>
+<blockquote>📷 **[ÎN AȘTEPTAREA APROBĂRII — FOTO: Locația Zonei Altă Zi]**</blockquote>
+<hr>
+<div class="page-break"></div>
+<h2>📚 SCENARIU COMPLET (Exemplu practic)</h2>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Acest scenariu este ilustrativ. Pașii, codurile și deciziile pot varia în funcție de configurația sistemului și protocoalele oficiale.]*</blockquote>
+<p>Sosește un produs, scannerul bipăie și spune **"No inventory found"**. Separi produsul. Când încărcarea scade, folosești **INVENTORY DSP** și vezi că codul este **PND-A**. Înseamnă că este pentru azi, așa că deschizi un RCG nou și îl plasezi. Totul bine.</p>
+<hr>
+<div class="page-break"></div>
+<h2>🛡️ CONTROL DOCUMENT</h2>
+<table>
+<thead><tr>
+<th>Câmp</th>
+<th>Valoare</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>**Versiunea**</td>
+<td>**0.1** — Schiță de lucru personală / Neoficială</td>
+</tr>
+<tr>
+<td>**Stare**</td>
+<td>🔧 Tentativ. Tot conținutul [ÎN AȘTEPTAREA VALIDĂRII OFICIALE]</td>
+</tr>
+<tr>
+<td>**Obiectiv v1.0**</td>
+<td>Versiune cu fotografii, videoclipuri, coduri și proceduri validate și aprobate oficial de DHL (dacă este cazul și dacă se obțin autorizațiile corespunzătoare)</td>
+</tr>
+<tr>
+<td>**Fișierul principal**</td>
+<td>`manual-v0.1.md` (spaniolă). Traduceri: `-en`, `-nl`, `-pl`, `-ro`, `-bg`, `-ar`, `-fa`, `-uk`, `-pt`</td>
+</tr>
+<tr>
+<td>**Autor**</td>
+<td>Boris Orlando Antequera Vargas – Operator BONT</td>
+</tr>
+<tr>
+<td>**Data**</td>
+<td>Mai 2026</td>
+</tr>
+<tr>
+<td>**Locația**</td>
+<td>DHL Tiel – Secția BONT</td>
+</tr>
+<tr>
+<td>**Rol actual**</td>
+<td>Operator BONT cu interes în dezvoltare și optimizare de procese</td>
+</tr>
+<tr>
+<td>**Proprietar**</td>
+<td>Boris Orlando Antequera Vargas (document personal)</td>
+</tr>
+<tr>
+<td>**Clasificare**</td>
+<td>🔒 Uz personal. Neoficial. Nedistribuit de DHL.</td>
+</tr>
+<tr>
+<td>**Limbi disponibile**</td>
+<td>🇪🇸 ES, 🇬🇧 EN, 🇳🇱 NL, 🇵🇱 PL, 🇷🇴 RO, 🇧🇬 BG, 🇸🇦 AR, 🇮🇷 FA, 🇺🇦 UK, 🇵🇹 PT</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="page-break"></div>
+<h2>🌍 VERSIUNE MULTILINGVĂ — Pentru o echipă internațională</h2>
+<p>La DHL Tiel lucrăm persoane din multe naționalități: polonezi, români, bulgari, ucraineni, portughezi, arabi, perși, englezi, neerlandezi și mulți alții. Fiecare merită să înțeleagă procesele în propria limbă pentru a lucra în siguranță, rapid și fără erori.</p>
+<p>De aceea, acest document principal (fișierul `.md` original în spaniolă) a fost tradus în următoarele limbi:</p>
+<table>
+<thead><tr>
+<th>Limbă</th>
+<th>Fișier</th>
+<th>Stare</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>🇪🇸 Spaniolă</td>
+<td>`manual-v0.1.md`</td>
+<td>Original</td>
+</tr>
+<tr>
+<td>🇬🇧 Engleză</td>
+<td>`manual-v0.1-en.md`</td>
+<td>Tradus</td>
+</tr>
+<tr>
+<td>🇳🇱 Neerlandeză</td>
+<td>`manual-v0.1-nl.md`</td>
+<td>Tradus</td>
+</tr>
+<tr>
+<td>🇵🇱 Poloneză</td>
+<td>`manual-v0.1-pl.md`</td>
+<td>Tradus</td>
+</tr>
+<tr>
+<td>🇷🇴 Română</td>
+<td>`manual-v0.1-ro.md`</td>
+<td>Tradus</td>
+</tr>
+<tr>
+<td>🇧🇬 Bulgară</td>
+<td>`manual-v0.1-bg.md`</td>
+<td>Tradus</td>
+</tr>
+<tr>
+<td>🇸🇦 Arabă</td>
+<td>`manual-v0.1-ar.md`</td>
+<td>Tradus</td>
+</tr>
+<tr>
+<td>🇮🇷 Persană</td>
+<td>`manual-v0.1-fa.md`</td>
+<td>Tradus</td>
+</tr>
+<tr>
+<td>🇺🇦 Ucraineană</td>
+<td>`manual-v0.1-uk.md`</td>
+<td>Tradus</td>
+</tr>
+<tr>
+<td>🇵🇹 Portugheză</td>
+<td>`manual-v0.1-pt.md`</td>
+<td>Tradus</td>
+</tr>
+</tbody>
+</table>
+<blockquote>⚠️ *Notă: Toate traducerile păstrează conținutul integral al originalului. Termenii tehnici (LPN, SSCC, RCG, Blue Yonder, Smart Scanner, INVENTORY DSP, etc.) se păstrează în nomenclatura originală deoarece sunt termeni ai sistemului. [ÎN AȘTEPTAREA VALIDĂRII OFICIALE: Traducerile nu au fost revizuite de DHL sau de vorbitori nativi certificați. Se recomandă validarea înainte de utilizarea oficială.]*</blockquote>
+<p>Pentru imprimare în fața supraveghetorilor sau șefilor, se recomandă utilizarea versiunilor în **engleză** sau **neerlandeză**, care sunt limbile de management la DHL Tiel.</p>
+<hr>
+<div class="page-break"></div>
+<h2>📱 VIZIUNEA: Aplicația Mobilă „Războinicul BONT"</h2>
+<p>Acest manual este baza conceptuală pentru o **aplicație mobilă** care să permită:</p>
+<ul>
+<li>**Consultarea oricărei proceduri în câteva secunde** de pe mobil (fără a căuta în hârtii)</li>
+<li>**Navigare vizuală pe categorii** cu diagrama de flux interactivă</li>
+<li>**Fotografii și videoclipuri integrate** (când vor fi aprobate) pentru a vedea exemple reale</li>
+<li>**Multilingvism integrat** — utilizatorul își alege limba și vede conținutul tradus</li>
+<li>**Căutare rapidă** a erorilor, codurilor (SSCC, LPN, PND-A, etc.)</li>
+<li>**Checklist digital** de începere a turei</li>
+<li>**Mod offline** — fără internet, întotdeauna disponibilă în atelier</li>
+</ul>
+<p>O aplicație permite să fii mult mai extins și detaliat decât un document tipărit: se pot include videoclipuri demonstrative, animații, linkuri directe către fiecare protocol și actualizări în timp real.</p>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA APROBĂRII: Dezvoltarea aplicației este supusă autorizării DHL. Această secțiune este conceptuală.]*</blockquote>
+<hr>
+<div class="page-break"></div>
+<h2>🃏 CARDURI DE BUZUNAR (Practice / Pocket Cards)</h2>
+<p>Pe lângă manualul complet și viitoarea aplicație, există ideea de a crea **carduri de buzunar laminate** cu cele mai critice informații pentru a fi purtate în uniformă:</p>
+<ul>
+<li>**Fața A:** Regula de Aur + Diagrama de flux rezumată</li>
+<li>**Fața B:** Tabel de erori ale scannerului cu acțiuni rapide</li>
+<li>**Fața C:** Coduri INVENTORY DSP (rolpalbc, PND-A, PND-P, T3-STGE)</li>
+<li>**Fața D:** Contacte cheie (Teamleaderi, Troubleshooter) + zone</li>
+</ul>
+<p>Aceste carduri sunt complementare manualului și aplicației; nu le înlocuiesc.</p>
+<blockquote>⚠️ *[ÎN AȘTEPTAREA APROBĂRII: Designul, conținutul final și distribuția cardurilor necesită autorizarea DHL.]*</blockquote>
+<hr>
+<div class="page-break"></div>
+<h2>📜 DECLARAȚIE FINALĂ</h2>
+<p>Acest document a fost creat cu cea mai bună intenție: **a ajuta**. Să mă ajut pe mine însumi să rețin pașii, să ajut pe cel care începe să nu se simtă pierdut, să ajut echipa să aibă o referință rapidă. Nu intenționează să fie un manual corporativ, nici să concureze cu formarea oficială DHL.</p>
+<p>Dacă acest document ajută pe cineva să își facă mai bine treaba, misiune îndeplinită. Dacă DHL consideră că trebuie retras, modificat sau adaptat, se va face fără problemă.</p>
+<hr>
+<div class="page-break"></div>
+<h2>💡 Angajamentul meu față de DHL</h2>
+<p>Acest manual se naște dintr-o convingere personală: **cunoașterea nu valorează nimic dacă rămâne în capul unuia singur**. A o împărtăși este singura modalitate prin care întreaga echipă să se îmbunătățească.</p>
+<p>Obiectivul meu zilnic este simplu:</p>
+<ul>
+<li>✅ **Să învăț din fiecare eroare** pentru a nu o repeta.</li>
+<li>✅ **Să îl ajut pe cel de lângă mine** fără ca cineva să îmi ceară.</li>
+<li>✅ **Să las postul mai bun decât l-am găsit.**</li>
+</ul>
+<p>Cred în munca bine făcută, în calitate ca pilon, în siguranță ca prioritate și în eficiență ca urmare a face lucrurile cum trebuie. Vreau ca echipa să funcționeze, ca calitatea să crească, ca începătorii să nu sufere ceea ce am suferit eu la început. Și dacă asta ajută ca DHL Tiel să fie o referință — binevenit să fie.</p>
+<p>Acest manual este bobul meu de nisip. Dacă cineva îl citește și învață ceva, a meritat efortul.</p>
+<blockquote>**„Cunoașterea împărtășită este eficiență multiplicată."**</blockquote>
+<blockquote></blockquote>
+<blockquote>*— Boris Orlando Antequera Vargas — Operator BONT*</blockquote>
+<hr>
+<p>*Sfârșitul documentului — Versiunea 0.1 (Schiță personală neoficială)*</p>
+
+</body>
+</html>
