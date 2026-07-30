@@ -402,7 +402,7 @@ function renderRoute() {
   // === SOLUCIONES RÁPIDAS (landing) ===
   html += '<div class="content-section active" id="soluciones-intro">';
   html += '<h2 style="font-size:22px;font-weight:700;margin-bottom:4px;">🔧 ¿Qué necesitas resolver?</h2>';
-  html += '<p style="color:var(--text-muted);font-size:14px;margin-bottom:16px;">Selecciona el tipo de problema para ir directo a la solución</p>';
+  html += '<p style="color:var(--text-muted);font-size:14px;margin-bottom:16px;">Selecciona una categoría para ver las soluciones</p>';
 
   // Error categories based on data
   const catTiers = ['red', 'yellow', 'green', 'orange'];
@@ -447,13 +447,12 @@ function renderRoute() {
   html += '</div>';
 
   // === ALL SECTIONS ===
-  html += '<hr style="margin:24px 0;">';
-  html += '<h2 id="guia-titulo" style="font-size:20px;font-weight:700;margin-bottom:16px;">📖 Guía de soluciones</h2>';
+  // Sections hidden by default, shown on category click
 
   data.sections.forEach(s => {
     if (s.tier === 'other' || s.tier === 'flow' || s.tier === 'index' ||
         s.tier === 'multilingual' || s.tier === 'vision' || s.tier === 'pocket') return;
-    html += `<div class="section" id="${s.id}" data-tier="${s.tier}">`;
+    html += `<div class="section content-section" id="${s.id}" data-tier="${s.tier}" style="display:none;">`;
     html += `<h2>${s.title}</h2>`;
     html += `<div class="section-content">${renderMD(s.content)}</div>`;
     html += `</div>`;
@@ -469,8 +468,13 @@ function renderRoute() {
 }
 
 function scrollToSection(id) {
+  // Hide intro and all sections
+  document.querySelectorAll('.content-section, .section.content-section').forEach(s => s.style.display = 'none');
+  document.getElementById('soluciones-intro').style.display = 'none';
+  // Show target section
   const el = document.getElementById(id);
   if (el) {
+    el.style.display = 'block';
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     window.location.hash = id;
   }
